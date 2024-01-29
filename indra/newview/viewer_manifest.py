@@ -530,7 +530,7 @@ class WindowsManifest(ViewerManifest):
             # See http://msdn.microsoft.com/en-us/library/ms235291(VS.80).aspx
             self.path("msvcp140.dll")
             self.path("vcruntime140.dll")
-            self.path("WinSparkle.dll")
+            #self.path("WinSparkle.dll")
             #self.path("msvcr120.dll")
             #self.path_optional("vcruntime140_1.dll")
 
@@ -611,7 +611,7 @@ class WindowsManifest(ViewerManifest):
                                               'sharedlibs', self.args['buildtype'])):
                 self.path("msvcp140.dll")
                 self.path("vcruntime140.dll")
-                self.path("WinSparkle.dll")
+                #self.path("WinSparkle.dll")
                 #self.path("msvcr120.dll")
                 #self.path_optional("vcruntime140_1.dll")
 
