@@ -1,3 +1,28 @@
+/** 
+ * @file CHttpClient.cpp
+ * @brief CHttpClient class implementation
+ *
+ * $LicenseInfo:firstyear=2023&license=viewerlgpl$
+ * Lovense Viewer Source Code
+ * Copyright (C) 2023, HYTTO PTE. LTD.
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation;
+ * version 2.1 of the License only.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ * 
+ * $/LicenseInfo$
+ */
+
 #include <curl/curl.h>
 #include <list>
 #include <array>
@@ -264,7 +289,7 @@ int CHttpClient::download(std::string url, std::string local_file, int down_spee
 		curl_easy_setopt(image, CURLOPT_WRITEDATA, fp);
 		curl_easy_setopt(image, CURLOPT_URL, url.c_str());
 		curl_easy_setopt(image, CURLOPT_FOLLOWLOCATION, 1);
-		//ÕâÀïÏÞËÙ 100KB/s
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 100KB/s
 		//curl_easy_setopt(image, CURLOPT_MAX_RECV_SPEED_LARGE, (curl_off_t)1000 * 1024 * 8);
 		curl_easy_setopt(image, CURLOPT_NOPROGRESS, 1);
 		//CURLOPT_RESUME_FROM
