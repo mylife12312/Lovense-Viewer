@@ -13,10 +13,10 @@
 		<menu_item_call label="Wiki" name="Wiki"/>
 		<menu_item_call label="Fóruns da comunidade" name="Community Forums"/>
 		<menu_item_call label="Portal de suporte" name="Support portal"/>
-		<menu_item_call label="Notícias do [SECOND_LIFE]" name="Second Life News"/>
-		<menu_item_call label="Blogs do [SECOND_LIFE]" name="Second Life Blogs"/>
+		<menu_item_call label="Notícias do [SECOND_LIFE]" name="Lovense Viewer News"/>
+		<menu_item_call label="Blogs do [SECOND_LIFE]" name="Lovense Viewer Blogs"/>
 		<menu_item_call label="Relatar bug" name="Report Bug"/>
-		<menu_item_call label="Sobre [APP_NAME]" name="About Second Life"/>
+		<menu_item_call label="Sobre [APP_NAME]" name="About Lovense Viewer"/>
 	</menu>
 	<menu_item_check label="Exibir menu de depuração" name="Show Debug Menu"/>
 	<menu label="Depurar" name="Debug">

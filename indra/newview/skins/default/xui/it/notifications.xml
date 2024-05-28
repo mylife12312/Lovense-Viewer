@@ -225,16 +225,16 @@ Scegli solo un oggetto e riprova.</notification>
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="AllowMultipleViewers">
-		Non è possibile utilizzare più di un viewer Second Life contemporaneamente. L’utilizzo simultaneo potrebbe portare a collisioni o corruzione della cache texture, e ad un peggioramento nelle immagini e nella performance.
+		Non è possibile utilizzare più di un viewer Lovense Viewer contemporaneamente. L’utilizzo simultaneo potrebbe portare a collisioni o corruzione della cache texture, e ad un peggioramento nelle immagini e nella performance.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="GrantModifyRights">
-		Quando concedi i diritti di modifica ad un altro residente, gli permetti di modificare, eliminare o prendere QUALSIASI oggetto che possiedi in Second Life. Pertanto ti consigliamo di essere ben sicuro quando concedi questo diritto.
+		Quando concedi i diritti di modifica ad un altro residente, gli permetti di modificare, eliminare o prendere QUALSIASI oggetto che possiedi in Lovense Viewer. Pertanto ti consigliamo di essere ben sicuro quando concedi questo diritto.
 Vuoi concedere i diritti di modifica a [NAME]?
 		<usetemplate name="okcancelbuttons" notext="No" yestext="Si"/>
 	</notification>
 	<notification name="GrantModifyRightsMultiple">
-		Quando concedi i diritti di modifica ad un altro residente, gli permetti di modificare QUALSIASI oggetto che possiedi in Second Life. Pertanto ti consigliamo di essere ben sicuro quando concedi questo diritto.
+		Quando concedi i diritti di modifica ad un altro residente, gli permetti di modificare QUALSIASI oggetto che possiedi in Lovense Viewer. Pertanto ti consigliamo di essere ben sicuro quando concedi questo diritto.
 Vuoi concedere i diritti di modifica ai residenti selezionati?
 		<usetemplate name="okcancelbuttons" notext="No" yestext="Si"/>
 	</notification>
@@ -472,7 +472,7 @@ Per collocare il media su una sola faccia, scegli Seleziona faccia, clicca su un
 	<notification name="ErrorTextureCannotAfford">Hai bisogno di L$ [COST] per salvare una texture nel tuo inventario. Puoi acquistare L$ o salvare la foto sul tuo computer.</notification>
 	<notification name="ErrorUploadingPostcard">C'è stato un problema inviando la fotografia per il seguente motivo: [REASON]</notification>
 	<notification name="ErrorUploadingReportScreenshot">C'è stato un problema importando la foto del rapporto per il seguente motivo: [REASON]</notification>
-	<notification name="MustAgreeToLogIn">Devi accettare i Termini e le Condizioni di Second Life, le clausole di riservatezza e i Termini del Servizio per continuare l’accesso a [SECOND_LIFE].</notification>
+	<notification name="MustAgreeToLogIn">Devi accettare i Termini e le Condizioni di Lovense Viewer, le clausole di riservatezza e i Termini del Servizio per continuare l’accesso a [SECOND_LIFE].</notification>
 	<notification name="CouldNotPutOnOutfit">Non è stato possibile indossare un equipaggiamento.
 La cartella equipaggiamento non contiene abbigliamento, parti del corpo o attachment.</notification>
 	<notification name="CannotWearTrash">Non puoi indossare abiti e parti del corpo che sono nel cestino</notification>
@@ -1462,7 +1462,7 @@ più del limite [LIMIT].
 	<notification label="Cambia la tipologia della proprietà Linden" name="ChangeLindenEstate">
 		Stai per apportare modifiche ad una proprietà che appartiene a Linden (continente, teen grid, orientamento e così via).
 
-Questa è un'operazione da effettuare con molta cautela, in quanto può incidere profondamente sulla vita dei residenti in Second Life.  Sul continente, l'azione modificherà migliaia di regioni e creerà un grosso carico sul server.
+Questa è un'operazione da effettuare con molta cautela, in quanto può incidere profondamente sulla vita dei residenti in Lovense Viewer.  Sul continente, l'azione modificherà migliaia di regioni e creerà un grosso carico sul server.
 
 Vuoi procedere?
 		<usetemplate name="okcancelbuttons" notext="Annulla" yestext="OK"/>
@@ -2284,9 +2284,9 @@ Questo sarà aggiunto nel tuo inventario come segnalibro per consentirti di invi
 		</form>
 	</notification>
 	<notification name="RegionRestartMinutes">Questa regione verrà riavviata fra [MINUTES] minuti.
-Se rimani qui verrai scollegato da Second Life.</notification>
+Se rimani qui verrai scollegato da Lovense Viewer.</notification>
 	<notification name="RegionRestartSeconds">Questa regione verrà riavviata fra [SECONDS] secondi.
-Se rimani qui verrai scollegato da Second Life.</notification>
+Se rimani qui verrai scollegato da Lovense Viewer.</notification>
 	<notification name="LoadWebPage">
 		Caricare la pagina Web [URL]?
 

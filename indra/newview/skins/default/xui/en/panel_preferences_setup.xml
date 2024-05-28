@@ -127,12 +127,12 @@
       width="480" />
     <radio_item
       height="20"
-      label="Use the built-in browser for Second Life links only"
+      label="Use the built-in browser for Lovense Viewer links only"
       layout="topleft"
       left_delta="0"
       name="external"
       value="1"      
-      tool_tip="Use the default system web browser for help, web links, etc. The built-in browser will be used only for LindenLab/Second Life links."
+      tool_tip="Use the default system web browser for help, web links, etc. The built-in browser will be used only for LindenLab/Lovense Viewer links."
       top_delta="20"
       width="480" />
     <radio_item

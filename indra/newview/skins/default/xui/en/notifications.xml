@@ -641,7 +641,7 @@ Save all changes to clothing/body parts?
    icon="alertmodal.tga"
    name="AllowMultipleViewers"
    type="alertmodal">
-    Running multiple Second Life viewers is not supported. It can lead to texture cache collisions, corruption and degraded visuals and performance.
+    Running multiple Lovense Viewer viewers is not supported. It can lead to texture cache collisions, corruption and degraded visuals and performance.
     <usetemplate
      name="okbutton"
      yestext="OK"/>
@@ -1339,7 +1339,7 @@ There was a problem uploading a report screenshot due to the following reason: [
    name="MustAgreeToLogIn"
    type="alertmodal">
    <tag>fail</tag>
-You must agree to the Second Life Terms and Conditions, Privacy Policy, and Terms of Service to continue logging into [SECOND_LIFE].
+You must agree to the Lovense Viewer Terms and Conditions, Privacy Policy, and Terms of Service to continue logging into [SECOND_LIFE].
   </notification>
 
   <notification

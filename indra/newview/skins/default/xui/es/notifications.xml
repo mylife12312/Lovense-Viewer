@@ -224,7 +224,7 @@ La inicialización del mercado ha fallado por un error del sistema o de la red. 
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="AllowMultipleViewers">
-		No es posible ejecutar varios visores Second Life ya que esta funcionalidad no es compatible. Puede provocar problemas de caché en la textura, imágenes degradadas o alteradas y un bajo rendimiento.
+		No es posible ejecutar varios visores Lovense Viewer ya que esta funcionalidad no es compatible. Puede provocar problemas de caché en la textura, imágenes degradadas o alteradas y un bajo rendimiento.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="GrantModifyRights">
@@ -469,7 +469,7 @@ debes estar dentro de ella.</notification>
 	<notification name="ErrorTextureCannotAfford">Necesitas [COST] L$ para guardar una textura en el inventario. Puedes comprar L$ o bien guardar la foto en tu equipo.</notification>
 	<notification name="ErrorUploadingPostcard">Hubo un problema al enviar la foto por la siguiente razón: [REASON]</notification>
 	<notification name="ErrorUploadingReportScreenshot">Hubo un problema al subir la captura de pantalla del informe por la siguiente razón: [REASON]</notification>
-	<notification name="MustAgreeToLogIn">Debes aceptar los Términos y Condiciones, la Política de privacidad y las Condiciones del servicio de Second Life para iniciar sesión en [SECOND_LIFE].</notification>
+	<notification name="MustAgreeToLogIn">Debes aceptar los Términos y Condiciones, la Política de privacidad y las Condiciones del servicio de Lovense Viewer para iniciar sesión en [SECOND_LIFE].</notification>
 	<notification name="CouldNotPutOnOutfit">No se ha podido poner el vestuario.
 La carpeta del vestuario contiene partes del cuerpo, u objetos a anexar o que no son ropa.</notification>
 	<notification name="CannotWearTrash">No puedes vestirte ropas o partes del cuerpo que estén en la Papelera</notification>

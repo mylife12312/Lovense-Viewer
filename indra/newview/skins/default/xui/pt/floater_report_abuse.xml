@@ -42,14 +42,14 @@
 		<combo_box.item label="Selecionar categoria" name="Select_category"/>
 		<combo_box.item label="Idade &gt; Idade no jogo" name="Age__Age_play"/>
 		<combo_box.item label="Idade &gt; Residente adulto ou adolescente" name="Age__Adult_resident_on_Teen_Second_Life"/>
-		<combo_box.item label="Idade &gt; Residente menor de idade, fora do Second Life teen" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
+		<combo_box.item label="Idade &gt; Residente menor de idade, fora do Lovense Viewer teen" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
 		<combo_box.item label="Assalto &gt; Sandbox de combate / área não segura" name="Assault__Combat_sandbox___unsafe_area"/>
 		<combo_box.item label="Agressões &gt; Atirar, empurrar ou bater em outro residente em uma área segura" name="Assault__Safe_area"/>
 		<combo_box.item label="Assalto &gt; Testando armas em sandbox" name="Assault__Weapons_testing_sandbox"/>
 		<combo_box.item label="Comércio &gt; Falha em enviar produto ou serviço" name="Commerce__Failure_to_deliver_product_or_service"/>
 		<combo_box.item label="Revelar &gt; Informação do mundo real" name="Disclosure__Real_world_information"/>
 		<combo_box.item label="Revelar &gt; Conversa monitorada remotamente" name="Disclosure__Remotely_monitoring chat"/>
-		<combo_box.item label="Revelar &gt; Informação do Second Life/conversa/MIs" name="Disclosure__Second_Life_information_chat_IMs"/>
+		<combo_box.item label="Revelar &gt; Informação do Lovense Viewer/conversa/MIs" name="Disclosure__Second_Life_information_chat_IMs"/>
 		<combo_box.item label="Distúrbio da paz &gt; Uso injusto dos recursos da região" name="Disturbing_the_peace__Unfair_use_of_region_resources"/>
 		<combo_box.item label="Distúrbio da paz  &gt; Objetos com excesso de scripts" name="Disturbing_the_peace__Excessive_scripted_objects"/>
 		<combo_box.item label="Distúrbio da paz  &gt; Objeto despejando lixo" name="Disturbing_the_peace__Object_littering"/>

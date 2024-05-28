@@ -7,8 +7,8 @@
 
 	<!-- Default Args - these arguments will be replaced in all strings -->
 	<string name="SECOND_LIFE">Second Life</string>
-	<string name="APP_NAME">Second Life</string>
-	<string name="CAPITALIZED_APP_NAME">SECOND LIFE</string>
+	<string name="APP_NAME">Lovense Viewer</string>
+	<string name="CAPITALIZED_APP_NAME">Lovense Viewer</string>
 	<string name="SECOND_LIFE_GRID">Second Life Grid</string>
 	<string name="SUPPORT_SITE">Second Life Support Portal</string>
 
@@ -22,7 +22,6 @@
 	<!-- about dialog/support string-->
 	<string name="AboutHeader">
 [CHANNEL] [VIEWER_VERSION_0].[VIEWER_VERSION_1].[VIEWER_VERSION_2].[VIEWER_VERSION_3] ([ADDRESS_SIZE]bit)
-[[VIEWER_RELEASE_NOTES_URL] [ReleaseNotes]]
 	</string>
     <string name="BuildConfig">Build Configuration [BUILD_CONFIG]</string>
 
@@ -116,12 +115,12 @@ Voice Server Version: [VOICE_VERSION]
 	<string name="Quit">Quit</string>
 	<string name="create_account_url">http://join.secondlife.com/?sourceid=[sourceid]</string>
 	
-	<string name="AgniGridLabel">Second Life Main Grid (Agni)</string>
-	<string name="AditiGridLabel">Second Life Beta Test Grid (Aditi)</string>
+	<string name="AgniGridLabel">Lovense Viewer Main Grid (Agni)</string>
+	<string name="AditiGridLabel">Lovense Viewer Beta Test Grid (Aditi)</string>
 	
 	<string name="ViewerDownloadURL">http://secondlife.com/download</string>
 	<string name="LoginFailedViewerNotPermitted">
-The viewer you are using can no longer access Second Life. Please visit the following page to download a new viewer:
+The viewer you are using can no longer access Lovense Viewer. Please visit the following page to download a new viewer:
 http://secondlife.com/download
 
 For more information, see our FAQ below:
@@ -146,13 +145,13 @@ We are very sorry for the inconvenience.</string>
 Please go to your account page at http://secondlife.com/password
 and answer the security question to reset your password.
 We are very sorry for the inconvenience.</string>
-	<string name="LoginFailedEmployeesOnly">Second Life is temporarily closed for maintenance.
+	<string name="LoginFailedEmployeesOnly">Lovense Viewer is temporarily closed for maintenance.
 Logins are currently restricted to employees only.
 Check www.secondlife.com/status for updates.</string>
-	<string name="LoginFailedPremiumOnly">Second Life logins are temporarily restricted in order to make sure that those in-world have the best possible experience.
+	<string name="LoginFailedPremiumOnly">Lovense Viewer logins are temporarily restricted in order to make sure that those in-world have the best possible experience.
 
-People with free accounts will not be able to access Second Life during this time, to make room for those who have paid for Second Life.</string>
-	<string name="LoginFailedComputerProhibited">Second Life cannot be accessed from this computer.
+People with free accounts will not be able to access Lovense Viewer during this time, to make room for those who have paid for Lovense Viewer.</string>
+	<string name="LoginFailedComputerProhibited">Lovense Viewer cannot be accessed from this computer.
 If you feel this is an error, please contact
 support@secondlife.com.</string>
   <!--'Pacific time' placeholder for [TIME] in case time from server can't be decoded-->
@@ -161,7 +160,7 @@ support@secondlife.com.</string>
 [TIME].
 If you feel this is an error, please contact support@secondlife.com.</string>
 	<string name="LoginFailedAccountDisabled">We are unable to complete your request at this time.
-Please contact Second Life support for assistance at http://support.secondlife.com.</string>
+Please contact Lovense Viewer support for assistance at http://support.secondlife.com.</string>
 	<string name="LoginFailedTransformError">Data inconsistency found during login.
 Please contact support@secondlife.com.</string>
 	<string name="LoginFailedAccountMaintenance">Your account is undergoing minor maintenance.
@@ -173,7 +172,7 @@ If you feel this is an error, please contact support@secondlife.com.</string>
 Please wait a minute before you try logging in again.</string>
 	<string name="LoginFailedUnableToCreateSession">Unable to create valid session.</string>
 	<string name="LoginFailedUnableToConnectToSimulator">Unable to connect to a simulator.</string>
-	<string name="LoginFailedRestrictedHours">Your account can only access Second Life
+	<string name="LoginFailedRestrictedHours">Your account can only access Lovense Viewer
 between [START] and [END] Pacific Time.
 Please come back during those hours.
 If you feel this is an error, please contact support@secondlife.com.</string>
@@ -2338,15 +2337,15 @@ The [[MARKETPLACE_CREATE_STORE_URL] Marketplace store] is returning errors.
 	</string>
 	<string name="InventoryMarketplaceError">
 An error occurred while opening Marketplace Listings.
-If you continue to receive this message, please contact Second Life support for assistance at http://support.secondlife.com
+If you continue to receive this message, please contact Lovense Viewer support for assistance at http://support.secondlife.com
 	</string>
 	<string name="InventoryMarketplaceConnectionError">
 Marketplace Listings failed to connect.
-If you continue to receive this message, please contact Second Life support for assistance at http://support.secondlife.com
+If you continue to receive this message, please contact Lovense Viewer support for assistance at http://support.secondlife.com
 	</string>
 	<string name="InventoryMarketplaceConnectionErrorReason">
 Marketplace Listings failed to connect. Reason: [REASON]
-If you continue to receive this message, please contact Second Life support for assistance at http://support.secondlife.com
+If you continue to receive this message, please contact Lovense Viewer support for assistance at http://support.secondlife.com
 	</string>
 	<string name="InventoryMarketplaceListingsNoItemsTitle">Your Marketplace Listings folder is empty.</string>
 	<string name="InventoryMarketplaceListingsNoItemsTooltip"></string>
@@ -4334,5 +4333,29 @@ and report the problem.
 
 [https://community.secondlife.com/knowledgebase/english/error-messages-r520/#Section__3 Knowledge Base]
   </string>
+
+  <!-- for lovense strings -->
+  <string name="lstr_pause_sync">Pause Sync</string>
+  <string name="lstr_restart_sync">Restart Sync</string>
+  <string name="lstr_next">Next</string>
+  <string name="lstr_back">Back</string>
+  <string name="lstr_got_it">Got it</string>
+  <string name="lstr_scan_qr_code_des">Scan the QR code to connect your toys to the Lovense Remote app.</string>
+  <string name="lstr_qr_code_failed_des">The QR Code failed to load. Check your internet connection and try again.</string>
+  <string name="lstr_click_download">Click [https://www.lovense.com/sextoys/download here] to download the Lovense Remote app</string>
+  <string name="lstr_now_with_toy_support">Now with LOVENSE Toy Support!</string>
+  <string name="lstr_visit_store">VISIT STORE</string>
+  <string name="lstr_reload_qrcode">Reload the QR Code</string>
+  <string name="lstr_connected">Connected</string>
+  <string name="lstr_how_to_get_start">How to get started?</string>
+  <string name="lstr_step1_des">Step1:Find a location to have some adult fun. If you'd like a recommendation, you can try the following location.</string>
+  <string name="lstr_step2_des">Step2:Find a bed or sofa where you can get intimate. Right click the item to sit down.</string>
+  <string name="lstr_step3_des">Step3:Once seated, you cam choose a sex position from the display panel.</string>
+  <string name="lstr_skip_next_time">Skip next time</string>
+  <string name="lstr_toy_connect_remote">Toys connected to Lovense Remote</string>
+  <string name="lstr_select_toy_control">Select the toy to accept control.</string>
+  <string name="lstr_disconnect">Disconnect</string>
+  <string name="lstr_guid">[https://Guide Guide]</string>
+  <string name="lstr_not_toy_detect">No toy detected.</string>
 
 </strings>

@@ -68,7 +68,7 @@
 #include "llcallstack.h"
 #include "llcorehttputil.h"
 #include "lluiusage.h"
-
+#include "lovense/llLovenseAdapter.h"
 #if LL_MSVC
 // disable boost::lexical_cast warning
 #pragma warning (disable:4702)
@@ -238,6 +238,9 @@ void LLVOAvatarSelf::initInstance()
 	doPeriodically(boost::bind(&LLVOAvatarSelf::checkStuckAppearance, this), 30.0);
 
     mInitFlags |= 1<<2;
+
+    //TODO: add init adapter
+    lovense::LLLovenseAdapter::instance().initAdapter(this);
 }
 
 void LLVOAvatarSelf::setHoverIfRegionEnabled()
@@ -815,7 +818,7 @@ void LLVOAvatarSelf::idleUpdateAppearanceAnimation()
 // virtual
 void LLVOAvatarSelf::requestStopMotion(LLMotion* motion)
 {
-	// Only agent avatars should handle the stop motion notifications.
+	// Only agent avatars should handle the stop motion notifications.ddddd
 
 	// Notify agent that motion has stopped
 	gAgent.requestStopMotion(motion);
@@ -2869,3 +2872,4 @@ void LLVOAvatarSelf::dumpWearableInfo(LLAPRFile& outfile)
 	}
 	apr_file_printf( file, "\n</wearable_info>\n" );
 }
+

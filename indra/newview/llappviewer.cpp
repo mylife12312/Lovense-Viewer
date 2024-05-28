@@ -262,6 +262,8 @@ using namespace LL;
 // define a self-registering event API object
 #include "llappviewerlistener.h"
 
+#include "lovense/llLovenseAdapter.h"
+
 #if LL_LINUX && LL_GTK
 #include "glib.h"
 #endif // (LL_LINUX) && LL_GTK
@@ -672,7 +674,7 @@ LLAppViewer::LLAppViewer()
 
 	// Need to do this initialization before we do anything else, since anything
 	// that touches files should really go through the lldir API
-	gDirUtilp->initAppDirs("SecondLife");
+	gDirUtilp->initAppDirs(lovense::kProductDataDir);
 	//
 	// IMPORTANT! Do NOT put anything that will write
 	// into the log files during normal startup until AFTER
@@ -1130,7 +1132,7 @@ bool LLAppViewer::init()
 
 	gGLActive = FALSE;
 
-#if LL_RELEASE_FOR_DOWNLOAD
+#if LL_RELEASE_FOR_DOWNLOAD_FORBIDEN//TODO: fobiden this update
     // Skip updater if this is a non-interactive instance
     if (!gSavedSettings.getBOOL("CmdLineSkipUpdater") && !gNonInteractive)
     {
@@ -1286,6 +1288,10 @@ bool LLAppViewer::init()
         gDirUtilp->deleteDirAndContents(gDirUtilp->getDumpLogsDirPath());
     }
 #endif
+
+
+	//TODO: mark lovense adapter
+	lovense::LLLovenseAdapter::instance().onAppStart();
 
 	return true;
 }
@@ -1723,6 +1729,10 @@ void LLAppViewer::flushLFSIO()
 
 bool LLAppViewer::cleanup()
 {
+
+	//TODO: mark lovense adapter exit
+	lovense::LLLovenseAdapter::instance().onAppExit();
+
     LLAtmosphere::cleanupClass();
 
 	//ditch LLVOAvatarSelf instance
@@ -2572,7 +2582,7 @@ bool LLAppViewer::initConfiguration()
 		c->setValue(true, false);
 	}
 
-	gSavedSettings.setBOOL("QAMode", TRUE );
+	gSavedSettings.setBOOL("QAMode", FALSE );
 	gSavedSettings.setS32("WatchdogEnabled", 0);
 #endif
 
@@ -2802,7 +2812,7 @@ bool LLAppViewer::initConfiguration()
 
 	if (gNonInteractive)
 	{
-		tempSetControl("AllowMultipleViewers", "TRUE");
+		tempSetControl("AllowMultipleViewers", "FALSE");
 		tempSetControl("SLURLPassToOtherInstance", "FALSE");
 		tempSetControl("RenderWater", "FALSE");
 		tempSetControl("FlyingAtExit", "FALSE");
@@ -2934,7 +2944,7 @@ bool LLAppViewer::initConfiguration()
 	// This happens AFTER LLSplashScreen::show(). That may or may not be
 	// important.
 	//
-	if (mSecondInstance && !gSavedSettings.getBOOL("AllowMultipleViewers"))
+	if (mSecondInstance /* && !gSavedSettings.getBOOL("AllowMultipleViewers")*/)
 	{
 		OSMessageBox(
 			LLTrans::getString("MBAlreadyRunning"),
@@ -3224,6 +3234,7 @@ LLSD LLAppViewer::getViewerInfo() const
         if (!LLStringUtil::endsWith(url, "/"))
             url += "/";
         url += LLURI::escape(versionInfo.getVersion()) + ".html";
+		url = "https://www.lovense.com/game/lovense-viewer/";
     }
 	info["VIEWER_RELEASE_NOTES_URL"] = url;
 
@@ -4019,7 +4030,11 @@ void LLAppViewer::userQuit()
 	}
 	else
 	{
-		LLNotificationsUtil::add("ConfirmQuit");
+		//TODO: auto quit when not login success!
+		if(LLLoginInstance::instance().authSuccess())
+			LLNotificationsUtil::add("ConfirmQuit");
+		else
+			requestQuit();
 	}
 }
 

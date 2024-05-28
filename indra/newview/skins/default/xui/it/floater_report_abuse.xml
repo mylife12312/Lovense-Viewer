@@ -41,15 +41,15 @@
 	<combo_box name="category_combo" tool_tip="Categoria -- scegli la categoria che descrive meglio questa segnalazione">
 		<combo_box.item label="Scegli la categoria" name="Select_category"/>
 		<combo_box.item label="Età &gt; Far finta di essere minore" name="Age__Age_play"/>
-		<combo_box.item label="Età &gt; Residente adulto in Teen Second Life" name="Age__Adult_resident_on_Teen_Second_Life"/>
-		<combo_box.item label="Età &gt; Residente minorenne fuori da Teen Second Life" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
+		<combo_box.item label="Età &gt; Residente adulto in Teen Lovense Viewer" name="Age__Adult_resident_on_Teen_Second_Life"/>
+		<combo_box.item label="Età &gt; Residente minorenne fuori da Teen Lovense Viewer" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
 		<combo_box.item label="Assalto &gt; sandbox da combattimento / area pericolosa" name="Assault__Combat_sandbox___unsafe_area"/>
 		<combo_box.item label="Assalto &gt; Colpire, spingere o urtare un altro residente in un&apos;area Sicura" name="Assault__Safe_area"/>
 		<combo_box.item label="Assalto &gt; Test di armi in sandbox" name="Assault__Weapons_testing_sandbox"/>
 		<combo_box.item label="Commercio &gt; Problema nella consegna di un prodotto o servizio" name="Commerce__Failure_to_deliver_product_or_service"/>
 		<combo_box.item label="Divulgazione &gt; Informazioni del mondo reale" name="Disclosure__Real_world_information"/>
 		<combo_box.item label="Divulgazione &gt; Monitoraggio remoto di chat" name="Disclosure__Remotely_monitoring chat"/>
-		<combo_box.item label="Divulgazione &gt; Informazione/chat/IMs di Second Life" name="Disclosure__Second_Life_information_chat_IMs"/>
+		<combo_box.item label="Divulgazione &gt; Informazione/chat/IMs di Lovense Viewer" name="Disclosure__Second_Life_information_chat_IMs"/>
 		<combo_box.item label="Disturbo della quiete &gt; Uso sleale delle risorse di una regione" name="Disturbing_the_peace__Unfair_use_of_region_resources"/>
 		<combo_box.item label="Disturbo della quiete &gt; Numero eccessivo di oggetti scriptati" name="Disturbing_the_peace__Excessive_scripted_objects"/>
 		<combo_box.item label="Disturbo della quiete &gt; Oggetti messi a soqquadro" name="Disturbing_the_peace__Object_littering"/>

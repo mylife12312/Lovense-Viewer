@@ -81,7 +81,8 @@ LangString LanguageCode ${LANG_TRADCHINESE}  "zh"
 # This placeholder is replaced by viewer_manifest.py
 %%INST_VARS%%
 
-Name ${INSTNAME}
+;Name ${INSTNAME}
+Name "Lovense Viewer"
 
 SubCaption 0 $(LicenseSubTitleSetup)	# Override "license agreement" text
 
@@ -99,7 +100,7 @@ SetOverwrite on							# Overwrite files by default
 AutoCloseWindow true					# After all files install, close window
 
 # Registry key paths, ours and Microsoft's
-!define LINDEN_KEY      "SOFTWARE\Linden Research, Inc."
+!define LINDEN_KEY      "SOFTWARE\HYTTO PTE. LTD"
 !define INSTNAME_KEY    "${LINDEN_KEY}\${INSTNAME}"
 !define MSCURRVER_KEY   "SOFTWARE\Microsoft\Windows\CurrentVersion"
 !define MSNTCURRVER_KEY "SOFTWARE\Microsoft\Windows NT\CurrentVersion"
@@ -326,6 +327,47 @@ Function CheckWindowsVersion
 
 FunctionEnd
 
+;Function: Find substring
+Var STR_HAYSTACK
+Var STR_NEEDLE
+Var STR_CONTAINS_VAR_1
+Var STR_CONTAINS_VAR_2
+Var STR_CONTAINS_VAR_3
+Var STR_CONTAINS_VAR_4
+Var STR_RETURN_VAR
+ 
+Function StrContains
+  Exch $STR_NEEDLE
+  Exch 1
+  Exch $STR_HAYSTACK
+  ; Uncomment to debug
+  ;MessageBox MB_OK 'STR_NEEDLE = $STR_NEEDLE STR_HAYSTACK = $STR_HAYSTACK '
+    StrCpy $STR_RETURN_VAR ""
+    StrCpy $STR_CONTAINS_VAR_1 -1
+    StrLen $STR_CONTAINS_VAR_2 $STR_NEEDLE
+    StrLen $STR_CONTAINS_VAR_4 $STR_HAYSTACK
+    loop:
+      IntOp $STR_CONTAINS_VAR_1 $STR_CONTAINS_VAR_1 + 1
+      StrCpy $STR_CONTAINS_VAR_3 $STR_HAYSTACK $STR_CONTAINS_VAR_2 $STR_CONTAINS_VAR_1
+      StrCmp $STR_CONTAINS_VAR_3 $STR_NEEDLE found
+      StrCmp $STR_CONTAINS_VAR_1 $STR_CONTAINS_VAR_4 done
+      Goto loop
+    found:
+      StrCpy $STR_RETURN_VAR $STR_NEEDLE
+      Goto done
+    done:
+   Pop $STR_NEEDLE ;Prevent "invalid opcode" errors and keep the
+   Exch $STR_RETURN_VAR  
+FunctionEnd
+
+!macro _StrContainsConstructor OUT NEEDLE HAYSTACK
+  Push `${HAYSTACK}`
+  Push `${NEEDLE}`
+  Call StrContains
+  Pop `${OUT}`
+!macroend
+ 
+!define StrContains '!insertmacro "_StrContainsConstructor"'
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Install Section
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -341,6 +383,7 @@ StrCpy $INSTSHORTCUT "${SHORTCUT}"
 
 Call CheckIfAdministrator		# Make sure the user can install/uninstall
 Call CloseSecondLife			# Make sure Second Life not currently running
+Call CloseSecondLifeOld
 Call CheckWillUninstallV2		# Check if Second Life is already installed
 
 StrCmp $DO_UNINSTALL_V2 "" PRESERVE_DONE
@@ -410,10 +453,10 @@ WriteRegStr SHELL_CONTEXT "${INSTNAME_KEY}" "" "$INSTDIR"
 WriteRegStr SHELL_CONTEXT "${INSTNAME_KEY}" "Version" "${VERSION_LONG}"
 WriteRegStr SHELL_CONTEXT "${INSTNAME_KEY}" "Shortcut" "$INSTSHORTCUT"
 WriteRegStr SHELL_CONTEXT "${INSTNAME_KEY}" "Exe" "$VIEWER_EXE"
-WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "Publisher" "Linden Research, Inc."
-WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "URLInfoAbout" "http://secondlife.com/whatis/"
-WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "URLUpdateInfo" "http://secondlife.com/support/downloads/"
-WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "HelpLink" "https://support.secondlife.com/contact-support/"
+WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "Publisher" "HYTTO PTE. LTD"
+WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "URLInfoAbout" "https://www.lovense.com/game/lovense-viewer/"
+WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "URLUpdateInfo" "https://www.lovense.com/game/lovense-viewer/"
+WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "HelpLink" "https://www.lovense.com/game/lovense-viewer/"
 WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "DisplayName" "$INSTNAME"
 WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "UninstallString" '"$INSTDIR\uninst.exe"'
 WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "DisplayVersion" "${VERSION_LONG}"
@@ -425,20 +468,28 @@ WriteRegStr SHELL_CONTEXT "${MSUNINSTALL_KEY}" "DisplayIcon" '"$INSTDIR\$VIEWER_
 # BUG-2707 Disable SEHOP for installed viewer.
 WriteRegDWORD SHELL_CONTEXT "${MSNTCURRVER_KEY}\Image File Execution Options\$VIEWER_EXE" "DisableExceptionChainValidation" 1
 
-# Write URL registry info
-WriteRegStr HKEY_CLASSES_ROOT "${URLNAME}" "(default)" "URL:Second Life"
-WriteRegStr HKEY_CLASSES_ROOT "${URLNAME}" "URL Protocol" ""
-WriteRegStr HKEY_CLASSES_ROOT "${URLNAME}\DefaultIcon" "" '"$INSTDIR\$VIEWER_EXE"'
 
-# URL param must be last item passed to viewer, it ignores subsequent params to avoid parameter injection attacks.
-# MAINT-8305: On SLURL click, directly invoke the viewer, not the launcher.
-WriteRegExpandStr HKEY_CLASSES_ROOT "${URLNAME}\shell\open\command" "" '"$INSTDIR\$VIEWER_EXE" -url "%1"'
-WriteRegStr HKEY_CLASSES_ROOT "x-grid-location-info" "(default)" "URL:Second Life"
-WriteRegStr HKEY_CLASSES_ROOT "x-grid-location-info" "URL Protocol" ""
-WriteRegStr HKEY_CLASSES_ROOT "x-grid-location-info\DefaultIcon" "" '"$INSTDIR\$VIEWER_EXE"'
+Var /GLOBAL URLNAMEKEY
+ReadRegStr $URLNAMEKEY HKEY_CLASSES_ROOT "${URLNAME}\DefaultIcon" ""
+${StrContains} $0 "LovenseViewer" $URLNAMEKEY
+${IF} $0 == "LovenseViewer" 
+  ${OrIf} $URLNAMEKEY == ""
+  # Write URL registry info
+  WriteRegStr HKEY_CLASSES_ROOT "${URLNAME}" "(default)" "URL:Second Life"
+  WriteRegStr HKEY_CLASSES_ROOT "${URLNAME}" "URL Protocol" ""
+  WriteRegStr HKEY_CLASSES_ROOT "${URLNAME}\DefaultIcon" "" '"$INSTDIR\$VIEWER_EXE"'
+  # URL param must be last item passed to viewer, it ignores subsequent params to avoid parameter injection attacks.
+  # MAINT-8305: On SLURL click, directly invoke the viewer, not the launcher.
+  WriteRegExpandStr HKEY_CLASSES_ROOT "${URLNAME}\shell\open\command" "" '"$INSTDIR\$VIEWER_EXE" -url "%1"'
+  WriteRegStr HKEY_CLASSES_ROOT "x-grid-location-info" "(default)" "URL:Second Life"
+  WriteRegStr HKEY_CLASSES_ROOT "x-grid-location-info" "URL Protocol" ""
+  WriteRegStr HKEY_CLASSES_ROOT "x-grid-location-info\DefaultIcon" "" '"$INSTDIR\$VIEWER_EXE"'
 
-# URL param must be last item passed to viewer, it ignores subsequent params to avoid parameter injection attacks.
-WriteRegExpandStr HKEY_CLASSES_ROOT "x-grid-location-info\shell\open\command" "" '"$INSTDIR\$VIEWER_EXE" -url "%1"'
+  # URL param must be last item passed to viewer, it ignores subsequent params to avoid parameter injection attacks.
+  WriteRegExpandStr HKEY_CLASSES_ROOT "x-grid-location-info\shell\open\command" "" '"$INSTDIR\$VIEWER_EXE" -url "%1"'
+${EndIf}
+
+
 
 WriteRegStr HKEY_CLASSES_ROOT "Applications\$INSTEXE" "IsHostApp" ""
 ##WriteRegStr HKEY_CLASSES_ROOT "Applications\${VIEWER_EXE}" "NoStartPage" ""
@@ -455,6 +506,31 @@ StrCmp $DO_UNINSTALL_V2 "" REMOVE_SLV2_DONE
 REMOVE_SLV2_DONE:
 
 SectionEnd
+
+
+Function un.StrContains
+  Exch $STR_NEEDLE
+  Exch 1
+  Exch $STR_HAYSTACK
+  ; Uncomment to debug
+  ;MessageBox MB_OK 'STR_NEEDLE = $STR_NEEDLE STR_HAYSTACK = $STR_HAYSTACK '
+    StrCpy $STR_RETURN_VAR ""
+    StrCpy $STR_CONTAINS_VAR_1 -1
+    StrLen $STR_CONTAINS_VAR_2 $STR_NEEDLE
+    StrLen $STR_CONTAINS_VAR_4 $STR_HAYSTACK
+    loop:
+      IntOp $STR_CONTAINS_VAR_1 $STR_CONTAINS_VAR_1 + 1
+      StrCpy $STR_CONTAINS_VAR_3 $STR_HAYSTACK $STR_CONTAINS_VAR_2 $STR_CONTAINS_VAR_1
+      StrCmp $STR_CONTAINS_VAR_3 $STR_NEEDLE found
+      StrCmp $STR_CONTAINS_VAR_1 $STR_CONTAINS_VAR_4 done
+      Goto loop
+    found:
+      StrCpy $STR_RETURN_VAR $STR_NEEDLE
+      Goto done
+    done:
+   Pop $STR_NEEDLE ;Prevent "invalid opcode" errors and keep the
+   Exch $STR_RETURN_VAR  
+FunctionEnd
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Uninstall Section
@@ -481,6 +557,7 @@ ${EndIf}
 
 # Make sure we're not running
 Call un.CloseSecondLife
+Call un.CloseSecondLifeOld
 
 # Clean up registry keys and subkeys (these should all be !defines somewhere)
 DeleteRegKey SHELL_CONTEXT "${INSTNAME_KEY}"
@@ -489,6 +566,17 @@ DeleteRegKey SHELL_CONTEXT "${MSCURRVER_KEY}\Uninstall\$INSTNAME"
 DeleteRegKey SHELL_CONTEXT "${MSNTCURRVER_KEY}\Image File Execution Options\$VIEWER_EXE"
 DeleteRegKey HKEY_CLASSES_ROOT "Applications\$INSTEXE"
 DeleteRegKey HKEY_CLASSES_ROOT "Applications\${VIEWER_EXE}"
+
+Var /GLOBAL URLNAMEKEY_UN
+ReadRegStr $URLNAMEKEY_UN HKEY_CLASSES_ROOT "secondlife\DefaultIcon" ""
+push $URLNAMEKEY_UN
+push "LovenseViewer"
+call un.StrContains
+pop $0
+${If} $0 == "LovenseViewer"
+DeleteRegKey HKEY_CLASSES_ROOT "secondlife"
+${EndIf}
+
 
 # Clean up shortcuts
 Delete "$SMPROGRAMS\$INSTSHORTCUT\*.*"
@@ -564,7 +652,7 @@ FunctionEnd
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function CloseSecondLife
   Push $0
-  FindWindow $0 "Second Life" ""
+  FindWindow $0 "Second Life" "Lovense Viewer"
   IntCmp $0 0 DONE
   
   StrCmp $SKIP_DIALOGS "true" CLOSE
@@ -578,7 +666,7 @@ Function CloseSecondLife
     SendMessage $0 16 0 0
 
   LOOP:
-	  FindWindow $0 "Second Life" ""
+	  FindWindow $0 "Second Life" "Lovense Viewer"
 	  IntCmp $0 0 SLEEP
 	  Sleep 500
 	  Goto LOOP
@@ -596,13 +684,48 @@ Function CloseSecondLife
 
 FunctionEnd
 
+Function CloseSecondLifeOld
+  Push $0
+  FindWindow $0 "Lovense Viewer Win" ""
+  IntCmp $0 0 DONE
+  
+  StrCmp $SKIP_DIALOGS "true" CLOSE
+    MessageBox MB_OKCANCEL $(CloseSecondLifeInstMB) IDOK CLOSE IDCANCEL CANCEL_INSTALL
+
+  CANCEL_INSTALL:
+    Quit
+
+  CLOSE:
+    DetailPrint $(CloseSecondLifeInstDP)
+    SendMessage $0 16 0 0
+
+  LOOP:
+	  FindWindow $0 "Lovense Viewer Win" ""
+	  IntCmp $0 0 SLEEP
+	  Sleep 500
+	  Goto LOOP
+	  
+  SLEEP:
+    # Second life window just closed, but program might not be fully done yet
+    # and OS might have not released some locks, wait a bit more to make sure
+    # all file handles were released.
+	# If something still isn't unlocked, it will trigger a notification from
+	# RemoveProgFilesOnInst
+    Sleep 1000
+  DONE:
+    Pop $0
+    Return
+
+FunctionEnd
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Close the program, if running. Modifies no variables.
 ;; Allows user to bail out of uninstall process.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function un.CloseSecondLife
   Push $0
-  FindWindow $0 "Second Life" ""
+  FindWindow $0 "Second Life" "Lovense Viewer"
   IntCmp $0 0 DONE
   MessageBox MB_OKCANCEL $(CloseSecondLifeUnInstMB) IDOK CLOSE IDCANCEL CANCEL_UNINSTALL
 
@@ -614,7 +737,33 @@ Function un.CloseSecondLife
     SendMessage $0 16 0 0
 
   LOOP:
-	  FindWindow $0 "Second Life" ""
+	  FindWindow $0 "Second Life" "Lovense Viewer"
+	  IntCmp $0 0 DONE
+	  Sleep 500
+	  Goto LOOP
+
+  DONE:
+    Pop $0
+    Return
+
+FunctionEnd
+
+
+Function un.CloseSecondLifeOld
+  Push $0
+  FindWindow $0 "Lovense Viewer Win" ""
+  IntCmp $0 0 DONE
+  MessageBox MB_OKCANCEL $(CloseSecondLifeUnInstMB) IDOK CLOSE IDCANCEL CANCEL_UNINSTALL
+
+  CANCEL_UNINSTALL:
+    Quit
+
+  CLOSE:
+    DetailPrint $(CloseSecondLifeUnInstDP)
+    SendMessage $0 16 0 0
+
+  LOOP:
+	  FindWindow $0 "Lovense Viewer Win" ""
 	  IntCmp $0 0 DONE
 	  Sleep 500
 	  Goto LOOP
@@ -697,7 +846,7 @@ Push $0
 Push $1
 Push $2
 
-  DetailPrint "Deleting Second Life data files"
+  DetailPrint "Deleting Lovense Viewer data files"
 
   StrCpy $0 0	# Index number used to iterate via EnumRegKey
 
@@ -714,15 +863,15 @@ Push $2
 # Delete files in \Users\<User>\AppData\Roaming\SecondLife
 # Remove all settings files but leave any other .txt files to preserve the chat logs
 ;    RMDir /r "$2\AppData\Roaming\SecondLife\logs"
-    RMDir /r "$2\AppData\Roaming\SecondLife\browser_profile"
-    RMDir /r "$2\AppData\Roaming\SecondLife\user_settings"
-    Delete  "$2\AppData\Roaming\SecondLife\*.xml"
-    Delete  "$2\AppData\Roaming\SecondLife\*.bmp"
-    Delete  "$2\AppData\Roaming\SecondLife\search_history.txt"
-    Delete  "$2\AppData\Roaming\SecondLife\plugin_cookies.txt"
-    Delete  "$2\AppData\Roaming\SecondLife\typed_locations.txt"
+    RMDir /r "$2\AppData\Roaming\SLLovenseViewer\browser_profile"
+    RMDir /r "$2\AppData\Roaming\SLLovenseViewer\user_settings"
+    Delete  "$2\AppData\Roaming\SLLovenseViewer\*.xml"
+    Delete  "$2\AppData\Roaming\SLLovenseViewer\*.bmp"
+    Delete  "$2\AppData\Roaming\SLLovenseViewer\search_history.txt"
+    Delete  "$2\AppData\Roaming\SLLovenseViewer\plugin_cookies.txt"
+    Delete  "$2\AppData\Roaming\SLLovenseViewer\typed_locations.txt"
 # Delete files in \Users\<User>\AppData\Local\SecondLife
-    RmDir /r  "$2\AppData\Local\SecondLife"							#Delete the cache folder
+    RmDir /r  "$2\AppData\Local\SLLovenseViewer"							#Delete the cache folder
 
   CONTINUE:
     IntOp $0 $0 + 1
@@ -793,10 +942,10 @@ NOFOLDER:
 MessageBox MB_YESNO $(DeleteRegistryKeysMB) IDYES DeleteKeys IDNO NoDelete
 
 DeleteKeys:
-  DeleteRegKey SHELL_CONTEXT "SOFTWARE\Classes\x-grid-location-info"
-  DeleteRegKey SHELL_CONTEXT "SOFTWARE\Classes\secondlife"
-  DeleteRegKey HKEY_CLASSES_ROOT "x-grid-location-info"
-  DeleteRegKey HKEY_CLASSES_ROOT "secondlife"
+  #DeleteRegKey SHELL_CONTEXT "SOFTWARE\Classes\x-grid-location-info"
+  #DeleteRegKey SHELL_CONTEXT "SOFTWARE\Classes\secondlife"
+  #DeleteRegKey HKEY_CLASSES_ROOT "x-grid-location-info"
+  #DeleteRegKey HKEY_CLASSES_ROOT "secondlife"
 
 NoDelete:
 
@@ -848,7 +997,9 @@ Function .onInstSuccess
         # Quote the updater executable and the viewer executable because each
         # must be a distinct command-line token, but DO NOT quote the language
         # string because it must decompose into separate command-line tokens.
-        Exec '"$INSTDIR\$INSTEXE" precheck "$INSTDIR\$VIEWER_EXE" $SHORTCUT_LANG_PARAM'
+        # TODO:cita forbiden secondlife update 
+        # Exec '"$INSTDIR\$INSTEXE" precheck "$INSTDIR\$VIEWER_EXE" $SHORTCUT_LANG_PARAM'
+        Exec '"$INSTDIR\$VIEWER_EXE" $SHORTCUT_LANG_PARAM'
 # 
 FunctionEnd
 

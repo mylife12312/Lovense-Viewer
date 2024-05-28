@@ -718,7 +718,6 @@ BOOL LLKeyframeMotion::onUpdate(F32 time, U8* joint_mask)
 	applyConstraints(mLastLoopedTime, joint_mask);
 
 	mLastUpdateTime = time;
-
 	return mLastLoopedTime <= mJointMotionList->mDuration;
 }
 
@@ -1984,7 +1983,6 @@ BOOL LLKeyframeMotion::deserialize(LLDataPacker& dp, const LLUUID& asset_id, boo
 	mAssetStatus = ASSET_LOADED;
 
 	setupPose();
-
 	return TRUE;
 }
 
@@ -2528,4 +2526,3 @@ LLKeyframeMotion::JointConstraint::~JointConstraint()
 }
 
 // End
-

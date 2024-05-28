@@ -43,7 +43,7 @@
 		Vente mixte
 	</panel.string>
 	<text name="title" value="Profil de l&apos;objet"/>
-	<text name="where" value="(dans Second Life)"/>
+	<text name="where" value="(dans Lovense Viewer)"/>
 	<panel label="" name="properties_panel">
 		<text name="Name:">
 			Nom :
@@ -97,7 +97,7 @@
 			<check_box label="Copier" name="checkbox next owner can copy" tool_tip="Le prochain propriétaire peut faire des copies illimitées de cet objet. Les copies conservent les informations sur le créateur et ne peuvent jamais être plus permissives que l&apos;élément qui est copié."/>
 			<check_box label="Transférer" name="checkbox next owner can transfer" tool_tip="Le prochain propriétaire peut donner ou revendre cet objet"/>
 		</panel>
-		<check_box label="À vendre" name="checkbox for sale" tool_tip="Permet aux gens d&apos;acheter cet objet, son contenu ou de le copier dans Second Life à un prix donné."/>
+		<check_box label="À vendre" name="checkbox for sale" tool_tip="Permet aux gens d&apos;acheter cet objet, son contenu ou de le copier dans Lovense Viewer à un prix donné."/>
 		<combo_box name="sale type" tool_tip="Indiquez si l’acheteur recevra une copie, une copie du contenu ou l’article lui-même.">
 			<combo_box.item label="Copier" name="Copy"/>
 			<combo_box.item label="Contenus" name="Contents"/>

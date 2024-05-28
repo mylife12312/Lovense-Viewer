@@ -9,8 +9,8 @@
 			<combo_editor label="Søg [SECOND_LIFE]" name="search_combo_editor"/>
 		</search_combo_box>
 	</panel>
-	<favorites_bar name="favorite" tool_tip="Træk landemærker hertil for at få hurtig adgang til dine favoritsteder i Second Life!">
-		<label name="favorites_bar_label" tool_tip="Træk landemærker hertil for at få hurtig adgang til dine favoritsteder i Second Life!">
+	<favorites_bar name="favorite" tool_tip="Træk landemærker hertil for at få hurtig adgang til dine favoritsteder i Lovense Viewer!">
+		<label name="favorites_bar_label" tool_tip="Træk landemærker hertil for at få hurtig adgang til dine favoritsteder i Lovense Viewer!">
 			Favoritter
 		</label>
 		<chevron_button name="&gt;&gt;" tool_tip="Søg mere af mine favoritter"/>

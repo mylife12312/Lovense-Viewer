@@ -21,7 +21,7 @@
 	<panel left="-426" name="balance_bg" width="195">
 		<text name="balance" tool_tip="Cliquer sur ce bouton pour actualiser votre solde en L$." value="L$ ??"/>
 		<button label="Acheter L$" name="buyL" tool_tip="Cliquer pour acheter plus de L$."/>
-		<button label="Achats" name="goShop" tool_tip="Ouvrir la Place du marché Second Life." width="75"/>
+		<button label="Achats" name="goShop" tool_tip="Ouvrir la Place du marché Lovense Viewer." width="75"/>
 	</panel>
 	<text name="TimeText" tool_tip="Heure actuelle (Pacifique)">
 		00h00 PST

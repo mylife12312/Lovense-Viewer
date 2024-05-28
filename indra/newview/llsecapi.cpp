@@ -48,7 +48,8 @@ void initializeSecHandler()
 	gHandlerMap[BASIC_SECHANDLER] = new LLSecAPIBasicHandler();
 	
 	
-	// Currently, we only have the Basic handler, so we can point the main sechandler
+	// Currently, we only have the Basic
+    // handler, so we can point the main sechandler
 	// pointer to the basic handler.  Later, we'll create a wrapper handler that
 	// selects the appropriate sechandler as needed, for instance choosing the
 	// mac keyring handler, with fallback to the basic sechandler

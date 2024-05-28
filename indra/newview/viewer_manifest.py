@@ -256,7 +256,7 @@ class ViewerManifest(LLManifest):
         return CHANNEL_VENDOR_BASE + ' ' + app_suffix
 
     def exec_name(self):
-        return "SecondLifeViewer"
+        return "LovenseViewer"
 
     def app_name_oneword(self):
         return ''.join(self.app_name().split())
@@ -483,7 +483,7 @@ class WindowsManifest(ViewerManifest):
 
         if self.is_packaging_viewer():
             # Find secondlife-bin.exe in the 'configuration' dir, then rename it to the result of final_exe.
-            self.path(src='%s/secondlife-bin.exe' % self.args['configuration'], dst=self.final_exe())
+            self.path(src='%s/lovense-secondlife-bin.exe' % self.args['configuration'], dst=self.final_exe())
 
             with self.prefix(src=os.path.join(pkgdir, "VMP")):
                 # include the compiled launcher scripts so that it gets included in the file_list
@@ -502,6 +502,9 @@ class WindowsManifest(ViewerManifest):
                                         'llplugin', 'slplugin', self.args['configuration']),
                            "slplugin.exe")
         
+        self.path(src="lovense/remote_sdk/deps/winsparkle/lib/WinSparkle.dll", dst="WinSparkle.dll")
+        self.path(src="lovense/linkstore/linkstore", dst="linkstore")
+
         # Get shared libs from the shared libs staging directory
         with self.prefix(src=os.path.join(self.args['build'], os.pardir,
                                           'sharedlibs', self.args['buildtype'])):
@@ -527,7 +530,9 @@ class WindowsManifest(ViewerManifest):
             # See http://msdn.microsoft.com/en-us/library/ms235291(VS.80).aspx
             self.path("msvcp140.dll")
             self.path("vcruntime140.dll")
-            self.path_optional("vcruntime140_1.dll")
+            #self.path("WinSparkle.dll")
+            #self.path("msvcr120.dll")
+            #self.path_optional("vcruntime140_1.dll")
 
             # SLVoice executable
             with self.prefix(src=os.path.join(pkgdir, 'bin', 'release')):
@@ -606,7 +611,9 @@ class WindowsManifest(ViewerManifest):
                                               'sharedlibs', self.args['buildtype'])):
                 self.path("msvcp140.dll")
                 self.path("vcruntime140.dll")
-                self.path_optional("vcruntime140_1.dll")
+                #self.path("WinSparkle.dll")
+                #self.path("msvcr120.dll")
+                #self.path_optional("vcruntime140_1.dll")
 
             # CEF files common to all configurations
             with self.prefix(src=os.path.join(pkgdir, 'resources')):
@@ -754,7 +761,7 @@ class WindowsManifest(ViewerManifest):
         inst_vars_template = """
             OutFile "%(installer_file)s"
             !define INSTNAME   "%(app_name_oneword)s"
-            !define SHORTCUT   "%(app_name)s"
+            !define SHORTCUT   "Lovense Viewer"
             !define URLNAME   "secondlife"
             Caption "%(caption)s"
             """
@@ -1393,7 +1400,7 @@ class LinuxManifest(ViewerManifest):
             self.path("install.sh")
 
         with self.prefix(dst="bin"):
-            self.path("secondlife-bin","do-not-directly-run-secondlife-bin")
+            self.path("lovense-secondlife-bin","do-not-directly-run-secondlife-bin")
             self.path("../linux_crash_logger/linux-crash-logger","linux-crash-logger.bin")
             self.path2basename("../llplugin/slplugin", "SLPlugin")
             #this copies over the python wrapper script, associated utilities and required libraries, see SL-321, SL-322 and SL-323

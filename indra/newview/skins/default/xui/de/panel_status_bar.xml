@@ -21,7 +21,7 @@
 	<panel left="-436" name="balance_bg" width="205">
 		<text name="balance" tool_tip="Klicken, um L$-Guthaben zu aktualisieren" value="L$ ??"/>
 		<button label="L$ kaufen" name="buyL" tool_tip="Hier klicken, um mehr L$ zu kaufen"/>
-		<button label="Einkaufen" name="goShop" tool_tip="Second Life-Marktplatz öffnen" width="85"/>
+		<button label="Einkaufen" name="goShop" tool_tip="Lovense Viewer-Marktplatz öffnen" width="85"/>
 	</panel>
 	<text name="TimeText" tool_tip="Aktuelle Zeit (Pazifik)">
 		24:00 H PST

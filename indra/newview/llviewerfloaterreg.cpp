@@ -168,6 +168,8 @@
 #include "llpreviewtexture.h"
 #include "llscriptfloater.h"
 #include "llsyswellwindow.h"
+#include "lovense/llfloaterlovensepanel.h"
+//#include "lovense/llfloaterlovensecontrol.h"
 
 // *NOTE: Please add files in alphabetical order to keep merges easy.
 
@@ -415,6 +417,10 @@ void LLViewerFloaterReg::registerFloaters()
 	LLFloaterReg::add("pathfinding_console", "floater_pathfinding_console.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterPathfindingConsole>);
 	LLFloaterReg::add("people", "floater_people.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterSidePanelContainer>);
 	LLFloaterReg::add("performance", "floater_performance.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterPerformance>);
+    LLFloaterReg::add("lovense", "floater_lovense.xml", (LLFloaterBuildFunc) &LLFloaterReg::build<LLFloaterLovensePanel>);
+	//LLFloaterReg::add("lovense_control", "floater_lovense_control.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterLovenseControl>);
+
+
 	LLFloaterReg::add("perms_default", "floater_perms_default.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterPermsDefault>);
 	LLFloaterReg::add("places", "floater_places.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterSidePanelContainer>);
 	LLFloaterReg::add("preferences", "floater_preferences.xml", (LLFloaterBuildFunc)&LLFloaterReg::build<LLFloaterPreference>);

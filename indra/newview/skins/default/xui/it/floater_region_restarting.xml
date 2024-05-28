@@ -3,7 +3,7 @@
 	<string name="RegionName">
 		La regione in cui ti trovi ([NAME]) verrà riavviata tra breve.
 
-Se rimani in questa regione verrai scollegato da Second Life.
+Se rimani in questa regione verrai scollegato da Lovense Viewer.
 	</string>
 	<string name="RestartSeconds">
 		Secondi prima del riavvio
@@ -13,7 +13,7 @@ Se rimani in questa regione verrai scollegato da Second Life.
 		<text name="region_name">
 			La regione in cui ti trovi (il nome di regione più lungo) verrà riavviata tra breve.
 
-Se rimani in questa regione verrai scollegato da Second Life.
+Se rimani in questa regione verrai scollegato da Lovense Viewer.
 		</text>
 		<text name="restart_seconds">
 			Secondi prima del riavvio

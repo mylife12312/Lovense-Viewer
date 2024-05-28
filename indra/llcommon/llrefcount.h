@@ -53,8 +53,10 @@ public:
 
     inline void validateRefCount() const
     {
+#ifdef SHOW_ASSERT
         llassert(mRef > 0); // ref count below 0, likely corrupted
         llassert(mRef < gMaxRefCount); // ref count excessive, likely memory leak
+#endif
     }
 
 	inline void ref() const
@@ -119,7 +121,9 @@ public:
 
 	void unref()
 	{
+#ifdef SHOW_ASSERT
 		llassert(mRef >= 1);
+#endif
 		if ((--mRef) == 0)
 		{
 			// If we hit zero, the caller should be the only smart pointer owning the object and we can delete it.

@@ -151,6 +151,8 @@ with the same filename but different name
   <texture name="Command_Environments_Icon" file_name="toolbar_icons/environments.png" preload="true" />
   <texture name="Command_People_Icon"       file_name="toolbar_icons/people.png"       preload="true" />
   <texture name="Command_Performance_Icon"  file_name="toolbar_icons/performance.png"  preload="true" />
+  <texture name="Command_REMOTE_Icon"  file_name="toolbar_icons/remote.png"  preload="true" />
+
   <texture name="Command_Picks_Icon"        file_name="toolbar_icons/picks.png"        preload="true" />
   <texture name="Command_Places_Icon"       file_name="toolbar_icons/places.png"       preload="true" />
   <texture name="Command_Preferences_Icon"  file_name="toolbar_icons/preferences.png"  preload="true" />
@@ -844,6 +846,7 @@ with the same filename but different name
   <texture name="badge_warn.j2c" />
   <texture name="badge_ok.j2c" />
   <texture name="materials_ui_x_24.png" />
+  <texture name="icon_lovense_remote.tga" />
 
   <texture name="Progress_1" file_name="icons/Progress_1.png" preload="true" />
   <texture name="Progress_2" file_name="icons/Progress_2.png" preload="true" />
@@ -881,4 +884,70 @@ with the same filename but different name
   <texture name="System_Notification" file_name="icons/SL_Logo.png" preload="true"/>
   <texture name="Icon_Attachment_Small" file_name="icons/Icon_Attachment_Small.png"	preload="true"/>
   <texture name="Icon_Attachment_Large" file_name="icons/Icon_Attachment_Large.png"	preload="true"/>
+
+  <!--Lovense-->
+  <texture name="Icon_Scand_qrcode_dec" file_name="lovense/icon_scand_qrcode_dec.png"	preload="true"/>
+  <texture name="Icon_All_Toys_bg" file_name="lovense/icon_all_toys.png"	preload="true"/>
+  <texture name="Icon_Step1_dec_bg" file_name="lovense/icon_setp1_dec.png"	preload="true"/>
+  <texture name="Icon_Step2_dec_bg" file_name="lovense/icon_step2_dec.png"	preload="true"/>
+  <texture name="Icon_Step3_dec_bg" file_name="lovense/icon_step3_dec.png"	preload="true"/>
+  <texture name="Icon_Point_Black_bg" file_name="lovense/point_black.png"	preload="true"/>
+  <texture name="Icon_Point_Write_bg" file_name="lovense/point_write.png"	preload="true"/>
+  <texture name="Icon_connected_bg" file_name="lovense/icon_connected.png"	preload="true"/>
+  <texture name="Icon_toy_select_bg" file_name="lovense/toy_select.png"	preload="true"/>
+
+  <texture name="Icon_battery_0" file_name="lovense/nav_toy_battery_0-1.png"	preload="true"/>
+  <texture name="Icon_battery_1" file_name="lovense/nav_toy_battery_1-1.png"	preload="true"/>
+  <texture name="Icon_battery_10" file_name="lovense/nav_toy_battery_10-1.png"	preload="true"/>
+  <texture name="Icon_battery_20" file_name="lovense/nav_toy_battery_20-1.png"	preload="true"/>
+  <texture name="Icon_battery_30" file_name="lovense/nav_toy_battery_30-1.png"	preload="true"/>
+  <texture name="Icon_battery_40" file_name="lovense/nav_toy_battery_40-1.png"	preload="true"/>
+  <texture name="Icon_battery_50" file_name="lovense/nav_toy_battery_50-1.png"	preload="true"/>
+  <texture name="Icon_battery_60" file_name="lovense/nav_toy_battery_60-1.png"	preload="true"/>
+  <texture name="Icon_battery_70" file_name="lovense/nav_toy_battery_70-1.png"	preload="true"/>
+  <texture name="Icon_battery_80" file_name="lovense/nav_toy_battery_80-1.png"	preload="true"/>
+  <texture name="Icon_battery_90" file_name="lovense/nav_toy_battery_90-1.png"	preload="true"/>
+  <texture name="Icon_battery_100" file_name="lovense/nav_toy_battery_100-1.png"	preload="true"/>
+
+  <texture name="Icon_Ambi_1" file_name="lovense/Ambi_1.png"	preload="true"/>
+  <texture name="Icon_Calor_1" file_name="lovense/Calor_1.png"	preload="true"/>
+  <texture name="Icon_Diamo_1" file_name="lovense/Diamo_1.png"	preload="true"/>
+  <texture name="Icon_Dolce_1" file_name="lovense/Dolce_1.png"	preload="true"/>
+  <texture name="Icon_Domi_1" file_name="lovense/Domi_1.png"	preload="true"/>
+  <texture name="Icon_Domi_2" file_name="lovense/Domi_2.png"	preload="true"/>
+  <texture name="Icon_Edge_1" file_name="lovense/Edge_1.png"	preload="true"/>
+  <texture name="Icon_Edge_2" file_name="lovense/Edge_2.png"	preload="true"/>
+  <texture name="Icon_Exomoon_1" file_name="lovense/Exomoon_1.png"	preload="true"/>
+  <texture name="Icon_Ferri_1" file_name="lovense/Ferri_1.png"	preload="true"/>
+  <texture name="Icon_Flexer_1" file_name="lovense/Flexer_1.png"	preload="true"/>
+  <texture name="Icon_Gemini_1" file_name="lovense/Gemini_1.png"	preload="true"/>
+  <texture name="Icon_Gravity_1" file_name="lovense/Gravity_1.png"	preload="true"/>
+  <texture name="Icon_Gush_1" file_name="lovense/Gush_1.png"	preload="true"/>
+  <texture name="Icon_Hush_1" file_name="lovense/Hush_1.png"	preload="true"/>
+  <texture name="Icon_Hush_2" file_name="lovense/Hush_2.png"	preload="true"/>
+  <texture name="Icon_Hyphy_1" file_name="lovense/Hyphy_1.png"	preload="true"/>
+  <texture name="Icon_Lush_1" file_name="lovense/Lush_1.png"	preload="true"/>
+  <texture name="Icon_Lush_2" file_name="lovense/Lush_2.png"	preload="true"/>
+  <texture name="Icon_Lush_3" file_name="lovense/Lush_3.png"	preload="true"/>
+  <texture name="Icon_Max_1" file_name="lovense/Max_1.png"	preload="true"/>
+  <texture name="Icon_Max_2" file_name="lovense/Max_2.png"	preload="true"/>
+  <texture name="Icon_Mission_1" file_name="lovense/Mission_1.png"	preload="true"/>
+  <texture name="Icon_Nora_1" file_name="lovense/Nora_1.png"	preload="true"/>
+  <texture name="Icon_Osci_1" file_name="lovense/Osci_1.png"	preload="true"/>
+  <texture name="Icon_Osci_2" file_name="lovense/Osci_2.png"	preload="true"/>
+  <texture name="Icon_Ridge_1" file_name="lovense/Ridge_1.png"	preload="true"/>
+  <texture name="Icon_Tenera_1" file_name="lovense/Tenera_1.png"	preload="true"/>
+  <texture name="Icon_Xmachine_1" file_name="lovense/Xmachine_1.png"	preload="true"/>    
+  <texture name="Icon_Unknown_toy" file_name="lovense/Unknown_toy.png"	preload="true"/>
+  <texture name="Icon_Vulse_1" file_name="lovense/Vulse_1.png"	preload="true"/>
+
+  <texture name="Icon_btn_normal" file_name="lovense/btn_normal.png"	preload="true"/>
+  <texture name="Icon_btn_pause" file_name="lovense/btn_pause.png"	preload="true"/>
+  <texture name="Icon_btn_restart" file_name="lovense/btn_restart.png"	preload="true"/>
+
+  <texture name="Icon_qrcode_bg" file_name="lovense/Icon_qrcode_bg.png"	preload="true"/>
+  <texture name="Icon_refresh_qrcode" file_name="lovense/Icon_refresh_qrcode.png"	preload="true"/>
+  <texture name="Icon_overlay_start" file_name="lovense/btn_restart_icon.png"	preload="true"/>
+  <texture name="Icon_overlay_pause" file_name="lovense/btn_pause_icon.png"	preload="true"/>
+
 </textures>

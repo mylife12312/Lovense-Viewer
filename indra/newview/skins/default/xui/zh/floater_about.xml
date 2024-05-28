@@ -6,7 +6,7 @@
 			<button label="查詢是否有更新版" name="update_btn"/>
 		</panel>
 		<panel label="貸記" name="credits_panel">
-			<text name="linden_intro">Second Life 由以下的 Linden 家族帶給你： 
+			<text name="linden_intro">Lovense Viewer 由以下的 Linden 家族帶給你： 
 這些人士做了開放源碼的貢獻：</text>
 			<text_editor name="contrib_names">執行時期被取代的假名稱</text_editor>
 		</panel>
@@ -32,7 +32,7 @@
         xxHash Copyright (C) 2012-2020 Yann Collet.
         zlib Copyright (C) 1995-2012 Jean-loup Gailly and Mark Adler.
 
-        第二人生 Viewer 採用 Havok (TM) 物理引擎。 (c)Copyright 1999-2010 Havok.com Inc.（及其放照人）。 保留一切權利。 詳情見 www.havok.com。
+        Lovense Viewer 採用 Havok (TM) 物理引擎。 (c)Copyright 1999-2010 Havok.com Inc.（及其放照人）。 保留一切權利。 詳情見 www.havok.com。
 
         本軟體含有 NVIDIA Corporation 提供的源程式碼。
 

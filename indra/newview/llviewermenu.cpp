@@ -137,6 +137,7 @@
 #include <boost/algorithm/string.hpp>
 #include "llcleanup.h"
 #include "llviewershadermgr.h"
+#include "lovense/llLovenseAdapter.h"
 
 using namespace LLAvatarAppearanceDefines;
 
@@ -6552,6 +6553,50 @@ bool complete_give_money(const LLSD& notification, const LLSD& response, LLObjec
 	return false;
 }
 
+#include "llviewergenericmessage.h"
+#include "lldispatcher.h"
+
+class LLLovenseDispatchHandler : public LLDispatchHandler
+{
+public:
+	virtual bool operator()(
+		const LLDispatcher* dispatcher,
+		const std::string& key,
+		const LLUUID& invoice,
+		const sparam_t& strings)
+	{
+		LLSD message;
+
+		sparam_t::const_iterator it = strings.begin();
+		if (it != strings.end()) {
+			const std::string& llsdRaw = *it++;
+			std::istringstream llsdData(llsdRaw);
+			if (!LLSDSerialize::deserialize(message, llsdData, llsdRaw.length()))
+			{
+				LL_WARNS() << "LLExperienceLogDispatchHandler: Attempted to read parameter data into LLSD but failed:" << llsdRaw << LL_ENDL;
+			}
+		}
+		message["public_id"] = invoice;
+
+		// Object Name
+		if (it != strings.end())
+		{
+			message["ObjectName"] = *it++;
+		}
+
+		// parcel Name
+		if (it != strings.end())
+		{
+			message["ParcelName"] = *it++;
+		}
+		message["Count"] = 1;
+
+		return true;
+	}
+};
+
+static LLLovenseDispatchHandler gLovenseDipatchHandler;
+
 void handle_give_money_dialog()
 {
 	LLNotification::Params params("DoNotDisturbModePay");
@@ -9709,6 +9754,8 @@ void initialize_menus()
 	view_listener_t::addMenu(new LLCheckControl(), "CheckControl");
 	view_listener_t::addMenu(new LLGoToObject(), "GoToObject");
 	commit.add("PayObject", boost::bind(&handle_give_money_dialog));
+	//TODO: mark lovense updates menu
+	commit.add("Lovense.Check.Updates", boost::bind(&lovense::LLLovenseAdapter::onCheckForUpdates));
 
 	commit.add("Inventory.NewWindow", boost::bind(&LLPanelMainInventory::newWindow));
 

@@ -705,7 +705,7 @@ set(viewer_SOURCE_FILES
     pipeline.cpp
     )
 
-set(VIEWER_BINARY_NAME "secondlife-bin" CACHE STRING
+set(VIEWER_BINARY_NAME "lovense-secondlife-bin" CACHE STRING
     "The name of the viewer executable to create.")
 
 set(viewer_HEADER_FILES
@@ -1622,11 +1622,67 @@ set(viewer_CHARACTER_FILES
     character/genepool.xml
     )
 
+
+#set(viewer_LOVENSE_FILES )
+#file(GLOB_RECURSE viewer_LOVENSE_FILES "lovense/*")
+
+
+set(viewer_LOVENSE_FILES
+    lovense/CHttpClient.h
+    lovense/CHttpClient.cpp
+    lovense/llbase.h
+    lovense/llbase.cpp
+    lovense/llFloaterLovensePanel.h
+    lovense/llFloaterLovensePanel.cpp
+    lovense/QrCode.hpp
+    lovense/QrCode.cpp
+    lovense/TinyPngOut.hpp
+    lovense/TinyPngOut.cpp
+    lovense/QrToPng.h
+    lovense/QrToPng.cpp
+    lovense/llToyModel.h
+    lovense/llToyModel.cpp
+    lovense/llLovenseAdapter.h
+    lovense/llLovenseAdapter.cpp
+)
+
+list(APPEND viewer_LOVENSE_FILES 
+    lovense/remote_sdk/cJSON.cpp
+    lovense/remote_sdk/cJSON.h
+    lovense/remote_sdk/CJsonObject.cpp
+    lovense/remote_sdk/CJsonObject.hpp
+    lovense/remote_sdk/lovense_uri.cpp
+    lovense/remote_sdk/lovense_uri.hpp
+    lovense/remote_sdk/llRemoteSocketIOProxy.cpp
+    lovense/remote_sdk/llRemoteSocketIOProxy.hpp
+    lovense/remote_sdk/ThreadPool.h
+
+)
+
+if(DARWIN)
+    list(APPEND viewer_LOVENSE_FILES
+    lovense/llmacsparkle.h
+    lovense/llmacsparkle.mm
+    )
+endif(DARWIN)
+
 source_group("Character File" FILES ${viewer_CHARACTER_FILES})
+source_group("Lovense File" FILES ${viewer_LOVENSE_FILES})
+
+include_directories("${CMAKE_SOURCE_DIR}/newview/lovense/remote_sdk/deps/socketio")
+link_directories("${CMAKE_SOURCE_DIR}/newview/lovense/remote_sdk/deps/socketio/lib")
+link_directories("${CMAKE_SOURCE_DIR}/newview/lovense/remote_sdk/deps/openssl/lib")
+if(WINDOWS)
+    include_directories("${CMAKE_SOURCE_DIR}/newview/lovense/remote_sdk/deps/winsparkle/includes")
+    link_directories("${CMAKE_SOURCE_DIR}/newview/lovense/remote_sdk/deps/winsparkle/lib")
+endif(WINDOWS)
+
+
 
 set_source_files_properties(${viewer_CHARACTER_FILES}
                             PROPERTIES HEADER_FILE_ONLY TRUE)
 list(APPEND viewer_SOURCE_FILES ${viewer_CHARACTER_FILES})
+list(APPEND viewer_SOURCE_FILES ${viewer_LOVENSE_FILES})
 
 if (WINDOWS)
   file(GLOB viewer_INSTALLER_FILES installers/windows/*.nsi)
@@ -1672,7 +1728,7 @@ if (WINDOWS)
         # *TODO -reenable this once we get server usage sorted out
         LINK_FLAGS "/debug /NODEFAULTLIB:LIBCMT /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE"
         LINK_FLAGS_DEBUG "/NODEFAULTLIB:\"LIBCMT;LIBCMTD;MSVCRT\" /INCREMENTAL:NO /LARGEADDRESSAWARE"
-        LINK_FLAGS_RELEASE "/FORCE:MULTIPLE /MAP\"secondlife-bin.MAP\" /OPT:REF /LARGEADDRESSAWARE"
+        LINK_FLAGS_RELEASE "/FORCE:MULTIPLE /MAP\"lovense-secondlife-bin.MAP\" /OPT:REF /LARGEADDRESSAWARE"
         )
 
     if(USE_PRECOMPILED_HEADERS)
@@ -1903,6 +1959,20 @@ target_link_libraries(${VIEWER_BINARY_NAME}
         ll::tracy
         )
 
+ if(WINDOWS)       
+     target_link_libraries(${VIEWER_BINARY_NAME}
+	    libcrypto
+	    libssl
+        sioclient
+        WinSparkle)
+else()
+    find_library(SPARKLE NAMES Sparkle PATHS ${CMAKE_SOURCE_DIR}/newview/lovense/remote_sdk/deps/frameworks PATH_SUFFIXES Frameworks NO_DEFAULT_PATH)
+    set(SPARKLE_LIBRARY "'${CMAKE_SOURCE_DIR}/newview/lovense/remote_sdk/deps/frameworks/Sparkle.framework'")
+    target_link_libraries(${VIEWER_BINARY_NAME}
+    "${SPARKLE}/Sparkle"
+    ${CMAKE_SOURCE_DIR}/newview/lovense/remote_sdk/deps/socketio/lib/libsioclient.a
+    "-F ${SPARKLE_LIBRARY}")
+endif(WINDOWS)
 if( TARGET ll::intel_memops )
    target_link_libraries(${VIEWER_BINARY_NAME} ll::intel_memops )
 endif()
@@ -1999,12 +2069,12 @@ if (DARWIN)
   set(MACOSX_EXECUTABLE_NAME "${VIEWER_CHANNEL}")
   set(MACOSX_BUNDLE_INFO_STRING "${VIEWER_CHANNEL}")
   set(MACOSX_BUNDLE_ICON_FILE "secondlife.icns")
-  set(MACOSX_BUNDLE_GUI_IDENTIFIER "com.secondlife.indra.viewer")
+  set(MACOSX_BUNDLE_GUI_IDENTIFIER "com.lovense.viewer")
   set(MACOSX_BUNDLE_LONG_VERSION_STRING "${VIEWER_CHANNEL} ${VIEWER_SHORT_VERSION}.${VIEWER_VERSION_REVISION}")
   set(MACOSX_BUNDLE_BUNDLE_NAME "SecondLife")
   set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${VIEWER_SHORT_VERSION}.${VIEWER_VERSION_REVISION}")
   set(MACOSX_BUNDLE_BUNDLE_VERSION "${VIEWER_SHORT_VERSION}${VIEWER_MACOSX_PHASE}${VIEWER_REVISION}")
-  set(MACOSX_BUNDLE_COPYRIGHT "Copyright © Linden Research, Inc. 2020")
+  set(MACOSX_BUNDLE_COPYRIGHT "Copyright © HYTTO PTE. LTD. 2024")
   set(MACOSX_BUNDLE_NSMAIN_NIB_FILE "SecondLife.nib")
   set(MACOSX_BUNDLE_NSPRINCIPAL_CLASS "LLApplication")
 
@@ -2124,8 +2194,8 @@ if (PACKAGE AND (RELEASE_CRASH_REPORTING OR NON_RELEASE_CRASH_REPORTING) AND VIE
           "${VIEWER_SYMBOL_FILE_CYGWIN}"
           "-C"
           "${PARENT_DIRECTORY_CYGWIN}"
-          "secondlife-bin.pdb"
-        DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/secondlife-bin.pdb"
+          "lovense-secondlife-bin.pdb"
+        DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/lovense-secondlife-bin.pdb"
         COMMENT "Packing viewer PDB into ${VIEWER_SYMBOL_FILE_CYGWIN}"
         )
       add_custom_target(generate_symbols DEPENDS "${VIEWER_SYMBOL_FILE}" ${VIEWER_BINARY_NAME})

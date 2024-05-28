@@ -43,7 +43,7 @@
 		Vendita mista
 	</panel.string>
 	<text name="title" value="Profilo dell&apos;oggetto"/>
-	<text name="where" value="(in Second Life)"/>
+	<text name="where" value="(in Lovense Viewer)"/>
 	<panel label="" name="properties_panel">
 		<text name="Name:">
 			Nome:

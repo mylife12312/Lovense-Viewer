@@ -16,7 +16,7 @@
 	</text>
 	<radio_group name="preferred_browser_behavior">
 		<radio_item label="Tüm bağlantılar için sisteme ait varsayılan tarayıcıyı kullan" name="internal" tool_tip="Yardım, web bağlantıları vb. için sistemin varsayılan web tarayıcısını kullanın. Tam ekran çalıştırılıyorsa tavsiye edilmez." value="0"/>
-		<radio_item label="Yerleşik tarayıcıyı yalnızca Second Life bağlantıları için kullan" name="external" tool_tip="Yardım, web bağlantıları vb. için sisteme ait varsayılan web tarayıcıyı kullan Yerleşik tarayıcı yalnızca LindenLab/Second Life bağlantıları için kullanılır." value="1"/>
+		<radio_item label="Yerleşik tarayıcıyı yalnızca Lovense Viewer bağlantıları için kullan" name="external" tool_tip="Yardım, web bağlantıları vb. için sisteme ait varsayılan web tarayıcıyı kullan Yerleşik tarayıcı yalnızca LindenLab/Lovense Viewer bağlantıları için kullanılır." value="1"/>
 		<radio_item label="Tüm bağlantılar için yerleşik tarayıcıyı kullan" name="external_all" tool_tip="Yardım, web bağlantıları vs. için dahili web tarayıcısını kullanın. Bu tarayıcı [APP_NAME] içerisinde yeni bir pencere olarak açılır." value="2"/>
 	</radio_group>
 	<check_box initial_value="true" label="Eklentileri etkinleştir" name="browser_plugins_enabled"/>

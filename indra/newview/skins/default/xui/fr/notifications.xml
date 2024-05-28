@@ -225,11 +225,11 @@ Veuillez ne sélectionner qu'un seul objet.</notification>
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="AllowMultipleViewers">
-		L'exécution de plusieurs visualiseurs Second Life n'est pas prise en charge. Cela peut entraîner des collisions de cache de texture, une corruption et une dégradation des visuels et des performances.
+		L'exécution de plusieurs visualiseurs Lovense Viewer n'est pas prise en charge. Cela peut entraîner des collisions de cache de texture, une corruption et une dégradation des visuels et des performances.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="GrantModifyRights">
-		Lorsque vous accordez des droits de modification à un autre résident, vous lui permettez de changer, supprimer ou prendre n'importe lequel de vos objets dans Second Life. Réfléchissez bien avant d'accorder ces droits.
+		Lorsque vous accordez des droits de modification à un autre résident, vous lui permettez de changer, supprimer ou prendre n'importe lequel de vos objets dans Lovense Viewer. Réfléchissez bien avant d'accorder ces droits.
 Voulez-vous vraiment accorder des droits de modification à [NAME] ?
 		<usetemplate name="okcancelbuttons" notext="Non" yestext="Oui"/>
 	</notification>
@@ -471,7 +471,7 @@ Pour ne placer le média que sur une seule face, choisissez Sélectionner une fa
 	<notification name="ErrorTextureCannotAfford">Il vous faut [COST] L$ pour enregistrer une texture dans votre inventaire. Vous pouvez acheter des L$ ou enregistrer la photo sur votre ordinateur.</notification>
 	<notification name="ErrorUploadingPostcard">Une erreur est survenue lors du chargement du script compilé, suite au problème suivant : [REASON]</notification>
 	<notification name="ErrorUploadingReportScreenshot">Une erreur est survenue lors du chargement de la capture d'écran destinée au rapport, suite au problème suivant : [REASON]</notification>
-	<notification name="MustAgreeToLogIn">Vous devez accepter lestermes et conditions; la Politique de confidentialité et les Conditions d'utilisation de Second Life pour poursuivre votre connexion à [SECOND_LIFE].</notification>
+	<notification name="MustAgreeToLogIn">Vous devez accepter lestermes et conditions; la Politique de confidentialité et les Conditions d'utilisation de Lovense Viewer pour poursuivre votre connexion à [SECOND_LIFE].</notification>
 	<notification name="CouldNotPutOnOutfit">Impossible de mettre cet ensemble.
 Ce dossier ne contient pas d'habits, de parties du corps ni de pièces jointes.</notification>
 	<notification name="CannotWearTrash">Vous ne pouvez pas porter d'habits ni de parties du corps se trouvant dans la corbeille.</notification>
@@ -1879,7 +1879,7 @@ Il semble que vous souhaitiez reporter une infraction à des droits de propriét
 
 (1) Remplissez un rapport d'infraction. Vous pouvez soumettre un rapport d'infraction si vous pensez qu'un résident exploite le système de droits de [SECOND_LIFE], par exemple en utilisant un CopyBot ou des outils similaires pour enfreindre des droits de propriété intellectuelle. Notre équipe chargée des infractions mènera une enquête et prendra les mesures nécessaires à l'encontre du résident non respectueux des [SECOND_LIFE] [http://secondlife.com/corporate/tos.php Conditions d'utilisation] ou des [http://secondlife.com/corporate/cs.php Règles communautaires]. Sachez toutefois que l'équipe chargée des infractions ne supprimera pas de contenu à l'intérieur de [SECOND_LIFE].
 
-(2) Demandez à ce que du contenu à l'intérieur de Second Life soit supprimé. Pour demander à ce que du contenu soit supprimé de [SECOND_LIFE], vous devez soumettre un rapport d'infraction valide, tel que fourni dans notre [http://secondlife.com/corporate/dmca.php Règlement contre les violations des droits d'auteur].
+(2) Demandez à ce que du contenu à l'intérieur de Lovense Viewer soit supprimé. Pour demander à ce que du contenu soit supprimé de [SECOND_LIFE], vous devez soumettre un rapport d'infraction valide, tel que fourni dans notre [http://secondlife.com/corporate/dmca.php Règlement contre les violations des droits d'auteur].
 
 Si vous souhaitez toujours reporter cette infraction, veuillez fermer cette fenêtre et soumettre votre rapport.  Vous devrez peut-être sélectionner la catégorie CopyBot ou exploitation abusive des droits.
 
@@ -3068,7 +3068,7 @@ Veuillez sélectionner un terrain plus petit.</notification>
 	<notification name="DroppedMoneyTransferRequest">Impossible d’effectuer le paiement à cause de la charge système.</notification>
 	<notification name="CantPayNoAgent">Impossible de savoir qui payer.</notification>
 	<notification name="CantDonateToPublicObjects">Vous ne pouvez pas donner de L$ à des objets publics.</notification>
-	<notification name="InventoryCreationInWorldObjectFailed">Échec de la création d'inventaire sur l'objet Second Life.</notification>
+	<notification name="InventoryCreationInWorldObjectFailed">Échec de la création d'inventaire sur l'objet Lovense Viewer.</notification>
 	<notification name="UserBalanceOrLandUsageError">Une erreur interne nous a empêchés de mettre votre client à jour correctement.  Le solde de L$ et le patrimoine affichés dans votre client peuvent ne pas correspondre à votre solde réel sur les serveurs.</notification>
 	<notification name="LargePrimAgentIntersect">Impossible de créer de grands prims qui rejoignent d'autres résidents. Veuillez essayer à nouveau lorsque les autres résidents seront partis.</notification>
 	<notification name="PreferenceChatClearLog">

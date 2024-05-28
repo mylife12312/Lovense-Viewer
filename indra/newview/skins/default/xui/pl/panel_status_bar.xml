@@ -15,7 +15,7 @@
 	<panel name="balance_bg">
 		<text name="balance" tool_tip="Kliknij aby odświeżyć saldo L$" />
 		<button label="Kup L$" name="buyL" tool_tip="Kliknij aby kupić więcej L$" />
-		<button label="Sklep" name="goShop" tool_tip="Otwórz witrynę Second Life Marketplace" />
+		<button label="Sklep" name="goShop" tool_tip="Otwórz witrynę Lovense Viewer Marketplace" />
 	</panel>
 	<text name="TimeText" tool_tip="Obecny czas (Pacyficzny)" />
 	<button name="media_toggle_btn" tool_tip="Odtwórz/Zatrzymaj wszystkie media (Muzyka, Wideo, WWW)" />

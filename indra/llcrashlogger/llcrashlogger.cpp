@@ -49,6 +49,7 @@
 
 #include <curl/curl.h>
 #include <openssl/crypto.h>
+#include "../newview/lovense/llLovenseAdapter.h"
 
 BOOL gBreak = false;
 BOOL gSent = false;
@@ -565,12 +566,12 @@ bool LLCrashLogger::init()
     LLCore::LLHttp::initialize();
 
 	// We assume that all the logs we're looking for reside on the current drive
-	gDirUtilp->initAppDirs("SecondLife");
+	gDirUtilp->initAppDirs(lovense::kProductDataDir);
 
 	LLError::initForApplication(gDirUtilp->getExpandedFilename(LL_PATH_USER_SETTINGS, ""), gDirUtilp->getExpandedFilename(LL_PATH_APP_SETTINGS, ""));
 
 	// Default to the product name "Second Life" (this is overridden by the -name argument)
-	mProductName = "Second Life";
+	mProductName = "SL Second Life";
 
 	// Rename current log file to ".old"
 	std::string old_log_file = gDirUtilp->getExpandedFilename(LL_PATH_LOGS, "crashreport.log.old");

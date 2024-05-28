@@ -8,16 +8,16 @@
 		Second Life
 	</string>
 	<string name="APP_NAME">
-		Second Life
+		Lovense Viewer
 	</string>
 	<string name="CAPITALIZED_APP_NAME">
-		SECOND LIFE
+		Lovense Viewer
 	</string>
 	<string name="SECOND_LIFE_GRID">
-		Сетка Second Life
+		Сетка Lovense Viewer
 	</string>
 	<string name="SUPPORT_SITE">
-		Портал поддержки Second Life
+		Портал поддержки Lovense Viewer
 	</string>
 	<string name="StartupDetectingHardware">
 		Проверка оборудования...
@@ -36,7 +36,6 @@
 	</string>
 	<string name="AboutHeader">
 		[CHANNEL] [VIEWER_VERSION_0].[VIEWER_VERSION_1].[VIEWER_VERSION_2].[VIEWER_VERSION_3] ([ADDRESS_SIZE]bit) 
-[[VIEWER_RELEASE_NOTES_URL] [ReleaseNotes]]
 	</string>
 	<string name="BuildConfig">
 		Конфигурация построения [BUILD_CONFIG]
@@ -197,16 +196,16 @@ SLURL: &lt;nolink&gt;[SLURL]&lt;/nolink&gt;
 		http://join.secondlife.com/?sourceid=[sourceid]
 	</string>
 	<string name="AgniGridLabel">
-		Основная сетка Second Life (Agni)
+		Основная сетка Lovense Viewer (Agni)
 	</string>
 	<string name="AditiGridLabel">
-		Сетка Second Life для бета-тестирования (Aditi)
+		Сетка Lovense Viewer для бета-тестирования (Aditi)
 	</string>
 	<string name="ViewerDownloadURL">
 		http://secondlife.com/download
 	</string>
 	<string name="LoginFailedViewerNotPermitted">
-		У клиента, которым вы пользуетесь, больше нет доступа к игре Second Life. Загрузить новую версию клиента можно по адресу
+		У клиента, которым вы пользуетесь, больше нет доступа к игре Lovense Viewer. Загрузить новую версию клиента можно по адресу
 http://secondlife.com/download
 
 Дополнительные сведения см. в разделе вопросов и ответов по адресу
@@ -241,17 +240,17 @@ http://secondlife.com/viewer-access-faq
 Приносим извинения за неудобство.
 	</string>
 	<string name="LoginFailedEmployeesOnly">
-		Сайт Second Life временно закрыт на техническое обслуживание.
+		Сайт Lovense Viewer временно закрыт на техническое обслуживание.
 В данное время входить могут только сотрудники.
 Обновление состояния см. на веб-странице www.secondlife.com/status.
 	</string>
 	<string name="LoginFailedPremiumOnly">
-		Вход в Second Life временно ограничен, чтобы сохранить наивысшее качество игрового мира для текущих пользователей.
+		Вход в Lovense Viewer временно ограничен, чтобы сохранить наивысшее качество игрового мира для текущих пользователей.
 
-В это время у пользователей с бесплатными аккаунтами не будет доступа к Second Life, чтобы у тех, кто заплатил, было больше места.
+В это время у пользователей с бесплатными аккаунтами не будет доступа к Lovense Viewer, чтобы у тех, кто заплатил, было больше места.
 	</string>
 	<string name="LoginFailedComputerProhibited">
-		Нельзя входить в игру Second Life на этом компьютере.
+		Нельзя входить в игру Lovense Viewer на этом компьютере.
 Если вы считаете, что это ошибка, отправьте сообщение по адресу
 support@secondlife.com.
 	</string>
@@ -261,7 +260,7 @@ support@secondlife.com.
 	</string>
 	<string name="LoginFailedAccountDisabled">
 		В данное время нам не удается выполнить ваш запрос. 
-Обратитесь за помощью в службу поддержки Second Life по адресу http://support.secondlife.com.
+Обратитесь за помощью в службу поддержки Lovense Viewer по адресу http://support.secondlife.com.
 	</string>
 	<string name="LoginFailedTransformError">
 		При входе обнаружена несогласованность данных.
@@ -287,7 +286,7 @@ support@secondlife.com.
 		Не удается подключиться к симулятору.
 	</string>
 	<string name="LoginFailedRestrictedHours">
-		Вы можете входить в Second Life только
+		Вы можете входить в Lovense Viewer только
 от [START] до [END] по тихоокеанскому времени.
 Заходите в это время.
 Если вы считаете, что это ошибка, отправьте сообщение по адресу support@secondlife.com.
@@ -1562,7 +1561,7 @@ support@secondlife.com.
 	</string>
 	<string name="InventoryMarketplaceError">
 		Ошибка при открытии списков товаров торгового центра.
-Если данное сообщение повторится, обратитесь за помощью в службу поддержки Second Life на странице http://support.secondlife.com
+Если данное сообщение повторится, обратитесь за помощью в службу поддержки Lovense Viewer на странице http://support.secondlife.com
 	</string>
 	<string name="InventoryMarketplaceListingsNoItemsTitle">
 		Папка списков товаров торгового центра пуста.
@@ -5923,4 +5922,29 @@ support@secondlife.com.
 
 [https://community.secondlife.com/knowledgebase/english/error-messages-r520/#Section__3 База знаний]
 	</string>
+
+	  <!-- for lovense strings -->
+  <string name="lstr_pause_sync">Приостановить</string>
+  <string name="lstr_restart_sync">Перезапустить</string>
+  <string name="lstr_next">Следующий</string>
+  <string name="lstr_back">Назад</string>
+  <string name="lstr_got_it">Ок</string>
+  <string name="lstr_scan_qr_code_des">Отсканируйте QR-код, чтобы подключить игрушки к приложению Lovense Remote.</string>
+  <string name="lstr_qr_code_failed_des">QR-код не удалось загрузить. Проверьте подключение к Интернету и повторите попытку.</string>
+  <string name="lstr_click_download">Нажмите [https://www.lovense.com/sextoys/download здесь], чтобы скачать приложение Lovense Remote</string>
+  <string name="lstr_now_with_toy_support">Теперь с поддержкой игрушек LOVENSE!</string>
+  <string name="lstr_visit_store">ПОСЕТИТЬ МАГАЗИН</string>
+  <string name="lstr_reload_qrcode">Перезагрузите QR-код</string>
+  <string name="lstr_connected">Подключено</string>
+  <string name="lstr_how_to_get_start">С чего начать?</string>
+  <string name="lstr_step1_des">Шаг 1. Найдите место, где можно развлечься взрослым. Если вам нужна рекомендация, вы можете попробовать следующее место:</string>
+  <string name="lstr_step2_des">Шаг 2: Найдите кровать или диван, где вы сможете интимно пообщаться. Щелкните правой кнопкой мыши по предмету, чтобы сесть.</string>
+  <string name="lstr_step3_des">Шаг 3: Сев, выберите позу для секса на панели дисплея. Ваша игрушка синхронизируется с движениями. Наслаждайтесь!</string>
+  <string name="lstr_skip_next_time">Пропустить в следующий раз</string>
+  <string name="lstr_toy_connect_remote">Игрушки, подключенные к Lovense Remote</string>
+  <string name="lstr_select_toy_control">Выберите игрушку, чтобы принять управление.</string>
+  <string name="lstr_disconnect">Отключить</string>
+  <string name="lstr_guid">[https://Guide Гид]</string>
+  <string name="lstr_not_toy_detect">Игрушка не обнаружена.</string>
+
 </strings>

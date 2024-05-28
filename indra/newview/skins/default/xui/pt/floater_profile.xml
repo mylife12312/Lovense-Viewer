@@ -2,7 +2,7 @@
 <floater name="avatarinfo" title="Perfil">
 	<panel name="panel_profile_view">
 		<tab_container name="panel_profile_tabs">
-			<panel label="Second Life" name="panel_profile_secondlife"/>
+			<panel label="Lovense Viewer" name="panel_profile_secondlife"/>
 			<panel label="Notícias" name="panel_profile_web"/>
 			<panel label="Interesses" name="panel_profile_interests"/>
 			<panel label="Destaques" name="panel_profile_picks"/>

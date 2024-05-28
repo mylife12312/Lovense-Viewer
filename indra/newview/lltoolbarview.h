@@ -80,7 +80,7 @@ public:
 	S32 flashCommand(const LLCommandId& commandId, bool flash, bool force_flashing = false);
 
 	// Loads the toolbars from the existing user or default settings
-	bool loadToolbars(bool force_default = false);	// return false if load fails
+	bool loadToolbars(bool force_default = true);	// return false if load fails
 	
 	// Clears all buttons off the toolbars
 	bool clearToolbars();

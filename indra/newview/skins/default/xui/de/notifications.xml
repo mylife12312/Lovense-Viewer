@@ -225,7 +225,7 @@ Wählen Sie ein einzelnes Objekt aus und versuchen Sie es erneut.</notification>
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="AllowMultipleViewers">
-		Das Starten mehrerer Second Life Viewer wird nicht unterstützt. Dies kann zu Kollisionen des Textur-Caches, Fehlern sowie verschlechterter Grafik und Leistung führen.
+		Das Starten mehrerer Lovense Viewer Viewer wird nicht unterstützt. Dies kann zu Kollisionen des Textur-Caches, Fehlern sowie verschlechterter Grafik und Leistung führen.
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="GrantModifyRights">

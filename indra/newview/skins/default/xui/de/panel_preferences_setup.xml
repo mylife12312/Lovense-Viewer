@@ -16,7 +16,7 @@
 	</text>
 	<radio_group name="preferred_browser_behavior">
 		<radio_item label="Standard-Systembrowser für alle Links verwenden" name="internal" tool_tip="Standard-Browser für Hilfe, Weblinks usw. verwenden. Im Vollbildmodus nicht empfohlen." value="0"/>
-		<radio_item label="Integrierten Browser nur für Second Life-Links verwenden" name="external" tool_tip="Standard-Systembrowser für Hilfe, Weblinks usw. verwenden. Der integrierte Browser wird nur für LindenLab-/Second Life-Links verwendet." value="1"/>
+		<radio_item label="Integrierten Browser nur für Lovense Viewer-Links verwenden" name="external" tool_tip="Standard-Systembrowser für Hilfe, Weblinks usw. verwenden. Der integrierte Browser wird nur für LindenLab-/Lovense Viewer-Links verwendet." value="1"/>
 		<radio_item label="Integrierten Browser für alle Links verwenden" name="external_all" tool_tip="Integrierten Browser für Hilfe, Internetlinks, usw. verwenden. Der Browser wird als eigenständiges Fenster in [APP_NAME] geöffnet." value="2"/>
 	</radio_group>
 	<check_box initial_value="true" label="Plugins aktivieren" name="browser_plugins_enabled"/>

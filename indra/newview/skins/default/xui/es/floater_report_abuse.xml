@@ -41,15 +41,15 @@
 	<combo_box name="category_combo" tool_tip="Categoría -- Elija la categoría que describa mejor esta denuncia">
 		<combo_box.item label="Elegir la categoría" name="Select_category"/>
 		<combo_box.item label="Edad &gt; Jugar a ser niño" name="Age__Age_play"/>
-		<combo_box.item label="Edad &gt; Residente adulto en Teen Second Life" name="Age__Adult_resident_on_Teen_Second_Life"/>
-		<combo_box.item label="Edad &gt; Residente menor de edad fuera de Teen Second Life" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
+		<combo_box.item label="Edad &gt; Residente adulto en Teen Lovense Viewer" name="Age__Adult_resident_on_Teen_Second_Life"/>
+		<combo_box.item label="Edad &gt; Residente menor de edad fuera de Teen Lovense Viewer" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
 		<combo_box.item label="Ataque &gt; Sandbox de combate / Zona no segura" name="Assault__Combat_sandbox___unsafe_area"/>
 		<combo_box.item label="Atacar &gt; Disparar o empujar a otro residente en una zona segura" name="Assault__Safe_area"/>
 		<combo_box.item label="Ataque &gt; Sandbox de prueba de armas" name="Assault__Weapons_testing_sandbox"/>
 		<combo_box.item label="Comercio &gt; Error en la entrega de productos o servicios" name="Commerce__Failure_to_deliver_product_or_service"/>
 		<combo_box.item label="Indiscreción &gt; Información del mundo real" name="Disclosure__Real_world_information"/>
 		<combo_box.item label="Indiscreción &gt; Monitorizar a distancia el chat" name="Disclosure__Remotely_monitoring chat"/>
-		<combo_box.item label="Indiscreción &gt; Información Se Second Life, el chat o los MI" name="Disclosure__Second_Life_information_chat_IMs"/>
+		<combo_box.item label="Indiscreción &gt; Información Se Lovense Viewer, el chat o los MI" name="Disclosure__Second_Life_information_chat_IMs"/>
 		<combo_box.item label="Perturbando la paz &gt; Abuso de los recursos de la región" name="Disturbing_the_peace__Unfair_use_of_region_resources"/>
 		<combo_box.item label="Perturbando la paz &gt; Excesivos objetos con script" name="Disturbing_the_peace__Excessive_scripted_objects"/>
 		<combo_box.item label="Perturbando la paz &gt; Objeto basura" name="Disturbing_the_peace__Object_littering"/>

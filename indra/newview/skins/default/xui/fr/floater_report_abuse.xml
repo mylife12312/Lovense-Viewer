@@ -41,15 +41,15 @@
 	<combo_box name="category_combo" tool_tip="Choisissez la catégorie qui décrit le mieux ce rapport">
 		<combo_box.item label="Sélectionnez une catégorie" name="Select_category"/>
 		<combo_box.item label="Âge &gt; « Age play »" name="Age__Age_play"/>
-		<combo_box.item label="Âge &gt; Résident adulte sur Second Life pour adolescents" name="Age__Adult_resident_on_Teen_Second_Life"/>
-		<combo_box.item label="Âge &gt; Résident mineur en dehors de Second Life pour adolescents" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
+		<combo_box.item label="Âge &gt; Résident adulte sur Lovense Viewer pour adolescents" name="Age__Adult_resident_on_Teen_Second_Life"/>
+		<combo_box.item label="Âge &gt; Résident mineur en dehors de Lovense Viewer pour adolescents" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
 		<combo_box.item label="Assaut &gt; Bac à sable utilisé pour des combats/zone non sécurisée" name="Assault__Combat_sandbox___unsafe_area"/>
 		<combo_box.item label="Assaut &gt; Tirer sur une personne avec une arme, pousser ou bousculer un résident dans une zone « sécurisée »" name="Assault__Safe_area"/>
 		<combo_box.item label="Assaut &gt; Bac à sable pour tests d&apos;armes à feu" name="Assault__Weapons_testing_sandbox"/>
 		<combo_box.item label="Commerce &gt; Incapacité à fournir un produit ou service" name="Commerce__Failure_to_deliver_product_or_service"/>
 		<combo_box.item label="Divulgation &gt; Informations sur la vie réelle" name="Disclosure__Real_world_information"/>
 		<combo_box.item label="Divulgation &gt; Écoute d&apos;un chat à distance" name="Disclosure__Remotely_monitoring chat"/>
-		<combo_box.item label="Divulgation &gt; Informations sur Second Life/chat/IM" name="Disclosure__Second_Life_information_chat_IMs"/>
+		<combo_box.item label="Divulgation &gt; Informations sur Lovense Viewer/chat/IM" name="Disclosure__Second_Life_information_chat_IMs"/>
 		<combo_box.item label="Trouble de la paix &gt; Utilisation inadéquate des ressources de la région" name="Disturbing_the_peace__Unfair_use_of_region_resources"/>
 		<combo_box.item label="Trouble de la paix &gt; Nombre d&apos;objets scriptés excessif" name="Disturbing_the_peace__Excessive_scripted_objects"/>
 		<combo_box.item label="Trouble de la paix &gt; Abandon d&apos;objets" name="Disturbing_the_peace__Object_littering"/>

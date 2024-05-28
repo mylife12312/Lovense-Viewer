@@ -37,7 +37,7 @@ BUILDSCRIPTS_PY3 = "true"
 # All Linden Lab builds (and only Linden Lab builds)
 # should use a viewer_channel that begins with "Second Life"
 ################################################################
-viewer_channel = "Second Life Test"
+viewer_channel = "Lovense Viewer"
 
 
 ################################################################
@@ -46,7 +46,7 @@ viewer_channel = "Second Life Test"
 # which identify themselves in a distinct way with either
 # a sourceid (sent to web services) or a channel name (sent to login)
 # the default sourceid should always be a null string:
-sourceid = ""
+sourceid = "14281ed9-e83c-2806-5bf0-020fe1294368"
 # the additional_packages variable is a blank separated list of package prefixes:
 # additional_packages = ""
 # to set the special values for a package, create variables using each prefix:

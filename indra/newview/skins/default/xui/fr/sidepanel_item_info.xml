@@ -25,7 +25,7 @@
 		(inventaire)
 	</panel.string>
 	<panel.string name="origin_inworld">
-		(dans Second Life)
+		(dans Lovense Viewer)
 	</panel.string>
 	<text name="title" value="Profil de l&apos;article"/>
 	<text name="origin" value="(inventaire)"/>
@@ -73,7 +73,7 @@
 				<check_box label="Copier" name="CheckNextOwnerCopy" tool_tip="Le prochain propriétaire peut faire des copies illimitées de cet objet. Les copies conservent les informations sur le créateur et ne peuvent jamais être plus permissives que l&apos;élément qui est copié."/>
 				<check_box label="Transférer" name="CheckNextOwnerTransfer" tool_tip="Le prochain propriétaire peut donner ou revendre cet objet."/>
 			</panel>
-			<check_box label="À vendre" name="CheckPurchase" tool_tip="Permet aux gens d&apos;acheter cet objet, son contenu ou de le copier dans Second Life à un prix donné."/>
+			<check_box label="À vendre" name="CheckPurchase" tool_tip="Permet aux gens d&apos;acheter cet objet, son contenu ou de le copier dans Lovense Viewer à un prix donné."/>
 			<combo_box name="ComboBoxSaleType" tool_tip="Indiquez si l’acheteur recevra une copie, une copie du contenu ou l’article lui-même.">
 				<combo_box.item label="Copier" name="Copy"/>
 				<combo_box.item label="Contenu" name="Contents"/>

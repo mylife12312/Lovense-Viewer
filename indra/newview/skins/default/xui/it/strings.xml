@@ -1,16 +1,15 @@
 <?xml version="1.0" ?>
 <strings>
 	<string name="SECOND_LIFE">Second Life</string>
-	<string name="APP_NAME">Second Life</string>
-	<string name="CAPITALIZED_APP_NAME">SECOND LIFE</string>
-	<string name="SUPPORT_SITE">Portale di supporto di Second Life</string>
+	<string name="APP_NAME">Lovense Viewer</string>
+	<string name="CAPITALIZED_APP_NAME">Lovense Viewer</string>
+	<string name="SUPPORT_SITE">Portale di supporto di Lovense Viewer</string>
 	<string name="StartupDetectingHardware">Ricerca hardware...</string>
 	<string name="StartupLoading">Caricamento di [APP_NAME]...</string>
 	<string name="StartupClearingCache">Pulizia della cache...</string>
 	<string name="StartupInitializingTextureCache">Inizializzazione della cache texture...</string>
 	<string name="StartupRequireDriverUpdate">Inizializzazione grafica non riuscita. Aggiorna il driver della scheda grafica!</string>
-	<string name="AboutHeader">[CHANNEL] [VIEWER_VERSION_0].[VIEWER_VERSION_1].[VIEWER_VERSION_2].[VIEWER_VERSION_3] ([ADDRESS_SIZE]bit) 
-[[VIEWER_RELEASE_NOTES_URL] [ReleaseNotes]]</string>
+	<string name="AboutHeader">[CHANNEL] [VIEWER_VERSION_0].[VIEWER_VERSION_1].[VIEWER_VERSION_2].[VIEWER_VERSION_3] ([ADDRESS_SIZE]bit) </string>
 	<string name="BuildConfig">Configurazione struttura [BUILD_CONFIG]</string>
 	<string name="AboutPosition">Tu sei a [POSITION_LOCAL_0,number,1], [POSITION_LOCAL_1,number,1], [POSITION_LOCAL_2,number,1] in [REGION] che si trova a &lt;nolink&gt;[HOSTNAME]&lt;/nolink&gt; ([HOSTIP])
 SLURL: &lt;nolink&gt;[SLURL]&lt;/nolink&gt;
@@ -76,10 +75,10 @@ Versione server voce: [VOICE_VERSION]</string>
 	<string name="LoginFailedHeader">Accesso non riuscito.</string>
 	<string name="Quit">Esci</string>
 	<string name="create_account_url">http://join.secondlife.com/?sourceid=[sourceid]</string>
-	<string name="AgniGridLabel">Griglia principale di Second Life (Agni)</string>
-	<string name="AditiGridLabel">Griglia per beta test di Second Life (Aditi)</string>
+	<string name="AgniGridLabel">Griglia principale di Lovense Viewer (Agni)</string>
+	<string name="AditiGridLabel">Griglia per beta test di Lovense Viewer (Aditi)</string>
 	<string name="ViewerDownloadURL">http://secondlife.com/download.</string>
-	<string name="LoginFailedViewerNotPermitted">Il viewer utilizzato non è più in grado di accedere a Second Life. Visita la parina seguente per scaricare un nuovo viewer:
+	<string name="LoginFailedViewerNotPermitted">Il viewer utilizzato non è più in grado di accedere a Lovense Viewer. Visita la parina seguente per scaricare un nuovo viewer:
 http://secondlife.com/download.
 
 Per maggiori informazioni, consulta le domande frequenti alla pagina seguente:
@@ -100,19 +99,19 @@ Ci scusiamo per l'inconveniente.</string>
 Visita la pagina del tuo account a http://secondlife.com/password
 e rispondi alla domanda di sicurezza per reimpostare la password.
 Ci scusiamo per l'inconveniente.</string>
-	<string name="LoginFailedEmployeesOnly">Second Life è chiuso temporaneamente per manutenzione.
+	<string name="LoginFailedEmployeesOnly">Lovense Viewer è chiuso temporaneamente per manutenzione.
 Al momento, solo i dipendenti possono eseguire l'accesso.
 Visita www.secondlife.com/status per aggiornamenti.</string>
-	<string name="LoginFailedPremiumOnly">L'accesso a Second Life è temporaneamente limitato per garantire che chi è nel mondo virtuale abbia la migliore esperienza possibile.
+	<string name="LoginFailedPremiumOnly">L'accesso a Lovense Viewer è temporaneamente limitato per garantire che chi è nel mondo virtuale abbia la migliore esperienza possibile.
 
-Le persone con account gratuiti non potranno accedere a Second Life durante questo periodo, per lasciare spazio alle persone che hanno pagato per Second Life.</string>
-	<string name="LoginFailedComputerProhibited">Non si può accedere a Second Life da questo computer.
+Le persone con account gratuiti non potranno accedere a Lovense Viewer durante questo periodo, per lasciare spazio alle persone che hanno pagato per Lovense Viewer.</string>
+	<string name="LoginFailedComputerProhibited">Non si può accedere a Lovense Viewer da questo computer.
 Se ritieni che si tratta di un errore, contatta
 support@secondlife.com.</string>
 	<string name="LoginFailedAcountSuspended">Il tuo account non è accessibile fino alle
 [TIME] fuso orario del Pacifico.</string>
 	<string name="LoginFailedAccountDisabled">Non siamo attualmente in grado di completare la tua richiesta. 
-Contatta l'assistenza Second Life alla pagina http://support.secondlife.com.</string>
+Contatta l'assistenza Lovense Viewer alla pagina http://support.secondlife.com.</string>
 	<string name="LoginFailedTransformError">Dati incompatibili rilevati durante l'accesso.
 Contattare support@secondlife.com.</string>
 	<string name="LoginFailedAccountMaintenance">Il tuo account è in fase di leggera manutenzione.
@@ -124,7 +123,7 @@ Se ritieni che si tratta di un errore, contatta support@secondlife.com.</string>
 Prova ad accedere nuovamente tra un minuto.</string>
 	<string name="LoginFailedUnableToCreateSession">Non è possibile creare una sessione valida.</string>
 	<string name="LoginFailedUnableToConnectToSimulator">Non è possibile collegarsi a un simulatore.</string>
-	<string name="LoginFailedRestrictedHours">Il tuo account può accedere a Second Life solo
+	<string name="LoginFailedRestrictedHours">Il tuo account può accedere a Lovense Viewer solo
 tra le [START] e le [END] fuso orario del Pacifico.
 Torna durante quell'orario.
 Se ritieni che si tratta di un errore, contatta support@secondlife.com.</string>
@@ -564,7 +563,7 @@ http://secondlife.com/support per risolvere il problema.</string>
 	<string name="InventoryOutboxErrorTitle">Errori in Marketplace.</string>
 	<string name="InventoryOutboxError">Il [[MARKETPLACE_CREATE_STORE_URL] negozio nel Marketplace] ha riportato errori.</string>
 	<string name="InventoryMarketplaceError">Errore nell'apertura degli annunci di Marketplace.
-Se continui a ricevere questo messaggio, contatta l'assistenza Second Life su http://support.secondlife.com.</string>
+Se continui a ricevere questo messaggio, contatta l'assistenza Lovense Viewer su http://support.secondlife.com.</string>
 	<string name="InventoryMarketplaceListingsNoItemsTitle">La cartella degli annunci di Marketplace è vuota.</string>
 	<string name="InventoryMarketplaceListingsNoItems">Trascina le cartelle in questa area per metterle in vendita su [[MARKETPLACE_DASHBOARD_URL] Marketplace].</string>
 	<string name="InventoryItemsCount">( [ITEMS_COUNT] oggetti )</string>
@@ -2044,4 +2043,29 @@ correttamente. Se continui a ricevere questo errore, visita la sezione
 Assistenza nel sito SecondLife.com e segnala il problema. 
 
 [https://community.secondlife.com/knowledgebase/english/error-messages-r520/#Section__3 Base conoscenze]</string>
+
+  <!-- for lovense strings -->
+  <string name="lstr_pause_sync">Pausa di sincronizzazione</string>
+  <string name="lstr_restart_sync">Riavvio della sincronizzazione</string>
+  <string name="lstr_next">Avanti</string>
+  <string name="lstr_back">Indietro</string>
+  <string name="lstr_got_it">OK</string>
+  <string name="lstr_scan_qr_code_des">Scansiona il codice QR per collegare i tuoi giocattoli all'applicazione Lovense remote.</string>
+  <string name="lstr_qr_code_failed_des">Il codice QR non è riuscito a prendersi cura di se stesso. Controlla la tua connessione Internet e riprova.</string>
+  <string name="lstr_click_download">Clicca [https://www.lovense.com/sextoys/download qui] per scaricare l'applicazione lontana di Lovense</string>
+  <string name="lstr_now_with_toy_support">Ora con il supporto per i giocattoli di Lovense!</string>
+  <string name="lstr_visit_store">Visita il negozio</string>
+  <string name="lstr_reload_qrcode">Ricaricare il codice QR</string>
+  <string name="lstr_connected">Connesso</string>
+  <string name="lstr_how_to_get_start">Come iniziare?</string>
+  <string name="lstr_step1_des">Passaggio 1: trova un posto dove divertirsi tra gli adulti. Se desideri una raccomandazione, puoi provare il seguente posto:</string>
+  <string name="lstr_step2_des">Passaggio 2: trova un letto o un divano in cui puoi diventare intimo. Fare clic con il tasto destro sull'elemento per sedersi.</string>
+  <string name="lstr_step3_des">Passaggio 3: una volta seduto, scegli una posizione sessuale nel pannello di visualizzazione. Il tuo giocattolo si sincronizzerà quindi con il movimento. Lascia che inizino i festeggiamenti!</string>
+  <string name="lstr_skip_next_time">Salta la prossima volta</string>
+  <string name="lstr_toy_connect_remote">Giocattoli collegati in Lovense Remote</string>
+  <string name="lstr_select_toy_control">Seleziona il giocattolo per accettare il controllo.</string>
+  <string name="lstr_disconnect">Disconnessione</string>
+  <string name="lstr_guid">[https://Guida Guida]</string>
+  <string name="lstr_not_toy_detect">Nessun giocattolo rilevato.</string>
+
 </strings>

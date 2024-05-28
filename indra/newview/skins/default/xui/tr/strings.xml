@@ -8,16 +8,16 @@
 		Second Life
 	</string>
 	<string name="APP_NAME">
-		Second Life
+		Lovense Viewer
 	</string>
 	<string name="CAPITALIZED_APP_NAME">
-		SECOND LIFE
+		Lovense Viewer
 	</string>
 	<string name="SECOND_LIFE_GRID">
-		Second Life Ağı
+		Lovense Viewer Ağı
 	</string>
 	<string name="SUPPORT_SITE">
-		Second Life Destek Portalı
+		Lovense Viewer Destek Portalı
 	</string>
 	<string name="StartupDetectingHardware">
 		Donanım saptanıyor...
@@ -36,7 +36,6 @@
 	</string>
 	<string name="AboutHeader">
 		[CHANNEL] [VIEWER_VERSION_0].[VIEWER_VERSION_1].[VIEWER_VERSION_2].[VIEWER_VERSION_3] ([ADDRESS_SIZE]bit) 
-[[VIEWER_RELEASE_NOTES_URL] [ReleaseNotes]]
 	</string>
 	<string name="BuildConfig">
 		Yapı Konfigürasyonu [BUILD_CONFIG]
@@ -197,16 +196,16 @@ Ses Sunucusu Sürümü: [VOICE_VERSION]
 		http://join.secondlife.com/?sourceid=[sourceid]
 	</string>
 	<string name="AgniGridLabel">
-		Second Life Ana Ağı (Agni)
+		Lovense Viewer Ana Ağı (Agni)
 	</string>
 	<string name="AditiGridLabel">
-		Second Life Beta Test Ağı (Aditi)
+		Lovense Viewer Beta Test Ağı (Aditi)
 	</string>
 	<string name="ViewerDownloadURL">
 		http://secondlife.com/download
 	</string>
 	<string name="LoginFailedViewerNotPermitted">
-		Kullandığınız görüntüleyici ile artık Second Life&apos;a erişemezsiniz. Yeni bir görüntüleyiciyi karşıdan yüklemek için lütfen şu sayfayı ziyaret edin:
+		Kullandığınız görüntüleyici ile artık Lovense Viewer&apos;a erişemezsiniz. Yeni bir görüntüleyiciyi karşıdan yüklemek için lütfen şu sayfayı ziyaret edin:
 http://secondlife.com/download
 
 Daha fazla bilgi edinmek için asağıdaki SSS sayfamızı ziyaret edin:
@@ -241,17 +240,17 @@ ve parolanızı sıfırlamak için güvenlik sorusunu yanıtlayın.
 Bu sorun için özür dileriz.
 	</string>
 	<string name="LoginFailedEmployeesOnly">
-		Second Life bakım amacıyla geçici olarak kapatıldı.
+		Lovense Viewer bakım amacıyla geçici olarak kapatıldı.
 Şu anda sadece çalışanlar oturum açabilir.
 Güncelleştirmeler için www.secondlife.com/status adresini kontrol edin.
 	</string>
 	<string name="LoginFailedPremiumOnly">
-		Second Life üzerindeki aktif kullanıcıların olası en iyi deneyimi yaşamasını sağlamak için, oturum açılması geçici olarak kısıtlanmıştır.
+		Lovense Viewer üzerindeki aktif kullanıcıların olası en iyi deneyimi yaşamasını sağlamak için, oturum açılması geçici olarak kısıtlanmıştır.
 
-Second Life için ödeme yapmış olan kişilere öncelik tanımak amacıyla, ücretsiz hesaplara sahip kişiler bu süre içerisinde Second Life&apos;a erişemeyecekler.
+Lovense Viewer için ödeme yapmış olan kişilere öncelik tanımak amacıyla, ücretsiz hesaplara sahip kişiler bu süre içerisinde Lovense Viewer&apos;a erişemeyecekler.
 	</string>
 	<string name="LoginFailedComputerProhibited">
-		Second Life&apos;a bu bilgisayardan erişemezsiniz.
+		Lovense Viewer&apos;a bu bilgisayardan erişemezsiniz.
 Bunun bir hata olduğunu düşünüyorsanız, lütfen şu adrese başvurun:
 support@secondlife.com.
 	</string>
@@ -261,7 +260,7 @@ Pasifik Saati ile [TIME].
 	</string>
 	<string name="LoginFailedAccountDisabled">
 		Talebinizi şu anda tamamlayamıyoruz. 
-Lütfen yardım almak için http://support.secondlife.com adresinden Second Life destek bölümüyle iletişime geçin.
+Lütfen yardım almak için http://support.secondlife.com adresinden Lovense Viewer destek bölümüyle iletişime geçin.
 	</string>
 	<string name="LoginFailedTransformError">
 		Oturum açılması sırasında veri tutarsızlığı saptandı.
@@ -287,7 +286,7 @@ Lütfen yeniden oturum açmayı denemeden önce bir dakika bekleyin.
 		Bir simülatöre bağlanılamadı.
 	</string>
 	<string name="LoginFailedRestrictedHours">
-		Hesabınız Second Life&apos;a sadece
+		Hesabınız Lovense Viewer&apos;a sadece
 Pasifik Saati ile [START] ve [END] arasında erişebilir.
 Lütfen bu saatler arasında tekrar uğrayın.
 Bunun bir hata olduğunu düşünüyorsanız, lütfen şu adrese başvurun: support@secondlife.com
@@ -1562,7 +1561,7 @@ http://secondlife.com/support adresini ziyaret edin.
 	</string>
 	<string name="InventoryMarketplaceError">
 		Pazaryeri İlanları açılırken bir hata meydana geldi.
-Bu mesaj size gelmeye devam ederse lütfen http://support.secondlife.com adresinden Second Life destek ekibine başvurun.
+Bu mesaj size gelmeye devam ederse lütfen http://support.secondlife.com adresinden Lovense Viewer destek ekibine başvurun.
 	</string>
 	<string name="InventoryMarketplaceListingsNoItemsTitle">
 		Pazaryeri İlanları klasörünüz boş.
@@ -5918,4 +5917,12 @@ gidin ve sorunu bildirin.
 
 [https://community.secondlife.com/knowledgebase/english/error-messages-r520/#Section__3 Bilgi Bankası]
 	</string>
+
+	  <!-- for lovense strings -->
+  <string name="lstr_pause_sync">Pause Sync</string>
+  <string name="lstr_restart_sync">Restart Sync</string>
+  <string name="lstr_next">Next</string>
+  <string name="lstr_got_it">Got it</string>
+  <string name="lstr_scan_qr_code_des">Scan the QR code to connect your toys to the Lovense Remote app.</string>
+  <string name="lstr_qr_code_failed_des">The QR Code failed to load. Check your internet connection and try again.</string>
 </strings>

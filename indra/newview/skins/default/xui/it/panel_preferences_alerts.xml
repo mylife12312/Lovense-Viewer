@@ -4,7 +4,7 @@
 		Avvisami:
 	</text>
 	<check_box label="Quando spendo $" name="notify_money_spend_checkbox"/>
-	<check_box label="Quando i miei amici entrano o escono da Second Life" name="friends_online_notify_checkbox"/>
+	<check_box label="Quando i miei amici entrano o escono da Lovense Viewer" name="friends_online_notify_checkbox"/>
 	<check_box label="Quando ottengo $" name="notify_money_received_checkbox"/>
 	<text name="show_label">
 		Mostra sempre:

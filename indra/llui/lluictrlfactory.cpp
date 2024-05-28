@@ -162,7 +162,7 @@ bool LLUICtrlFactory::getLayeredXMLNode(const std::string &xui_filename, LLXMLNo
     LL_PROFILE_ZONE_SCOPED_CATEGORY_UI;
 	std::vector<std::string> paths =
 		gDirUtilp->findSkinnedFilenames(LLDir::XUI, xui_filename, constraint);
-
+	
 	if (paths.empty())
 	{
 		// sometimes whole path is passed in as filename

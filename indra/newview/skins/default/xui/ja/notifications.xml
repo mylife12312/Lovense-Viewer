@@ -225,7 +225,7 @@
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="AllowMultipleViewers">
-		複数の Second Life ビューワを実行することはサポートされていません。テクスチャキャッシュのコリジョンや破損、およびビジュアルとパフォーマンスの低下につながる恐れがあります。
+		複数の Lovense Viewer ビューワを実行することはサポートされていません。テクスチャキャッシュのコリジョンや破損、およびビジュアルとパフォーマンスの低下につながる恐れがあります。
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="GrantModifyRights">
@@ -489,7 +489,7 @@ L$ が不足しているのでこのグループに参加することができ�
 	<notification name="ErrorTextureCannotAfford">インベントリにテクスチャを保存するには L$[COST] が必要です。L$ を購入するか、代わりに写真をコンピュータに保存できます。</notification>
 	<notification name="ErrorUploadingPostcard">次の理由で、スナップショットの送信時に問題が起こりました： [REASON]</notification>
 	<notification name="ErrorUploadingReportScreenshot">次の理由で、レポートのスクリーンショットのアップロード時に問題が起こりました。 [REASON]</notification>
-	<notification name="MustAgreeToLogIn">[SECOND_LIFE] へのログインを続けるには、Second Life の利用規約、プライバシーポリシー、およびサービス規約に同意する必要があります。</notification>
+	<notification name="MustAgreeToLogIn">[SECOND_LIFE] へのログインを続けるには、Lovense Viewer の利用規約、プライバシーポリシー、およびサービス規約に同意する必要があります。</notification>
 	<notification name="CouldNotPutOnOutfit">アウトフィットを装着できません。
 アウトフィットフォルダに衣類、身体部位、アタッチメントがありません。</notification>
 	<notification name="CannotWearTrash">ごみ箱にある衣類や身体部位の着用はできません。</notification>
@@ -1424,7 +1424,7 @@ https://secondlife.com/support/downloads/ からダウンロードしてくだ�
 	</notification>
 	<notification name="SetDisplayNameSuccess">[DISPLAY_NAME] さん、
 
-現実の世界と同じく、Second Life でも新しい名前が浸透するには時間がかかります。オブジェクト、スクリプト、検索などで名前が更新されるまでに（[http://wiki.secondlife.com/wiki/Setting_your_display_name your name to update]）数日かかりますのでご了承ください。</notification>
+現実の世界と同じく、Lovense Viewer でも新しい名前が浸透するには時間がかかります。オブジェクト、スクリプト、検索などで名前が更新されるまでに（[http://wiki.secondlife.com/wiki/Setting_your_display_name your name to update]）数日かかりますのでご了承ください。</notification>
 	<notification name="SetDisplayNameBlocked">申し訳ありませんが、現在表示名は変更できません。システムのエラーだと思われる場合は、サポートにお問い合わせください。</notification>
 	<notification name="SetDisplayNameFailedLength">申し訳ありませんが、その名前は長すぎます。表示名は最長 [LENGTH] 文字までです。
 

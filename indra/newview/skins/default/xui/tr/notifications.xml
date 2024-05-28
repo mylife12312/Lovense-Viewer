@@ -245,7 +245,7 @@ Lütfen sadece bir nesne seçin ve tekrar deneyin.
 		<usetemplate name="okbutton" yestext="Tamam"/>
 	</notification>
 	<notification name="AllowMultipleViewers">
-		Birden çok Second Life görüntüleyiciyi çalıştırma özelliği desteklenmiyor. Bu durum doku önbelleği çakışmalarına, görsellerin bozulmasına ve performansın düşmesine yol açabilir.
+		Birden çok Lovense Viewer görüntüleyiciyi çalıştırma özelliği desteklenmiyor. Bu durum doku önbelleği çakışmalarına, görsellerin bozulmasına ve performansın düşmesine yol açabilir.
 		<usetemplate name="okbutton" yestext="Tamam"/>
 	</notification>
 	<notification name="GrantModifyRights">
@@ -521,7 +521,7 @@ Ortamı sadece bir yüze yerleştirmek için, Yüz Seç&apos;i seçin ve ardınd
 		Aşağıdaki nedenden dolayı, bir raporun ekran görüntüsü karşıya yüklenirken bir sorun oluştu: [REASON]
 	</notification>
 	<notification name="MustAgreeToLogIn">
-		[SECOND_LIFE]&apos;ta oturum açmaya devam etmek için Second Life Şartlar ve Koşullar&apos;ı, Gizlilik Politikası&apos;nı ve Hizmet Koşulları&apos;nı kabul etmelisiniz.
+		[SECOND_LIFE]&apos;ta oturum açmaya devam etmek için Lovense Viewer Şartlar ve Koşullar&apos;ı, Gizlilik Politikası&apos;nı ve Hizmet Koşulları&apos;nı kabul etmelisiniz.
 	</notification>
 	<notification name="CouldNotPutOnOutfit">
 		Dış görünüm eklenemedi.
@@ -2357,11 +2357,11 @@ Bildirdiğiniz olayın ayrıntıları ve adlar dahil olmak üzere olabildiğince
 Doğru bir anlatım yapılması, kötüye kullanım bildirimlerini dosyalamamıza ve işleme almamıza yardımcı olmaktadır.
 	</notification>
 	<notification name="HelpReportAbuseContainsCopyright">
-		Değerli Second Life Sakinimiz,
+		Değerli Lovense Viewer Sakinimiz,
 
 Fikri mülkiyet ihlali konusunda bir bildirim yapıyorsunuz. Konuyu doğru bir şekilde bildirdiğinizden emin olun:
 
-(1) Kötüye Kullanımı Bildirme Süreci. Bir Second Life Sakininin, CopyBot ya da benzeri bir kopyalama aracı kullanma vb. yollarla, fikri mülkiyet haklarını ihlal edecek şekilde [SECOND_LIFE]&apos;ın verdiği izinleri kötüye kullandığını düşünüyorsanız bir kötüye kullanım bildirimi sunabilirsiniz. Kötüye Kullanımla Mücadele Ekibi [SECOND_LIFE] [http://secondlife.com/corporate/tos.php Hizmet Sözleşmesi] veya [http://secondlife.com/corporate/cs.php Topluluk Standartları] kurallarını ihlal eden davranışları inceleyecek ve uygun disiplin cezalarını verecektir. Ancak, Kötüye Kullanımla Mücadele Ekibi, içeriğin [SECOND_LIFE] ortamından kaldırılma taleplerine yanıt vermeyecektir.
+(1) Kötüye Kullanımı Bildirme Süreci. Bir Lovense Viewer Sakininin, CopyBot ya da benzeri bir kopyalama aracı kullanma vb. yollarla, fikri mülkiyet haklarını ihlal edecek şekilde [SECOND_LIFE]&apos;ın verdiği izinleri kötüye kullandığını düşünüyorsanız bir kötüye kullanım bildirimi sunabilirsiniz. Kötüye Kullanımla Mücadele Ekibi [SECOND_LIFE] [http://secondlife.com/corporate/tos.php Hizmet Sözleşmesi] veya [http://secondlife.com/corporate/cs.php Topluluk Standartları] kurallarını ihlal eden davranışları inceleyecek ve uygun disiplin cezalarını verecektir. Ancak, Kötüye Kullanımla Mücadele Ekibi, içeriğin [SECOND_LIFE] ortamından kaldırılma taleplerine yanıt vermeyecektir.
 
 (2) DMCA veya İçerik Kaldırma Süreci. İçeriğin [SECOND_LIFE] ortamından kaldırılmasını talep etmek için,  [http://secondlife.com/corporate/dmca.php DMCA İlkeleri]&apos;nde belirtildiği şekilde geçerli bir ihlal bildirimi sunmuş olmanız GEREKLİDİR.
 
@@ -3367,7 +3367,7 @@ Detaylar için SecondLife.log&apos;a bakın
 
 &lt;nolink&gt;[ITEMS]&lt;/nolink&gt;
 
-Paylaşmanın yapılacağı Second Life Sakinleri:
+Paylaşmanın yapılacağı Lovense Viewer Sakinleri:
 
 &lt;nolink&gt;[RESIDENTS]&lt;/nolink&gt;
 		<usetemplate name="okcancelbuttons" notext="İptal" yestext="Tamam"/>
@@ -3379,7 +3379,7 @@ Aşağıdaki öğeleri paylaşmak istediğinize emin misiniz?
 
 &lt;nolink&gt;[ITEMS]&lt;/nolink&gt;
 
-Paylaşmanın yapılacağı Second Life Sakinleri:
+Paylaşmanın yapılacağı Lovense Viewer Sakinleri:
 
 &lt;nolink&gt;[RESIDENTS]&lt;/nolink&gt;
 		<usetemplate name="okcancelbuttons" notext="İptal" yestext="Tamam"/>

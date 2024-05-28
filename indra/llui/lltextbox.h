@@ -70,12 +70,16 @@ public:
 
 	void			setShowCursorHand(bool show_cursor) { mShowCursorHand = show_cursor; }
 
+	bool GetNotLinkUrlAction() const { return mNotLinkUrlAction; }
+    void SetNotLinkUrlAction(bool link) { mNotLinkUrlAction = link; }
+
 protected:
 	void            onUrlLabelUpdated(const std::string &url, const std::string &label);
 
 	LLUIString			mText;
 	callback_t			mClickedCallback;
 	bool				mShowCursorHand;
+    bool                mNotLinkUrlAction = false;
 };
 
 // Build time optimization, generate once in .cpp file

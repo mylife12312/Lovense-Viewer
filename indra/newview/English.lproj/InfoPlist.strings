@@ -1,7 +1,7 @@
 /* Localized versions of Info.plist keys */
 
-CFBundleName = "Second Life";
+CFBundleName = "Lovense Viewer";
 
-CFBundleShortVersionString = "Second Life version %%VERSION%%";
-CFBundleGetInfoString = "Second Life version %%VERSION%%, Copyright 2004 Linden Research, Inc.";
+CFBundleShortVersionString = "Lovense Viewer version %%VERSION%%";
+CFBundleGetInfoString = "Lovense Viewer version %%VERSION%%, Copyright 2004 Linden Research, Inc.";
 

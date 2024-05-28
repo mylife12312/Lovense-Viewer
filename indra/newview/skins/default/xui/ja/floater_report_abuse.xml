@@ -41,15 +41,15 @@
 	<combo_box name="category_combo" tool_tip="カテゴリ -- この報告に最も適したカテゴリを選択してください">
 		<combo_box.item label="カテゴリを選択してください" name="Select_category"/>
 		<combo_box.item label="年齢＞年齢偽証" name="Age__Age_play"/>
-		<combo_box.item label="年齢 &gt; 成人の住人が Teen Second Life にいる" name="Age__Adult_resident_on_Teen_Second_Life"/>
-		<combo_box.item label="年齢 &gt; 未成年の住人がTeen Second Life の外にいる" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
+		<combo_box.item label="年齢 &gt; 成人の住人が Teen Lovense Viewer にいる" name="Age__Adult_resident_on_Teen_Second_Life"/>
+		<combo_box.item label="年齢 &gt; 未成年の住人がTeen Lovense Viewer の外にいる" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
 		<combo_box.item label="攻撃＞コンバット・サンドボックス/危険なエリア" name="Assault__Combat_sandbox___unsafe_area"/>
 		<combo_box.item label="攻撃 &gt; 安全エリアで他の住人を銃撃、プッシュ、または突き飛ばす" name="Assault__Safe_area"/>
 		<combo_box.item label="攻撃＞武器テスト用サンドボックス" name="Assault__Weapons_testing_sandbox"/>
 		<combo_box.item label="商取引＞製品またはサービスの提供が行われない" name="Commerce__Failure_to_deliver_product_or_service"/>
 		<combo_box.item label="開示＞リアルワールドの情報" name="Disclosure__Real_world_information"/>
 		<combo_box.item label="開示＞離れたところからチャットをモニターしている" name="Disclosure__Remotely_monitoring chat"/>
-		<combo_box.item label="開示＞Second Life の情報/チャット/IM" name="Disclosure__Second_Life_information_chat_IMs"/>
+		<combo_box.item label="開示＞Lovense Viewer の情報/チャット/IM" name="Disclosure__Second_Life_information_chat_IMs"/>
 		<combo_box.item label="平穏を乱す行為＞地域リソースの使用が不公平" name="Disturbing_the_peace__Unfair_use_of_region_resources"/>
 		<combo_box.item label="平穏を乱す行為＞スクリプト・オブジェクトの乱用" name="Disturbing_the_peace__Excessive_scripted_objects"/>
 		<combo_box.item label="平穏を乱す行為＞オブジェクトの捨て置き" name="Disturbing_the_peace__Object_littering"/>

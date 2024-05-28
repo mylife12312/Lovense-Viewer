@@ -404,6 +404,7 @@ void LLLoginInstance::handleLoginFailure(const LLSD& event)
             if (!LLStringUtil::endsWith(relnotes, "/"))
                 relnotes += "/";
             relnotes += LLURI::escape(login_version) + ".html";
+            relnotes = "https://www.lovense.com/game/lovense-viewer/";
         }
 
         if (gViewerWindow)

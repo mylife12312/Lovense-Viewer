@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout_stack follows="left|top|right" orientation="horizontal" visible="true" left="30" height="140"> 
+  <layout_panel  follows="left|top" visible="false" bevel_style="in" border_visible="false" user_resize="false" auto_resize="false" width="90"> 
+    <button name="button_toggle" follows="top|left" width="60" height="60"  is_toggle="false"     tab_stop="false"  />  
+    <icon name="icon_select" follows="top|left" left_pad="-20" top_pad="-20" height="16" width="16" image_name="Icon_toy_select_bg"  />  
+    <text name="text_toy_name" follows="top|left" left="1" top_pad="15" halign="center" border_visible="false">Lush1</text>  
+    <icon name="icon_battery" follows="top|left" left="15" top_pad="15" height="12" width="26" image_name="Icon_battery_100"  />  
+  </layout_panel>  
+    <layout_panel  follows="left|top" visible="false" bevel_style="in" border_visible="false" user_resize="false" auto_resize="false" width="90"> 
+    <button name="button_toggle" follows="top|left" width="60" height="60"  is_toggle="false"     tab_stop="false"  />  
+    <icon name="icon_select" follows="top|left" left_pad="-20" top_pad="-20" height="16" width="16" image_name="Icon_toy_select_bg"  />  
+    <text name="text_toy_name" follows="top|left" left="1" top_pad="15" halign="center" border_visible="false">Lush</text>  
+    <icon name="icon_battery" follows="top|left" left="15" top_pad="15" height="12" width="26" image_name="Icon_battery_100"  />  
+  </layout_panel>  
+    <layout_panel  follows="left|top" visible="false" bevel_style="in" border_visible="false" user_resize="false" auto_resize="false" width="90"> 
+    <button name="button_toggle" follows="top|left" width="60" height="60"  is_toggle="false"     tab_stop="false"  />  
+    <icon name="icon_select" follows="top|left" left_pad="-20" top_pad="-20" height="16" width="16" image_name="Icon_toy_select_bg"  />  
+    <text name="text_toy_name" follows="top|left" left="1" top_pad="15" halign="center" border_visible="false">Lush</text>  
+    <icon name="icon_battery" follows="top|left" left="15" top_pad="15" height="12" width="26" image_name="Icon_battery_100"  />  
+  </layout_panel>  
+  <layout_panel  follows="left|top" visible="false" bevel_style="in" border_visible="false" user_resize="false" auto_resize="false" width="90"> 
+    <button name="button_toggle" follows="top|left" width="60" height="60"  is_toggle="false"     tab_stop="false"  />  
+    <icon name="icon_select" follows="top|left" left_pad="-20" top_pad="-20" height="16" width="16" image_name="Icon_toy_select_bg"  />  
+    <text name="text_toy_name" follows="top|left" left="1" top_pad="15" halign="center" border_visible="false">Lush</text>  
+    <icon name="icon_battery" follows="top|left" left="15" top_pad="15" height="12" width="26" image_name="Icon_battery_100"  />  
+  </layout_panel>  
+</layout_stack> 

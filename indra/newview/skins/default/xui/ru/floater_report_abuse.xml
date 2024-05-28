@@ -32,15 +32,15 @@
 	<combo_box name="category_combo" tool_tip="Категория – выберите категорию, наиболее подходящую по типу нарушения">
 		<combo_box.item label="Выберите категорию" name="Select_category"/>
 		<combo_box.item label="Возраст &gt; Игровой возраст" name="Age__Age_play"/>
-		<combo_box.item label="Возраст &gt; Взрослый житель в Second Life для подростков" name="Age__Adult_resident_on_Teen_Second_Life"/>
-		<combo_box.item label="Возраст &gt; Малолетний житель в Second Life для подростков" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
+		<combo_box.item label="Возраст &gt; Взрослый житель в Lovense Viewer для подростков" name="Age__Adult_resident_on_Teen_Second_Life"/>
+		<combo_box.item label="Возраст &gt; Малолетний житель в Lovense Viewer для подростков" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
 		<combo_box.item label="Нападение &gt; Боевая «песочница»/небезопасная область" name="Assault__Combat_sandbox___unsafe_area"/>
 		<combo_box.item label="Нападение &gt; Стрельба, нанесение ударов или толкание другого жителя в безопасной области" name="Assault__Safe_area"/>
 		<combo_box.item label="Нападение &gt; «Песочница» испытания оружия" name="Assault__Weapons_testing_sandbox"/>
 		<combo_box.item label="Коммерция &gt; Не удалось доставить продукт или услугу" name="Commerce__Failure_to_deliver_product_or_service"/>
 		<combo_box.item label="Раскрытие &gt; Информация о реальном мире" name="Disclosure__Real_world_information"/>
 		<combo_box.item label="Раскрытие &gt; Удаленный контроль чата" name="Disclosure__Remotely_monitoring chat"/>
-		<combo_box.item label="Раскрытие &gt; Информация/чат/мгновенные сообщения Second Life" name="Disclosure__Second_Life_information_chat_IMs"/>
+		<combo_box.item label="Раскрытие &gt; Информация/чат/мгновенные сообщения Lovense Viewer" name="Disclosure__Second_Life_information_chat_IMs"/>
 		<combo_box.item label="Нарушение порядка &gt; Недобросовестное использование ресурсов региона" name="Disturbing_the_peace__Unfair_use_of_region_resources"/>
 		<combo_box.item label="Нарушение порядка &gt; Избыточно скриптовые объекты" name="Disturbing_the_peace__Excessive_scripted_objects"/>
 		<combo_box.item label="Нарушение порядка &gt; Разбрасывание объектов" name="Disturbing_the_peace__Object_littering"/>

@@ -475,7 +475,7 @@
       <key>dullahan</key>
       <map>
         <key>copyright</key>
-        <string>Copyright (c) 2017, Linden Research, Inc.</string>
+        <string>Copyright © 2009 - 2024 by HYTTO PTE. LTD.</string>
         <key>description</key>
         <string>A headless browser SDK that uses the Chromium Embedded Framework (CEF). It is designed to make it easier to write applications that render modern web content directly to a memory buffer, inject synthesized mouse and keyboard events as well as interact with web based features like JavaScript or cookies.</string>
         <key>license</key>
@@ -1583,7 +1583,7 @@
       <key>llappearance_utility</key>
       <map>
         <key>copyright</key>
-        <string>Copyright (c) 2000-2012, Linden Research, Inc.</string>
+        <string>Copyright © 2009 - 2024 by HYTTO PTE. LTD.</string>
         <key>description</key>
         <string>Linden Lab appearance utility for server-side avatar baking services.</string>
         <key>license</key>
@@ -1613,8 +1613,8 @@
       <key>llca</key>
       <map>
         <key>copyright</key>
-        <string>Copyright (c) 2016, Linden Research, Inc.; data provided by the Mozilla NSS Project.
-      </string>
+        <string>Copyright © 2009 - 2024 by HYTTO PTE. LTD.; data provided by the Mozilla NSS Project.
+        </string>
         <key>license</key>
         <string>mit</string>
         <key>license_file</key>
@@ -1644,7 +1644,7 @@
       <key>llphysicsextensions_source</key>
       <map>
         <key>copyright</key>
-        <string>Copyright (c) 2010, Linden Research, Inc.</string>
+        <string>Copyright © 2009 - 2024 by HYTTO PTE. LTD.</string>
         <key>license</key>
         <string>internal</string>
         <key>license_file</key>
@@ -1696,7 +1696,7 @@
       <key>llphysicsextensions_stub</key>
       <map>
         <key>copyright</key>
-        <string>Copyright (c) 2010, Linden Research, Inc.</string>
+        <string>Copyright © 2009 - 2024 by HYTTO PTE. LTD.</string>
         <key>license</key>
         <string>internal</string>
         <key>license_file</key>
@@ -1748,7 +1748,7 @@
       <key>llphysicsextensions_tpv</key>
       <map>
         <key>copyright</key>
-        <string>Copyright (c) 2010, Linden Research, Inc.</string>
+        <string>Copyright © 2009 - 2024 by HYTTO PTE. LTD.</string>
         <key>license</key>
         <string>internal</string>
         <key>license_file</key>
@@ -2684,7 +2684,7 @@ Copyright (c) 2012, 2014, 2015, 2016 nghttp2 contributors</string>
       <key>viewer-manager</key>
       <map>
         <key>copyright</key>
-        <string>Copyright (c) 2000-2012, Linden Research, Inc.</string>
+        <string>Copyright © 2009 - 2024 by HYTTO PTE. LTD.</string>
         <key>description</key>
         <string>Linden Lab Viewer Management Process suite.</string>
         <key>license</key>
@@ -2949,7 +2949,7 @@ Copyright (c) 2012, 2014, 2015, 2016 nghttp2 contributors</string>
       <key>canonical_repo</key>
       <string>https://github.com/secondlife/viewer</string>
       <key>copyright</key>
-      <string>Copyright (c) 2020, Linden Research, Inc.</string>
+      <string>Copyright © 2009 - 2024 by HYTTO PTE. LTD.</string>
       <key>description</key>
       <string>Second Life Viewer</string>
       <key>license</key>
@@ -3308,7 +3308,7 @@ Copyright (c) 2012, 2014, 2015, 2016 nghttp2 contributors</string>
                   <string>${AUTOBUILD_WIN_VSPLATFORM|NOTWIN}</string>
                   <string>-DINSTALL_PROPRIETARY=FALSE</string>
                   <string>-DUSE_KDU=FALSE</string>
-                  <string>-DUSE_OPENAL:BOOL=ON</string>
+                  <string>-DUSE_OPENAL:BOOL=OFF</string>
                 </array>
               </map>
               <key>name</key>
@@ -3383,7 +3383,7 @@ Copyright (c) 2012, 2014, 2015, 2016 nghttp2 contributors</string>
                   <string>-DUNATTENDED:BOOL=ON</string>
                   <string>-DINSTALL_PROPRIETARY=FALSE</string>
                   <string>-DUSE_KDU=FALSE</string>
-                  <string>-DUSE_OPENAL:BOOL=ON</string>
+                  <string>-DUSE_OPENAL:BOOL=OFF</string>
                 </array>
               </map>
               <key>name</key>

@@ -1384,10 +1384,10 @@ http://secondlife.com/download
 		<usetemplate name="okbutton" yestext="Wyjdź" />
 	</notification>
 	<notification name="UpdaterServiceNotRunning">
-		Istnieje obowiązkowa aktualizacja dla Second Life.
+		Istnieje obowiązkowa aktualizacja dla Lovense Viewer.
 Możesz ją pobrać z http://www.secondlife.com/downloads
 lub zainstalować teraz.
-		<usetemplate name="okcancelbuttons" notext="Opuść Second Life" yestext="Pobierz i instaluj teraz" />
+		<usetemplate name="okcancelbuttons" notext="Opuść Lovense Viewer" yestext="Pobierz i instaluj teraz" />
 	</notification>
 	<notification name="DownloadBackgroundTip">
 		Aktualizacja dla [APP_NAME] została pobrana.
@@ -2940,36 +2940,36 @@ Masz [RECLAIM_PERIOD] godzin na odzyskanie jej za 0L$ zanim zostanie wystawiona 
 Jest teraz dostępna do kupienia dla każdego.
 	</notification>
 	<notification name="AvatarRezNotification">
-		( [EXISTENCE] sekund w Second Life)
+		( [EXISTENCE] sekund w Lovense Viewer)
 Awatar &apos;[NAME]&apos; przestał/a być chmurą po [TIME] sekundach.
 	</notification>
 	<notification name="AvatarRezSelfBakedDoneNotification">
-		( [EXISTENCE] sekund w Second Life)
+		( [EXISTENCE] sekund w Lovense Viewer)
 Skończono wstępne przetwarzanie stroju po [TIME] sekundach.
 	</notification>
 	<notification name="AvatarRezSelfBakedUpdateNotification">
-		( [EXISTENCE] sekund w Second Life )
+		( [EXISTENCE] sekund w Lovense Viewer )
 Wysłano aktualizację wyglądu po [TIME] sekundach.
 [STATUS]
 	</notification>
 	<notification name="AvatarRezCloudNotification">
-		( [EXISTENCE] sekund w Second Life )
+		( [EXISTENCE] sekund w Lovense Viewer )
 Awatar &apos;[NAME]&apos; stał się chmurą.
 	</notification>
 	<notification name="AvatarRezArrivedNotification">
-		( [EXISTENCE] sekund w Second Life)
+		( [EXISTENCE] sekund w Lovense Viewer)
 Awatar &apos;[NAME]&apos; pojawił się.
 	</notification>
 	<notification name="AvatarRezLeftCloudNotification">
-		( [EXISTENCE] sekund w Second Life )
+		( [EXISTENCE] sekund w Lovense Viewer )
 Awatar &apos;[NAME]&apos; pozostał [TIME] sekund chmurą.
 	</notification>
 	<notification name="AvatarRezEnteredAppearanceNotification">
-		( [EXISTENCE] sekund w Second Life )
+		( [EXISTENCE] sekund w Lovense Viewer )
 Awatar &apos;[NAME]&apos; rozpoczął edycję wyglądu.
 	</notification>
 	<notification name="AvatarRezLeftAppearanceNotification">
-		( [EXISTENCE] sekund w Second Life )
+		( [EXISTENCE] sekund w Lovense Viewer )
 Awatar &apos;[NAME]&apos; opuścił edycję wyglądu.
 	</notification>
 	<notification name="NoConnect">
@@ -2985,15 +2985,15 @@ Komunikacja głosowa nie będzie dostępna.
 Proszę sprawdź swoją sieć i ustawienia firewall.
 	</notification>
 	<notification name="AvatarRezLeftNotification">
-		( [EXISTENCE] sekund w Second Life)
+		( [EXISTENCE] sekund w Lovense Viewer)
 Awatar &apos;[NAME]&apos; pozostał w pełni załadowany.
 	</notification>
 	<notification name="AvatarRezSelfBakedTextureUploadNotification">
-		( [EXISTENCE] sekund w Second Life )
+		( [EXISTENCE] sekund w Lovense Viewer )
 Wstępnie przetworzone tekstury [RESOLUTION] dla &apos;[BODYREGION]&apos; zostały załadowane po [TIME] sekundach.
 	</notification>
 	<notification name="AvatarRezSelfBakedTextureUpdateNotification">
-		( [EXISTENCE] sekund w Second Life )
+		( [EXISTENCE] sekund w Lovense Viewer )
 Wstępnie przetworzone tekstury [RESOLUTION] zostały lokalnie zaktualizowane dla &apos;[BODYREGION]&apos; po [TIME] sekundach.
 	</notification>
 	<notification name="CannotUploadTexture">

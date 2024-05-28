@@ -1,17 +1,16 @@
 <?xml version="1.0" ?>
 <strings>
 	<string name="SECOND_LIFE">Second Life</string>
-	<string name="APP_NAME">Second Life</string>
-	<string name="CAPITALIZED_APP_NAME">SECOND LIFE</string>
-	<string name="SECOND_LIFE_GRID">Second Life Grid</string>
-	<string name="SUPPORT_SITE">Second Life サポートポータル</string>
+	<string name="APP_NAME">Lovense Viewer</string>
+	<string name="CAPITALIZED_APP_NAME">Lovense Viewer</string>
+	<string name="SECOND_LIFE_GRID">Lovense Viewer Grid</string>
+	<string name="SUPPORT_SITE">Lovense Viewer サポートポータル</string>
 	<string name="StartupDetectingHardware">ハードウェアの検出中です...</string>
 	<string name="StartupLoading">[APP_NAME] をインストール中です...</string>
 	<string name="StartupClearingCache">キャッシュをクリア中です...</string>
 	<string name="StartupInitializingTextureCache">テクスチャキャッシュを初期化中です...</string>
 	<string name="StartupRequireDriverUpdate">グラフィックを初期化できませんでした。グラフィックドライバを更新してください。</string>
-	<string name="AboutHeader">[CHANNEL] [VIEWER_VERSION_0].[VIEWER_VERSION_1].[VIEWER_VERSION_2].[VIEWER_VERSION_3] ([ADDRESS_SIZE]bit) 
-[[VIEWER_RELEASE_NOTES_URL] [ReleaseNotes]]</string>
+	<string name="AboutHeader">[CHANNEL] [VIEWER_VERSION_0].[VIEWER_VERSION_1].[VIEWER_VERSION_2].[VIEWER_VERSION_3] ([ADDRESS_SIZE]bit) </string>
 	<string name="BuildConfig">ビルド構成 [BUILD_CONFIG]</string>
 	<string name="AboutPosition">あなたの現在地は、[POSITION_LOCAL_0,number,1]、[POSITION_LOCAL_1,number,1]、[POSITION_LOCAL_2,number,1] の [REGION] です。位置は &lt;nolink&gt;[HOSTNAME]&lt;/nolink&gt; です。（[HOSTIP]）
 SLURL:&lt;nolink&gt;[SLURL]&lt;/nolink&gt;
@@ -77,10 +76,10 @@ LOD 係数: [LOD_FACTOR]
 	<string name="LoginFailedHeader">ログインに失敗しました。</string>
 	<string name="Quit">終了</string>
 	<string name="create_account_url">http://join.secondlife.com/?sourceid=[sourceid]</string>
-	<string name="AgniGridLabel">Second Life メイングリッド (Agni)</string>
-	<string name="AditiGridLabel">Second Life ベータテストグリッド (Aditi)</string>
+	<string name="AgniGridLabel">Lovense Viewer メイングリッド (Agni)</string>
+	<string name="AditiGridLabel">Lovense Viewer ベータテストグリッド (Aditi)</string>
 	<string name="ViewerDownloadURL">http://secondlife.com/download</string>
-	<string name="LoginFailedViewerNotPermitted">お使いの古いビューワでは Second Life にアクセスできません。以下のページから新しいビューワをダウンロードしてください：
+	<string name="LoginFailedViewerNotPermitted">お使いの古いビューワでは Lovense Viewer にアクセスできません。以下のページから新しいビューワをダウンロードしてください：
 http://secondlife.com/download
 
 詳細については、FAQ を参照してください：
@@ -101,19 +100,19 @@ http://secondlife.com/viewer-access-faq</string>
 アカウントページ（http://secondlife.com/password）に移動し、
 秘密の質問に答えて、パスワードをリセットしてください。
 ご迷惑をおかけして申し訳ございません。</string>
-	<string name="LoginFailedEmployeesOnly">Second Life はメンテナンスのため、一時的にご利用いただけません。
+	<string name="LoginFailedEmployeesOnly">Lovense Viewer はメンテナンスのため、一時的にご利用いただけません。
 従業員以外にはログインをご遠慮いただいています。
 最新の状況については www.secondlife.com/status でお確かめください。</string>
-	<string name="LoginFailedPremiumOnly">既にログインしているユーザーに最上のインワールド体験を提供するため、Second Life へのログインは一時的に制限されています。
+	<string name="LoginFailedPremiumOnly">既にログインしているユーザーに最上のインワールド体験を提供するため、Lovense Viewer へのログインは一時的に制限されています。
 
-申し訳ございませんが、有料アカウントのユーザーを優先するため、現在のところ無料アカウントのユーザーには Second Life へのアクセスをご遠慮いただいています。</string>
-	<string name="LoginFailedComputerProhibited">このパソコンからは Second Life にアクセスできません。
+申し訳ございませんが、有料アカウントのユーザーを優先するため、現在のところ無料アカウントのユーザーには Lovense Viewer へのアクセスをご遠慮いただいています。</string>
+	<string name="LoginFailedComputerProhibited">このパソコンからは Lovense Viewer にアクセスできません。
 システムのエラーだと思われる場合は、
 support@secondlife.com にお問い合わせください。</string>
 	<string name="LoginFailedAcountSuspended">あなたのアカウントは
 太平洋時間の [TIME] までご利用いただけません。</string>
 	<string name="LoginFailedAccountDisabled">現在リクエストを完了することができません。
-Second Life のサポート（http://support.secondlife.com）にお問い合わせください。</string>
+Lovense Viewer のサポート（http://support.secondlife.com）にお問い合わせください。</string>
 	<string name="LoginFailedTransformError">ログイン時にデータの不一致が見つかりました。
 support@secondlife.com にお問い合わせください。</string>
 	<string name="LoginFailedAccountMaintenance">現在アカウントのメインテナンスが行われています。
@@ -125,7 +124,7 @@ support@secondlife.com にお問い合わせください。</string>
 しばらくしてから再度お試しください。</string>
 	<string name="LoginFailedUnableToCreateSession">有効なセッションを生成できません。</string>
 	<string name="LoginFailedUnableToConnectToSimulator">シミュレーターに接続できませんでした。</string>
-	<string name="LoginFailedRestrictedHours">あなたの Second Life アカウントにアクセスできるのは、
+	<string name="LoginFailedRestrictedHours">あなたの Lovense Viewer アカウントにアクセスできるのは、
 太平洋時間の [START] ～ [END] の間に限られます。
 有効な時間帯に再度お試しください。
 システムのエラーだと思われる場合は、support@secondlife.com にお問い合わせください。</string>
@@ -566,7 +565,7 @@ support@secondlife.com にお問い合わせください。</string>
 	<string name="InventoryOutboxInitializing">[[MARKETPLACE_CREATE_STORE_URL] マーケットプレイス ストア] のアカウントにアクセスしています。</string>
 	<string name="InventoryOutboxErrorTitle">マーケットプレイス エラー。</string>
 	<string name="InventoryOutboxError">[[MARKETPLACE_CREATE_STORE_URL] マーケットプレイス ストア] がエラーを返しています。</string>
-	<string name="InventoryMarketplaceError">マーケットプレイスのリストを開くときにエラーが発生しました。引き続きこのメッセージを受信するには、Second Life のサポート (http://support.secondlife.com) にお問い合わせください</string>
+	<string name="InventoryMarketplaceError">マーケットプレイスのリストを開くときにエラーが発生しました。引き続きこのメッセージを受信するには、Lovense Viewer のサポート (http://support.secondlife.com) にお問い合わせください</string>
 	<string name="InventoryMarketplaceListingsNoItemsTitle">マーケットプレイスのリストフォルダが空です。</string>
 	<string name="InventoryMarketplaceListingsNoItems">[[MARKETPLACE_DASHBOARD_URL] マーケットプレイス]に販売するアイテムを一覧するには、フォルダをこのエリアにドラッグします。</string>
 	<string name="InventoryItemsCount">（[ITEMS_COUNT] 個のアイテム）</string>
@@ -2071,4 +2070,12 @@ Secondlife.com のサポートセクションから
 問題を報告してください。
 
 [https://community.secondlife.com/knowledgebase/english/error-messages-r520/#Section__3 ナレッジベース]</string>
+
+  <!-- for lovense strings -->
+  <string name="lstr_pause_sync">Pause Sync</string>
+  <string name="lstr_restart_sync">Restart Sync</string>
+  <string name="lstr_next">Next</string>
+  <string name="lstr_got_it">Got it</string>
+  <string name="lstr_scan_qr_code_des">Scan the QR code to connect your toys to the Lovense Remote app.</string>
+  <string name="lstr_qr_code_failed_des">The QR Code failed to load. Check your internet connection and try again.</string>
 </strings>

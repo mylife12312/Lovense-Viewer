@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<floater name="lovense_remote_floater" can_tear_off="false" can_resize="false" font="SansSerif" font.size="Medium" can_drag_on_left="false" can_close="true" can_dock="false" bevel_style="in" width="408" height="524" layout="topleft" save_rect="true" title="Lovense Remote" save_visibility="false" single_instance="true" > 
+  <tab_container follows="all" name="lvs_main_tabctrl" tab_position="top" height="524" width="408" hide_tabs="true"> 
+    
+        <!--first page for qr code scan-->  
+    <panel name="lvs_qrcode_tab_panel" follows="all"> 
+      <layout_stack follows="all" left="1" top="5" right="-1" bottom="-5"  orientation="vertical"> 
+        <layout_panel follows="left|top" height="250" auto_resize="false"> 
+          <text follows="left|top|right" name="lvs_remote_scan_dec_text"  halign="center" height="40" font="SansSerif" font.size="Medium" text_color="1 1 1 1" left="15" right="-15" top="30" word_wrap="true">Scan the QR code to connect your toys to the Lovense Remote app</text>  
+          <layout_stack follows="all" orientation="horizontal" top_pad="25" left="38" height="160"> 
+            <layout_panel follows="left|top"> 
+              <icon follows="left|top" height="152" width="152" name="icon" image_name="Icon_Scand_qrcode_dec"  /> 
+              <icon follows="left|top" height="152" width="152" name="lvs_icon_qrcode_ctrl" left_pad="20" image_name="Icon_qrcode_bg"/> 
+              <panel follows="left|top" name="lvs_reload_qrcode_panel" height="152" visible="true" width="152" layout="topleft" left_pad="-152" top_pad="-152" background_opaque="false" bg_alpha_color="1 1 1 0.85" background_visible="true"  > 
+                <button follows="left|top" name="lvs_reload_qrcode_btn" height="40" width="40" left="55" top="50"  image_unselected="Icon_refresh_qrcode" image_pressed="Icon_refresh_qrcode"  >
+                    <button.commit_callback function="ClickReloadQrcode"/> 
+                </button>
+                <loading_indicator name="lvs_refresh_qrcode_indicator" follows="left|top"  visible="true" height="32" layout="topleft" top="60" left="55"  width="32" />
+                <text follows="left|top" name="lvs_reload_qrcode_text" text_color="1 0 0 1" width="120" left="20"  top_pad="20" font="SansSerif" font.size="Medium" >Reload the QR Code</text>
+              </panel>
+            </layout_panel> 
+          </layout_stack> 
+        </layout_panel>  
+        <layout_panel> 
+          <layout_stack follows="all" orientation="vertical" top="30"> 
+            <layout_panel follows="left|top" height="50" auto_resize="false"> 
+              <text name="text_click_download" follows="top" halign="center" height="20" font="SansSerif" font.size="Medium" left="15" right="-15" text_color="1 1 1 1" word_wrap="true" allow_html="true">Click [https://www.lovense.com/sextoys/download here] to download the Lovense Remote app</text> 
+            </layout_panel>  
+            <layout_panel follows="left|top" auto_resize="true"> 
+              <panel follows="left|top|right" height="150" width="360" left="15" right="-15" background_opaque="false" bg_alpha_color="0.096 0.096 0.096 1" background_visible="true"> 
+                <text name="text_now_toy_support" follows="left|top" halign="center" height="20" top="10" font="SansSerif" font.size="Large" text_color="1 1 1 1" >Now with LOVENSE Toy Support!</text>  
+                <icon follows="left|top" height="128" width="360"  left="0" top_pad="-25" image_name="Icon_All_Toys_bg"/>  
+                <button name="btn_visit_store" follows="left|top" width="130" auto_resize="true" height="23" left="115" top_pad="-15" label="VISIT STORE" font="SansSerif" font.size="Medium" image_unselected="Icon_btn_normal" image_pressed="Icon_btn_normal" label_color="White"> 
+                  <button.commit_callback function="ClickVisitStoreAuction"/> 
+                </button> 
+              </panel> 
+            </layout_panel> 
+          </layout_stack> 
+        </layout_panel> 
+      </layout_stack>  
+    </panel> 
+    <!--first page for qr code scan--> 
+    <!--Second instruduce page-->  
+    <panel name="lvs_connected_tab_panel" follows="all"> 
+        <layout_stack follows="all" left="5" top="5" right="-5" bottom="-5"  orientation="vertical">
+            <layout_panel follows="left|top" auto_resize="false" height="70" border_visible="false">
+                <icon follows="left|top" name="test_icon" width="20" height="20" left="150" top="15" image_name="Icon_connected_bg"/> 
+                <text name="text_connected" follows="left|top|right" left_pad="2" top_pad="-15" width="150" font="SansSerif" font.size="Medium" font.style="BOLD" text_color="White">Connected</text> 
+                <text name="text_how_to_get_start" follows="left|top|right"   left="5"  right="-5" top_pad="20" halign="center" text_color="1 1 1 1" font="SansSerif">How to get started?</text> 
+            </layout_panel>
+            <layout_panel follows="left|top" auto_resize="true">
+                  <tab_container follows="all" name="lvs_step_tap_ctrl" tab_position="top"  top="-5" height="400" width="408" hide_tabs="true"> 
+                    <panel name="lvs_step1_tap_panel">
+                            <text name="text_step1" follows="left|top" halign="center" height="35" word_wrap="true" text_color="1 1 1 1" font="SansSerif">Step1:Find a location to have some adult fun. If you'd like a recommendation, you can try the following location.</text>  
+                            <text follows="left|top" halign="center" height="30" allow_html="true">[http://maps.secondlife.com/secondlife/Vibus%20Ten/197/79/2637 Vibu Ten(197,79,2637)]</text>  
+                            <icon follows="top" left="55" name="step1_pic_des" image_name="Icon_Step1_dec_bg" height="164" width="284" />  
+                            <icon follows="left|top" left="180" top_pad="40" name="step1_pic_des" image_name="Icon_Point_Write_bg" height="6" width="6"/>  
+                            <icon follows="top" left_pad="4"  name="step1_pic_des" image_name="Icon_Point_Black_bg" height="6" width="6"/>  
+                            <icon follows="top" left_pad="4"  name="step1_pic_des" image_name="Icon_Point_Black_bg" height="6" width="6"/>  
+                        </panel>
+                        <panel name="lvs_step2_tap_panel">
+                            <text name="text_step2" follows="left|top|right" halign="center" height="35" word_wrap="true" left="20" right="-20" text_color="1 1 1 1" font="SansSerif">Step2:Find a bed or sofa where you can get intimate. Right click the item to sit down.</text>  
+                            <text follows="left|top" halign="center" height="30" allow_html="true"></text>  
+                            <icon follows="top" left="55" name="step1_pic_des" image_name="Icon_Step2_dec_bg" height="164" width="284" />  
+                            <icon follows="left|top" left="180" top_pad="40" name="step1_pic_des" image_name="Icon_Point_Black_bg" height="6" width="6"/>  
+                            <icon follows="top" left_pad="4"  name="step1_pic_des" image_name="Icon_Point_Write_bg" height="6" width="6"/>  
+                            <icon follows="top" left_pad="4"  name="step1_pic_des" image_name="Icon_Point_Black_bg" height="6" width="6"/>  
+                        </panel>
+
+                        <panel name="lvs_step3_tap_panel">
+                            <text name="text_step3" follows="left|top|right" halign="center" height="35" word_wrap="true" left="20" right="-20" text_color="1 1 1 1" font="SansSerif">Step3:Once seated, you cam choose a sex position from the display panel.</text>  
+                            <text follows="left|top" halign="center" height="30" allow_html="true"></text>  
+                            <icon follows="top" left="55" name="step1_pic_des" image_name="Icon_Step3_dec_bg" height="164" width="284" />  
+                            <icon follows="left|top" left="180" top_pad="40" name="step1_pic_des" image_name="Icon_Point_Black_bg" height="6" width="6"/>  
+                            <icon follows="top" left_pad="4"  name="step1_pic_des" image_name="Icon_Point_Black_bg" height="6" width="6"/>  
+                            <icon follows="top" left_pad="4"  name="step1_pic_des" image_name="Icon_Point_Write_bg" height="6" width="6"/>  
+                        </panel>
+                  </tab_container>
+            </layout_panel>
+            <layout_panel follows="left|top" auto_resize="false" height="100">
+                <button name="lvs_ctp_back_btn" follows="left|top" width="114" auto_resize="true" label="Back" height="36" left="75" top_pad="0"  label_color="White"  font="SansSerif"> 
+                </button>            
+                 <button name="lvs_ctp_next_btn" follows="left|top" width="114" auto_resize="true" label="Next" height="36" left_pad="10" font="SansSerif" image_unselected="Icon_btn_normal" image_pressed="Icon_btn_normal" image_hover_unselected="Icon_btn_normal" label_color="White"> 
+                </button> 
+               
+              <check_box name="lvs_skip_next_btn" follows="left|top" width="12" left="150" height="12" initial_value="true"  top="60" >
+                <check_box.commit_callback
+                function="onClickSkipStepBtn" />
+              </check_box>
+                 <text follows="left|top" name="text_skip_next_time" height="30" left_pad="8" top_pad="-15"  allow_html="true" width="100" text_color="1 1 1 1" font="SansSerif">Skip next time</text>  
+            </layout_panel>
+        </layout_stack>
+    </panel>  
+    <!--Second page-->  
+    
+
+
+    <!--3td toy select page-->  
+    <panel name="lvs_toy_tab_panel" follows="all" width="408" height="524"> 
+      <layout_stack follows="all" width="408" height="524" orientation="vertical"> 
+        <layout_panel follows="left|top" auto_resize="false" height="80" border_visible="false"> 
+          <text name="text_toy_connect_remote" follows="left|top|right" left="1" right="-1" top="20" halign="center" font="SansSerif" font.size="Medium" height="16" font.style="BOLD" text_color="White">Toys connected to Lovense Remote</text>  
+          <text name="text_select_toy_control" follows="left|top|right" left="1" right="-1" top_pad="10" halign="center" text_color="1 1 1 1" font="SansSerif">Select the toy to accept control.</text> 
+        </layout_panel>  
+        <layout_panel name="lvs_toy_list_panel" follows="left|top" auto_resize="false" height="280"> 
+        <text name="lvs_no_toy_detect_text" follows="left|top|right" left="1" right="-1" top_pad="10" halign="center" text_color="1 1 1 1" font="SansSerif">No toy detected.</text> 
+
+
+        </layout_panel>  
+        <layout_panel follows="left|top" auto_resize="false" height="80" border_visible="false"> 
+          <layout_stack follows="left|top" height="45" width="500" left="32" top="30"> 
+            <layout_panel follows="left|top" auto_resize="false"> 
+              <button name="btn_disconnect" follows="left|top|right" width="140" height="36" label="Disconnect" font="SansSerif" label_color="White"> 
+                <button.commit_callback function="onClickDisconnectBtn"/> 
+              </button>  
+              <button name="lvs_pause_sync_btn"  follows="left|top|right" width="193" height="36" left_pad="10" pad_left="30" font="SansSerif" label="Restart Sync" halign="left"
+                image_overlay="Icon_overlay_pause"
+                image_overlay_alignment="left"
+                image_top_pad="-0"
+                imgoverlay_label_space="10" label_color="White" > 
+              </button> 
+            </layout_panel> 
+          </layout_stack> 
+        </layout_panel>  
+        <layout_panel follows="left|top" auto_resize="false" height="35" visible="true" border_visible="false"> 
+          <text name="lvs_guid_text_box" follows="left|bottom|right" left="180" bottom="-10" width="45" text_color="1 1 1 1" tool_tip="">[https://Guide Guide]</text> 
+        </layout_panel> 
+      </layout_stack> 
+    </panel>  
+    <!--3td toy select page end-->  
+  </tab_container> 
+</floater>

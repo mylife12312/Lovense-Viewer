@@ -40,7 +40,7 @@
 	<layout_stack name="imagepositioner">
 		<layout_panel name="label_stack">
 			<text name="status" value="Статус неизвестен"/>
-			<text name="label" value="Дата рождения в Second Life:"/>
+			<text name="label" value="Дата рождения в Lovense Viewer:"/>
 			<text name="label2" value="Аккаунт:"/>
 			<text name="partner_label" value="Партнер:"/>
 		</layout_panel>

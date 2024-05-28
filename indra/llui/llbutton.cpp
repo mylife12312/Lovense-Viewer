@@ -346,6 +346,7 @@ boost::signals2::connection LLButton::setHeldDownCallback(const CommitCallbackPa
 boost::signals2::connection LLButton::setClickedCallback( const commit_signal_t::slot_type& cb )
 {
 	if (!mCommitSignal) mCommitSignal = new commit_signal_t();
+    mCommitSignal->disconnect_all_slots();
 	return mCommitSignal->connect(cb);
 }
 boost::signals2::connection LLButton::setMouseDownCallback( const commit_signal_t::slot_type& cb )
@@ -359,7 +360,7 @@ boost::signals2::connection LLButton::setMouseUpCallback( const commit_signal_t:
 	return mMouseUpSignal->connect(cb);
 }
 boost::signals2::connection LLButton::setHeldDownCallback( const commit_signal_t::slot_type& cb )
-{
+{ 
 	if (!mHeldDownSignal) mHeldDownSignal = new commit_signal_t();
 	return mHeldDownSignal->connect(cb);
 }

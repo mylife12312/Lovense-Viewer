@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <strings>
 	<string name="SUPPORT_SITE">
-		Portal Pomocy Second Life
+		Portal Pomocy Lovense Viewer
 	</string>
 	<string name="StartupDetectingHardware">
 		Detekcja konfiguracji sprzętowej...
@@ -150,7 +150,7 @@ Wersja serwera głosu (Voice Server): [VOICE_VERSION]
 		Wyłącz
 	</string>
 	<string name="LoginFailedViewerNotPermitted">
-		Przeglądarka używana przez Ciebie nie ma już dostępu do Second Life. Proszę przejść na poniższą stronę i pobrać nową:
+		Przeglądarka używana przez Ciebie nie ma już dostępu do Lovense Viewer. Proszę przejść na poniższą stronę i pobrać nową:
 http://secondlife.com/download
 
 Więcej informacji w naszym FAQ:
@@ -185,17 +185,17 @@ i odpowiedz na pytanie zabezpieczające, aby zresetować hasło.
 Bardzo przepraszamy za utrudnienia.
 	</string>
 	<string name="LoginFailedEmployeesOnly">
-		Second Life jest tymczasowo niedostępne, bo trwa konserwacja.
+		Lovense Viewer jest tymczasowo niedostępne, bo trwa konserwacja.
 Logować się mogą w tej chwili tylko pracownicy Linden Lab.
 Odwiedź www.secondlife.com/status i śledź wiadomości.
 	</string>
 	<string name="LoginFailedPremiumOnly">
-		Logowanie do Second Life jest tymczasowo ograniczone aby mieć pewność, że osoby już zalogowane nie stracą na wydajności.
+		Logowanie do Lovense Viewer jest tymczasowo ograniczone aby mieć pewność, że osoby już zalogowane nie stracą na wydajności.
 
 Osoby posiadające darmowe konta nie mogą się teraz zalogować, aby ludzie posiadający te płatne mogli to zrobić.
 	</string>
 	<string name="LoginFailedComputerProhibited">
-		Second Life odmawia dostępu temu komputerowi.
+		Lovense Viewer odmawia dostępu temu komputerowi.
 Jeśli myślisz, że to błąd skontaktuj się z
 support@secondlife.com
 	</string>
@@ -233,7 +233,7 @@ Twoje konto będzie niedostępne do
 		Nie można połączyć się z symulatorem.
 	</string>
 	<string name="LoginFailedRestrictedHours">
-		Twoje konto może się łączyć z Second Life tylko
+		Twoje konto może się łączyć z Lovense Viewer tylko
 pomiędzy [START] i [END] czasu pacyficznego.
 Wróć proszę w tych godzinach.
 Jeśli myślisz, że to błąd skontaktuj się z support@secondlife.com
@@ -4067,7 +4067,7 @@ Jeżeli nadal otrzymujesz ten komunikat, skontaktuj się z [SUPPORT_SITE].
 		Jesteś jedyną osobą w tej konferencji.
 	</string>
 	<string name="offline_message">
-		[NAME] opuszcza Second Life.
+		[NAME] opuszcza Lovense Viewer.
 	</string>
 	<string name="invite_message">
 		Kliknij na przycisk [BUTTON NAME] by zaakceptować/dołączyć do tej rozmowy.
@@ -4768,4 +4768,12 @@ Spróbuj załączyć ścieżkę do edytora w cytowaniu.
 	<string name="loading_chat_logs">
 		Wczytywanie...
 	</string>
+
+	  <!-- for lovense strings -->
+  <string name="lstr_pause_sync">Pause Sync</string>
+  <string name="lstr_restart_sync">Restart Sync</string>
+  <string name="lstr_next">Next</string>
+  <string name="lstr_got_it">Got it</string>
+  <string name="lstr_scan_qr_code_des">Scan the QR code to connect your toys to the Lovense Remote app.</string>
+  <string name="lstr_qr_code_failed_des">The QR Code failed to load. Check your internet connection and try again.</string>
 </strings>

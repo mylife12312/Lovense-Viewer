@@ -10,8 +10,8 @@
 			</panel>
 		</layout_panel>
 		<layout_panel name="favorites_layout_panel">
-			<favorites_bar name="favorite" tool_tip="Trascina qui i punti di riferimento per un accesso rapido ai tuoi posti preferiti in Second Life.">
-				<label name="favorites_bar_label" tool_tip="Trascina qui i punti di riferimento per un accesso rapido ai tuoi posti preferiti in Second Life.">
+			<favorites_bar name="favorite" tool_tip="Trascina qui i punti di riferimento per un accesso rapido ai tuoi posti preferiti in Lovense Viewer.">
+				<label name="favorites_bar_label" tool_tip="Trascina qui i punti di riferimento per un accesso rapido ai tuoi posti preferiti in Lovense Viewer.">
 					Barra dei Preferiti
 				</label>
 				<more_button name="&gt;&gt;" tool_tip="Mostra altri Preferiti">

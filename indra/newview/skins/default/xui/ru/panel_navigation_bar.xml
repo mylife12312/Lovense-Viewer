@@ -10,8 +10,8 @@
 			</panel>
 		</layout_panel>
 		<layout_panel name="favorites_layout_panel">
-			<favorites_bar name="favorite" tool_tip="Перетаскивайте сюда закладки, чтобы было удобнее переходить в любимые места в Second Life!">
-				<label name="favorites_bar_label" tool_tip="Перетаскивайте сюда закладки, чтобы было удобнее переходить в любимые места в Second Life!">
+			<favorites_bar name="favorite" tool_tip="Перетаскивайте сюда закладки, чтобы было удобнее переходить в любимые места в Lovense Viewer!">
+				<label name="favorites_bar_label" tool_tip="Перетаскивайте сюда закладки, чтобы было удобнее переходить в любимые места в Lovense Viewer!">
 					Избранное
 				</label>
 				<more_button name="&gt;&gt;" tool_tip="Показать больше избранного" width="60">

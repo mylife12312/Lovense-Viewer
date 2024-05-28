@@ -266,6 +266,8 @@ private: //aligned members
 public:
     void			updateAppearanceMessageDebugText();
 	void 			updateAnimationDebugText();
+
+
 	virtual void	updateDebugText();
 	virtual bool 	computeNeedsUpdate();
 	virtual bool 	updateCharacter(LLAgent &agent);

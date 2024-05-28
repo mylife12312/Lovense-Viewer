@@ -6,7 +6,7 @@
 			<button label="Проверить наличие обновлений" name="update_btn"/>
 		</panel>
 		<panel label="Создатели" name="credits_panel">
-			<text name="linden_intro">Игра Second Life разработана лабораторией Lindens, 
+			<text name="linden_intro">Игра Lovense Viewer разработана лабораторией Lindens, 
 в написании открытого кода участвовали:</text>
 			<text_editor name="contrib_names">Псевдо-имя изменено при запуске</text_editor>
 		</panel>
@@ -32,7 +32,7 @@
         xxHash Copyright (C) 2012-2020 Yann Collet.
         zlib (C) 1995-2012 Jean-loup Gailly и Mark Adler.
 
-        В клиенте Second Life используется технология Havok (TM) Physics. (C) 1999-2010 Havok.com Inc. (и лицензиары компании). Все права защищены. Подробнее см. веб-сайт www.havok.com.
+        В клиенте Lovense Viewer используется технология Havok (TM) Physics. (C) 1999-2010 Havok.com Inc. (и лицензиары компании). Все права защищены. Подробнее см. веб-сайт www.havok.com.
 
         Это программное обеспечение содержит исходный код, предоставленный корпорацией NVIDIA.
 

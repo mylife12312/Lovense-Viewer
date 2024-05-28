@@ -10,8 +10,8 @@
 			</panel>
 		</layout_panel>
 		<layout_panel name="favorites_layout_panel">
-			<favorites_bar name="favorite" tool_tip="Faites glisser des repères ici pour un accès rapide à vos lieux favoris dans Second Life.">
-				<label name="favorites_bar_label" tool_tip="Faites glisser des repères ici pour un accès rapide à vos endroits favoris dans Second Life.">
+			<favorites_bar name="favorite" tool_tip="Faites glisser des repères ici pour un accès rapide à vos lieux favoris dans Lovense Viewer.">
+				<label name="favorites_bar_label" tool_tip="Faites glisser des repères ici pour un accès rapide à vos endroits favoris dans Lovense Viewer.">
 					Barre des Favoris
 				</label>
 				<more_button name="&gt;&gt;" tool_tip="Afficher d&apos;avantage de Favoris">

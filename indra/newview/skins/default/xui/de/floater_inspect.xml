@@ -3,7 +3,7 @@
 	<floater.string name="timeStamp">
 		[wkday,datetime,local] [mth,datetime,local] [day,datetime,local] [hour,datetime,local]:[min,datetime,local]:[second,datetime,local] [year,datetime,local]
 	</floater.string>
-	<scroll_list name="object_list" tool_tip="Wählen Sie ein Objekt aus dieser Liste, um es in der Second Life-Welt zu markieren">
+	<scroll_list name="object_list" tool_tip="Wählen Sie ein Objekt aus dieser Liste, um es in der Lovense Viewer-Welt zu markieren">
 		<scroll_list.columns label="Objektname" name="object_name"/>
 		<scroll_list.columns label="Besitzer" name="owner_name" />
 		<scroll_list.columns label="Ersteller" name="creator_name"/>

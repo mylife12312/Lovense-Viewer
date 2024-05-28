@@ -245,7 +245,7 @@
 		<usetemplate name="okbutton" yestext="OK"/>
 	</notification>
 	<notification name="AllowMultipleViewers">
-		Запуск нескольких приложений Second Life Viewer не поддерживается. Это может привести к конфликтам кэша текстур, повреждению и снижению производительности и визуального отображения.
+		Запуск нескольких приложений Lovense Viewer Viewer не поддерживается. Это может привести к конфликтам кэша текстур, повреждению и снижению производительности и визуального отображения.
 		<usetemplate name="okbutton" yestext="ОК"/>
 	</notification>
 	<notification name="GrantModifyRights">
@@ -520,7 +520,7 @@
 		Ошибка при передаче снимка отчета по следующей причине: [REASON]
 	</notification>
 	<notification name="MustAgreeToLogIn">
-		Для входа в [SECOND_LIFE] вы должны принять условия конфиденциальности Пользовательского соглашения Second Life.
+		Для входа в [SECOND_LIFE] вы должны принять условия конфиденциальности Пользовательского соглашения Lovense Viewer.
 	</notification>
 	<notification name="CouldNotPutOnOutfit">
 		Не удалось надеть костюм.
@@ -3534,10 +3534,10 @@
 		Вот ваш текущий баланс в L$. Чтобы купить еще Linden-долларов, щелкните  «Купить L$».
 	</notification>
 	<notification name="LowMemory">
-		Недостаточный размер пула памяти. Некоторые функции Second Life отключены во избежание сбоя приложения. Закройте другие приложения. Если неполадка не исчезнет, перезапустите SL.
+		Недостаточный размер пула памяти. Некоторые функции Lovense Viewer отключены во избежание сбоя приложения. Закройте другие приложения. Если неполадка не исчезнет, перезапустите SL.
 	</notification>
 	<notification name="ForceQuitDueToLowMemory">
-		Через 30 секунд Second Life завершит работу: нехватка памяти.
+		Через 30 секунд Lovense Viewer завершит работу: нехватка памяти.
 	</notification>
 	<notification name="SOCKS_NOT_PERMITTED">
 		Прокси SOCKS 5 &quot;[HOST]:[PORT]&quot; отклонил попытку подключения; не разрешено набором правил.

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <panel label="Destacados" name="panel_picks">
 	<string name="no_picks" value="No hay destacados"/>
-	<text name="Tell everyone about your favorite places in Second Life.">
-		Cuéntale a todos sobre tus lugares favoritos de Second Life.
+	<text name="Tell everyone about your favorite places in Lovense Viewer.">
+		Cuéntale a todos sobre tus lugares favoritos de Lovense Viewer.
 	</text>
 	<button label="Nuevo..." name="new_btn"/>
 	<button label="Eliminar..." name="delete_btn"/>

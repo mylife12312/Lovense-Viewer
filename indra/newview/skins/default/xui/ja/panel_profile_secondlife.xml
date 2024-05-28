@@ -40,7 +40,7 @@
 	<layout_stack name="imagepositioner">
 		<layout_panel name="label_stack">
 			<text name="status" value="ステータス不明"/>
-			<text name="label" value="Second Life 生年月日："/>
+			<text name="label" value="Lovense Viewer 生年月日："/>
 			<text name="label2" value="アカウント："/>
 			<text name="partner_label" value="パートナー："/>
 		</layout_panel>

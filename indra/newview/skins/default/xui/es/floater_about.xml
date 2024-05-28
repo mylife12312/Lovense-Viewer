@@ -6,7 +6,7 @@
 			<button label="Buscar actualizaciones" name="update_btn"/>
 		</panel>
 		<panel label="Créditos" name="credits_panel">
-			<text name="linden_intro">Second Life ofrecido por los Lindens, 
+			<text name="linden_intro">Lovense Viewer ofrecido por los Lindens, 
 con contribuciones de código abierto de:</text>
 			<text_editor name="contrib_names">Dummy Name sustituido durante la ejecución</text_editor>
 		</panel>
@@ -32,7 +32,7 @@ con contribuciones de código abierto de:</text>
         xxHash Copyright (C) 2012-2020 Yann Collet.
         zlib Copyright (C) 1995-2012 Jean-loup Gailly y Mark Adler.
 
-        El visor de Second Life usa Havok (TM) Physics. (c)Copyright 1999-2010 Havok.com Inc. (y sus licenciadores). Reservados todos los derechos. Vea los detalles en www.havok.com.
+        El visor de Lovense Viewer usa Havok (TM) Physics. (c)Copyright 1999-2010 Havok.com Inc. (y sus licenciadores). Reservados todos los derechos. Vea los detalles en www.havok.com.
 
         Este software contiene código fuente suministrado por NVIDIA Corporation.
 

@@ -77,7 +77,7 @@ BOOL LLTextBox::handleMouseDown(S32 x, S32 y, MASK mask)
 
 BOOL LLTextBox::handleMouseUp(S32 x, S32 y, MASK mask)
 {
-	BOOL	handled = LLTextBase::handleMouseUp(x, y, mask);
+	BOOL	handled = GetNotLinkUrlAction()?false: LLTextBase::handleMouseUp(x, y, mask);
 
 	if (getSoundFlags() & MOUSE_UP)
 	{
@@ -97,6 +97,15 @@ BOOL LLTextBox::handleMouseUp(S32 x, S32 y, MASK mask)
 		{
 			mClickedCallback();
 			handled = TRUE;
+		}
+
+		if (GetNotLinkUrlAction()) {
+            LLTextSegmentPtr cur_segment = getSegmentAtLocalPos(x, y);
+            if (mURLClickSignal && cur_segment->getStyle() && cur_segment->getStyle()->isLink())
+            {
+                // *TODO: send URL here?
+                (*mURLClickSignal)(this, LLSD());
+            }
 		}
 	}
 

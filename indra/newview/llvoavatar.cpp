@@ -3884,7 +3884,7 @@ LLViewerInventoryItem* recursiveGetObjectInventoryItem(LLViewerObject *vobj, LLU
             LLViewerObject *childp = *it;
             item = getObjectInventoryItem(childp, asset_id);
             if (item)
-	{
+			{
                 break;
             }
         }
@@ -6091,7 +6091,8 @@ LLUUID LLVOAvatar::remapMotionID(const LLUUID& id)
 //-----------------------------------------------------------------------------
 BOOL LLVOAvatar::startMotion(const LLUUID& id, F32 time_offset)
 {
-	LL_DEBUGS("Motion") << "motion requested " << id.asString() << " " << gAnimLibrary.animationName(id) << LL_ENDL;
+
+    LL_DEBUGS("Motion") << "motion requested " << id.asString() << " " << gAnimLibrary.animationName(id) << LL_ENDL;
 
 	LLUUID remap_id = remapMotionID(id);
 
@@ -6105,7 +6106,8 @@ BOOL LLVOAvatar::startMotion(const LLUUID& id, F32 time_offset)
 		gAgent.setAFK();
 	}
 
-	return LLCharacter::startMotion(remap_id, time_offset);
+	bool ret = LLCharacter::startMotion(remap_id, time_offset);
+    return ret;
 }
 
 //-----------------------------------------------------------------------------
@@ -6113,7 +6115,6 @@ BOOL LLVOAvatar::startMotion(const LLUUID& id, F32 time_offset)
 //-----------------------------------------------------------------------------
 BOOL LLVOAvatar::stopMotion(const LLUUID& id, BOOL stop_immediate)
 {
-	LL_DEBUGS("Motion") << "Motion requested " << id.asString() << " " << gAnimLibrary.animationName(id) << LL_ENDL;
 
 	LLUUID remap_id = remapMotionID(id);
 	

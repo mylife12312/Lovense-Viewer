@@ -39,10 +39,10 @@
 		</layout_panel>
 	</layout_stack>
 	<panel name="no_add_wearables_button_bar">
-		<button name="shop_btn_1" tool_tip="Посетите магазин Second Life. Также можно выбрать предмет надетой одежды и щелкнуть здесь, чтобы найти что-то похожее"/>
+		<button name="shop_btn_1" tool_tip="Посетите магазин Lovense Viewer. Также можно выбрать предмет надетой одежды и щелкнуть здесь, чтобы найти что-то похожее"/>
 	</panel>
 	<panel name="add_wearables_button_bar">
-		<button name="shop_btn_2" tool_tip="Посетите магазин Second Life. Также можно выбрать предмет надетой одежды и щелкнуть здесь, чтобы найти что-то похожее"/>
+		<button name="shop_btn_2" tool_tip="Посетите магазин Lovense Viewer. Также можно выбрать предмет надетой одежды и щелкнуть здесь, чтобы найти что-то похожее"/>
 	</panel>
 	<panel name="save_revert_button_bar">
 		<layout_stack name="button_bar_ls">

@@ -32,15 +32,15 @@
 	<combo_box name="category_combo" tool_tip="Kategori -- bu raporu en iyi tanımlayan kategoriyi seçin">
 		<combo_box.item label="Kategori seç" name="Select_category"/>
 		<combo_box.item label="Yaş &gt; Yaşı oyna" name="Age__Age_play"/>
-		<combo_box.item label="Yaş &gt; 18 Yaş Altı Second Life&apos;ında Yetişkin Sakin" name="Age__Adult_resident_on_Teen_Second_Life"/>
-		<combo_box.item label="Yaş &gt; 18 Yaş Altı Second Life&apos;ı dışında Reşit Olmayan Sakin" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
+		<combo_box.item label="Yaş &gt; 18 Yaş Altı Lovense Viewer&apos;ında Yetişkin Sakin" name="Age__Adult_resident_on_Teen_Second_Life"/>
+		<combo_box.item label="Yaş &gt; 18 Yaş Altı Lovense Viewer&apos;ı dışında Reşit Olmayan Sakin" name="Age__Underage_resident_outside_of_Teen_Second_Life"/>
 		<combo_box.item label="Saldırı &gt; Çarpışma koruma alanı / güvensiz alan" name="Assault__Combat_sandbox___unsafe_area"/>
 		<combo_box.item label="Şiddet &gt; Güvenli bir Alanda başka bir LS Sakinini ateşli silahla vurmak ya da itip kakmak" name="Assault__Safe_area"/>
 		<combo_box.item label="Saldırı &gt; Silah test güvenli alanı" name="Assault__Weapons_testing_sandbox"/>
 		<combo_box.item label="Ticaret &gt; Ürün veya hizmet verilemedi" name="Commerce__Failure_to_deliver_product_or_service"/>
 		<combo_box.item label="İfşa &gt; Gerçek dünya bilgileri" name="Disclosure__Real_world_information"/>
 		<combo_box.item label="İfşa &gt; Sohbet uzaktan izleniyor" name="Disclosure__Remotely_monitoring chat"/>
-		<combo_box.item label="İfşa &gt; Second Life bilgileri/sohbet/Aİ&apos;ler" name="Disclosure__Second_Life_information_chat_IMs"/>
+		<combo_box.item label="İfşa &gt; Lovense Viewer bilgileri/sohbet/Aİ&apos;ler" name="Disclosure__Second_Life_information_chat_IMs"/>
 		<combo_box.item label="Huzuru bozuyor &gt; bölge kaynaklarının haksız kullanımı" name="Disturbing_the_peace__Unfair_use_of_region_resources"/>
 		<combo_box.item label="Huzuru bozuyor &gt; aşırı komut dosyalı nesne" name="Disturbing_the_peace__Excessive_scripted_objects"/>
 		<combo_box.item label="Huzuru bozuyor &gt; Nesne dağıtma" name="Disturbing_the_peace__Object_littering"/>

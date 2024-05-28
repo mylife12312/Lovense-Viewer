@@ -1,14 +1,14 @@
 <?xml version="1.0" ?>
 <strings>
-	<string name="CAPITALIZED_APP_NAME">SECOND LIFE</string>
-	<string name="SUPPORT_SITE">Portal de Soporte de Second Life</string>
+	<string name="CAPITALIZED_APP_NAME">Lovense Viewer</string>
+	<string name="SUPPORT_SITE">Portal de Soporte de Lovense Viewer</string>
 	<string name="StartupDetectingHardware">Identificando el hardware...</string>
 	<string name="StartupLoading">Instalando [APP_NAME]...</string>
 	<string name="StartupClearingCache">Limpiando la caché...</string>
 	<string name="StartupInitializingTextureCache">Iniciando la caché de las texturas...</string>
 	<string name="StartupRequireDriverUpdate">Error de inicialización de gráficos. Actualiza tu controlador de gráficos.</string>
 	<string name="AboutHeader">[CHANNEL] [VIEWER_VERSION_0].[VIEWER_VERSION_1].[VIEWER_VERSION_2].[VIEWER_VERSION_3] ([ADDRESS_SIZE]bit) 
-[[VIEWER_RELEASE_NOTES_URL] [ReleaseNotes]]</string>
+</string>
 	<string name="BuildConfig">Configuración de constitución [BUILD_CONFIG]</string>
 	<string name="AboutPosition">Estás en la posición [POSITION_LOCAL_0,number,1], [POSITION_LOCAL_1,number,1], [POSITION_LOCAL_2,number,1], de [REGION], alojada en &lt;nolink&gt;[HOSTNAME]&lt;/nolink&gt; ([HOSTIP])
 SLURL: &lt;nolink&gt;[SLURL]&lt;/nolink&gt;
@@ -75,10 +75,10 @@ Versión del servidor de voz: [VOICE_VERSION]</string>
 	<string name="LoginFailedHeader">Error en el inicio de sesión.</string>
 	<string name="Quit">Salir</string>
 	<string name="create_account_url">http://join.secondlife.com/?sourceid=[sourceid]</string>
-	<string name="AgniGridLabel">Grid principal de Second Life (Agni)</string>
-	<string name="AditiGridLabel">Grid de prueba beta de Second Life (Aditi)</string>
+	<string name="AgniGridLabel">Grid principal de Lovense Viewer (Agni)</string>
+	<string name="AditiGridLabel">Grid de prueba beta de Lovense Viewer (Aditi)</string>
 	<string name="ViewerDownloadURL">http://secondlife.com/download.</string>
-	<string name="LoginFailedViewerNotPermitted">Ya no puedes acceder a Second Life con el visor que estás utilizando. Visita la siguiente página para descargar un nuevo visor:
+	<string name="LoginFailedViewerNotPermitted">Ya no puedes acceder a Lovense Viewer con el visor que estás utilizando. Visita la siguiente página para descargar un nuevo visor:
 http://secondlife.com/download.
 
 Si deseas obtener más información, consulta las preguntas frecuentes que aparecen a continuación:
@@ -99,19 +99,19 @@ Lamentamos las molestias.</string>
 Dirígete a la página de tu cuenta en http://secondlife.com/password
 y responde a la pregunta de seguridad para restablecer la contraseña.
 Lamentamos las molestias.</string>
-	<string name="LoginFailedEmployeesOnly">Second Life no está disponible temporalmente debido a tareas de mantenimiento.
+	<string name="LoginFailedEmployeesOnly">Lovense Viewer no está disponible temporalmente debido a tareas de mantenimiento.
 Actualmente, solo se permite iniciar sesión a los empleados.
 Consulta www.secondlife.com/status si deseas obtener actualizaciones.</string>
-	<string name="LoginFailedPremiumOnly">Las conexiones a Second Life se han restringido provisionalmente para garantizar que los usuarios que ya están conectados tengan la mejor experiencia posible.
+	<string name="LoginFailedPremiumOnly">Las conexiones a Lovense Viewer se han restringido provisionalmente para garantizar que los usuarios que ya están conectados tengan la mejor experiencia posible.
 
-Durante este tiempo, las personas con cuentas gratuitas no podrán acceder a Second Life, ya que tienen prioridad los usuarios con una cuenta de pago.</string>
-	<string name="LoginFailedComputerProhibited">No se puede acceder a Second Life desde este ordenador.
+Durante este tiempo, las personas con cuentas gratuitas no podrán acceder a Lovense Viewer, ya que tienen prioridad los usuarios con una cuenta de pago.</string>
+	<string name="LoginFailedComputerProhibited">No se puede acceder a Lovense Viewer desde este ordenador.
 Si crees que se trata de un error, ponte en contacto con
 support@secondlife.com.</string>
 	<string name="LoginFailedAcountSuspended">No se podrá acceder a tu cuenta hasta las
 [TIME] (horario de la costa del Pacífico).</string>
 	<string name="LoginFailedAccountDisabled">En este momento no podemos completar la solicitud. 
-Por favor solicita ayuda al personal de asistencia de Second Life en http://support.secondlife.com.</string>
+Por favor solicita ayuda al personal de asistencia de Lovense Viewer en http://support.secondlife.com.</string>
 	<string name="LoginFailedTransformError">Se han detectado datos incorrectos en el inicio de sesión.
 Ponte en contacto con support@secondlife.com.</string>
 	<string name="LoginFailedAccountMaintenance">Se están realizando tareas rutinarias de mantenimiento en tu cuenta.
@@ -123,7 +123,7 @@ Si crees que se trata de un error, ponte en contacto con support@secondlife.com.
 Por favor, aguarda un momento antes de intentar conectarte nuevamente.</string>
 	<string name="LoginFailedUnableToCreateSession">No se ha podido crear una sesión válida.</string>
 	<string name="LoginFailedUnableToConnectToSimulator">No se ha podido establecer la conexión con un simulador.</string>
-	<string name="LoginFailedRestrictedHours">Tu cuenta solo puede acceder a Second Life
+	<string name="LoginFailedRestrictedHours">Tu cuenta solo puede acceder a Lovense Viewer
 entre las [START] y las [END] (horario de la costa del Pacífico).
 Inténtalo de nuevo durante ese horario.
 Si crees que se trata de un error, ponte en contacto con support@secondlife.com.</string>
@@ -562,7 +562,7 @@ http://secondlife.com/support para obtener ayuda sobre cómo solucionar este pro
 	<string name="InventoryOutboxErrorTitle">Errores del Mercado.</string>
 	<string name="InventoryOutboxError">La [[MARKETPLACE_CREATE_STORE_URL] tienda del Mercado] devuelve errores.</string>
 	<string name="InventoryMarketplaceError">Se ha producido un error al abrir Artículos del Mercado.
-Si sigues recibiendo el mismo mensaje, solicita ayuda al personal de asistencia de Second Life en http://support.secondlife.com</string>
+Si sigues recibiendo el mismo mensaje, solicita ayuda al personal de asistencia de Lovense Viewer en http://support.secondlife.com</string>
 	<string name="InventoryMarketplaceListingsNoItemsTitle">Tu carpeta Artículos del mercado está vacía.</string>
 	<string name="InventoryMarketplaceListingsNoItems">Arrastra carpetas a esta sección para incluirlas en la lista de venta del [[MARKETPLACE_DASHBOARD_URL] Mercado].</string>
 	<string name="InventoryItemsCount">( [ITEMS_COUNT] Objetos)</string>
@@ -2040,4 +2040,13 @@ configurados. Si aún recibes este error, por favor accede a la sección Soporte
 del sitio web Secondlife.com y genera un informe del problema. 
 
 [https://community.secondlife.com/knowledgebase/english/error-messages-r520/#Section__3 Base de conocimientos]</string>
+
+	  <!-- for lovense strings -->
+  <string name="lstr_pause_sync">Pause Sync</string>
+  <string name="lstr_restart_sync">Restart Sync</string>
+  <string name="lstr_next">Next</string>
+  <string name="lstr_got_it">Got it</string>
+  <string name="lstr_scan_qr_code_des">Scan the QR code to connect your toys to the Lovense Remote app.</string>
+  <string name="lstr_qr_code_failed_des">The QR Code failed to load. Check your internet connection and try again.</string>
+
 </strings>

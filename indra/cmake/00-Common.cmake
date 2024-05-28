@@ -72,6 +72,9 @@ if (WINDOWS)
 
   add_definitions(
       -DNOMINMAX
+      -DUNICODE
+      -D_UNICODE
+      -DLL_WINDOWS
 #      /DDOM_DYNAMIC            # For shared library colladadom
       )
   add_compile_options(
@@ -85,6 +88,7 @@ if (WINDOWS)
           /Oy-
           /fp:fast
           /MP
+          /Zc:wchar_t-
       )
 
   # Nicky: x64 implies SSE2
@@ -169,8 +173,8 @@ if (DARWIN)
   # NOTE: it's critical that the optimization flag is put in front.
   # NOTE: it's critical to have both CXX_FLAGS and C_FLAGS covered.
 ## Really?? On developer machines too?
-##set(ENABLE_SIGNING TRUE)
-##set(SIGNING_IDENTITY "Developer ID Application: Linden Research, Inc.")
+#set(ENABLE_SIGNING TRUE)
+#set(SIGNING_IDENTITY "Developer ID Application: HYTTO PTE. LTD. (R6Z9H2QFD7)")
 endif (DARWIN)
 
 if (LINUX OR DARWIN)
@@ -181,6 +185,7 @@ if (LINUX OR DARWIN)
   endif (NOT GCC_DISABLE_FATAL_WARNINGS)
 
   list(APPEND GCC_WARNINGS -Wno-reorder -Wno-non-virtual-dtor )
+  list(APPEND GCC_WARNINGS -Wno-unused-but-set-variable)
 
   add_compile_options(${GCC_WARNINGS})
   add_compile_options(-m${ADDRESS_SIZE})

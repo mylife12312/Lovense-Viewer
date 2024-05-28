@@ -6,7 +6,7 @@
 			<button label="Güncellemeleri kontrol et" name="update_btn"/>
 		</panel>
 		<panel label="Katkıda Bulunanlar" name="credits_panel">
-			<text name="linden_intro">Second Life, Lindens tarafından geliştirilmiştir ve 
+			<text name="linden_intro">Lovense Viewer, Lindens tarafından geliştirilmiştir ve 
 açık kaynak kod katkısında bulunanlar şunlardır:</text>
 			<text_editor name="contrib_names">Geçici Ad çalıştırma sırasında değiştirilir</text_editor>
 		</panel>
@@ -32,7 +32,7 @@ açık kaynak kod katkısında bulunanlar şunlardır:</text>
         xxHash Copyright (C) 2012-2020 Yann Collet.
         zlib Telif Hakkı (C) 1995-2012 Jean-loup Gailly ve Mark Adler.
 
-        Second Life Görüntüleyicisi Havok (TM) Fizik motorunu kullanmaktadır. (c)Telif Hakkı 1999-2010 Havok.com Inc. (ve Lisans Verenleri). Tüm Hakları Saklıdır. Ayrıntılı bilgi için bkz. www.havok.com
+        Lovense Viewer Görüntüleyicisi Havok (TM) Fizik motorunu kullanmaktadır. (c)Telif Hakkı 1999-2010 Havok.com Inc. (ve Lisans Verenleri). Tüm Hakları Saklıdır. Ayrıntılı bilgi için bkz. www.havok.com
 
         Bu yazılımda NVIDIA Corporation tarafından sağlanan kaynak kod yer almaktadır.
 
