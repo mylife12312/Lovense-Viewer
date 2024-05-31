@@ -49,6 +49,7 @@ public:
     typedef std::function<void(LLInventoryItem *inv_item, LLSettingsBase::ptr_t settings, S32 status, LLExtStat extstat)> inventory_download_fn;
     typedef std::function<void(LLUUID asset_id, LLUUID inventory_id, LLUUID object_id, LLSD results)>           inventory_result_fn;
 
+    static void     createNewInventoryItem(LLSettingsType::type_e stype, const LLUUID& parent_id, std::function<void(const LLUUID&)> created_cb);
     static void     createNewInventoryItem(LLSettingsType::type_e stype, const LLUUID &parent_id, inventory_result_fn callback = inventory_result_fn());
     static void     createInventoryItem(const LLSettingsBase::ptr_t &settings, const LLUUID &parent_id, std::string settings_name, inventory_result_fn callback = inventory_result_fn());
     static void     createInventoryItem(const LLSettingsBase::ptr_t &settings, U32 next_owner_perm, const LLUUID &parent_id, std::string settings_name, inventory_result_fn callback = inventory_result_fn());
@@ -79,7 +80,7 @@ private:
 
     static void     onAgentAssetUploadComplete(LLUUID itemId, LLUUID newAssetId, LLUUID newItemId, LLSD response, LLSettingsBase::ptr_t psettings, inventory_result_fn callback);
     static void     onTaskAssetUploadComplete(LLUUID itemId, LLUUID taskId, LLUUID newAssetId, LLSD response, LLSettingsBase::ptr_t psettings, inventory_result_fn callback);
-    
+
     static void     onAssetDownloadComplete(const LLUUID &asset_id, S32 status, LLExtStat ext_status, asset_download_fn callback);
 };
 
@@ -170,7 +171,7 @@ public:
     virtual ptr_t   buildDeepCloneAndUncompress() const SETTINGS_OVERRIDE;
 
     static LLSD     convertToLegacy(const ptr_t &);
-    
+
     virtual LLSettingsSkyPtr_t      getDefaultSky() const override;
     virtual LLSettingsWaterPtr_t    getDefaultWater() const override;
     virtual LLSettingsSkyPtr_t      buildSky(LLSD) const override;

@@ -5,29 +5,27 @@
  * $LicenseInfo:firstyear=2006&license=viewerlgpl$
  * Second Life Viewer Source Code
  * Copyright (C) 2010, Linden Research, Inc.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
  * version 2.1 of the License only.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
  * $/LicenseInfo$
  */
 
 #ifndef LL_LLMATERIAL_H
 #define LL_LLMATERIAL_H
-
-#include <boost/shared_ptr.hpp>
 
 #include "llmaterialid.h"
 #include "llsd.h"
@@ -54,8 +52,6 @@ public:
         ALPHA_SHADER_COUNT = 4
     } eShaderCount;
 
-    
-    
     static const U8         DEFAULT_SPECULAR_LIGHT_EXPONENT = ((U8)(0.2f * 255));
     static const LLColor4U  DEFAULT_SPECULAR_LIGHT_COLOR;
     static const U8         DEFAULT_ENV_INTENSITY = 0;
@@ -127,6 +123,7 @@ public:
     bool        operator != (const LLMaterial& rhs) const;
 
     U32         getShaderMask(U32 alpha_mode, BOOL is_alpha);
+    LLUUID      getHash() const;
 
 protected:
     LLUUID      mNormalID;

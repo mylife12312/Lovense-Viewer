@@ -36,9 +36,10 @@
 #include "llsettingssky.h"
 #include "llenvironment.h"
 #include "llatmosphere.h"
+#include "llviewercontrol.h"
 
 namespace
-{   
+{
     // Atmosphere Tab
     const std::string   FIELD_SKY_AMBIENT_LIGHT("ambient_light");
     const std::string   FIELD_SKY_BLUE_HORIZON("blue_horizon");
@@ -108,6 +109,8 @@ namespace
     const std::string   FIELD_SKY_DENSITY_DROPLET_RADIUS("droplet_radius");
     const std::string   FIELD_SKY_DENSITY_ICE_LEVEL("ice_level");
 
+    const std::string   FIELD_REFLECTION_PROBE_AMBIANCE("probe_ambiance");
+
     const F32 SLIDER_SCALE_SUN_AMBIENT(3.0f);
     const F32 SLIDER_SCALE_BLUE_HORIZON_DENSITY(2.0f);
     const F32 SLIDER_SCALE_GLOW_R(20.0f);
@@ -150,6 +153,7 @@ BOOL LLPanelSettingsSkyAtmosTab::postBuild()
     getChild<LLUICtrl>(FIELD_SKY_DENSITY_MOISTURE_LEVEL)->setCommitCallback([this](LLUICtrl *, const LLSD &) { onMoistureLevelChanged(); });
     getChild<LLUICtrl>(FIELD_SKY_DENSITY_DROPLET_RADIUS)->setCommitCallback([this](LLUICtrl *, const LLSD &) { onDropletRadiusChanged(); });
     getChild<LLUICtrl>(FIELD_SKY_DENSITY_ICE_LEVEL)->setCommitCallback([this](LLUICtrl *, const LLSD &) { onIceLevelChanged(); });
+    getChild<LLUICtrl>(FIELD_REFLECTION_PROBE_AMBIANCE)->setCommitCallback([this](LLUICtrl*, const LLSD&) { onReflectionProbeAmbianceChanged(); });
     refresh();
 
     return TRUE;
@@ -172,6 +176,7 @@ void LLPanelSettingsSkyAtmosTab::setEnabled(BOOL enabled)
         getChild<LLUICtrl>(FIELD_SKY_DENSITY_MOISTURE_LEVEL)->setEnabled(enabled);
         getChild<LLUICtrl>(FIELD_SKY_DENSITY_DROPLET_RADIUS)->setEnabled(enabled);
         getChild<LLUICtrl>(FIELD_SKY_DENSITY_ICE_LEVEL)->setEnabled(enabled);
+        getChild<LLUICtrl>(FIELD_REFLECTION_PROBE_AMBIANCE)->setEnabled(enabled);
     }
 }
 
@@ -204,9 +209,15 @@ void LLPanelSettingsSkyAtmosTab::refresh()
     F32 droplet_radius  = mSkySettings->getSkyDropletRadius();
     F32 ice_level       = mSkySettings->getSkyIceLevel();
 
+    static LLCachedControl<bool> should_auto_adjust(gSavedSettings, "RenderSkyAutoAdjustLegacy", true);
+    F32 rp_ambiance     = mSkySettings->getReflectionProbeAmbiance(should_auto_adjust);
+
     getChild<LLUICtrl>(FIELD_SKY_DENSITY_MOISTURE_LEVEL)->setValue(moisture_level);
     getChild<LLUICtrl>(FIELD_SKY_DENSITY_DROPLET_RADIUS)->setValue(droplet_radius);
     getChild<LLUICtrl>(FIELD_SKY_DENSITY_ICE_LEVEL)->setValue(ice_level);
+    getChild<LLUICtrl>(FIELD_REFLECTION_PROBE_AMBIANCE)->setValue(rp_ambiance);
+
+    updateGammaLabel(should_auto_adjust);
 }
 
 //-------------------------------------------------------------------------
@@ -311,6 +322,35 @@ void LLPanelSettingsSkyAtmosTab::onIceLevelChanged()
     setIsDirty();
 }
 
+void LLPanelSettingsSkyAtmosTab::onReflectionProbeAmbianceChanged()
+{
+    if (!mSkySettings) return;
+    F32 ambiance = getChild<LLUICtrl>(FIELD_REFLECTION_PROBE_AMBIANCE)->getValue().asReal();
+
+    mSkySettings->setReflectionProbeAmbiance(ambiance);
+    mSkySettings->update();
+    setIsDirty();
+
+    updateGammaLabel();
+}
+
+
+void LLPanelSettingsSkyAtmosTab::updateGammaLabel(bool auto_adjust)
+{
+    if (!mSkySettings) return;
+    F32 ambiance = mSkySettings->getReflectionProbeAmbiance(auto_adjust);
+    if (ambiance != 0.f)
+    {
+        childSetValue("scene_gamma_label", getString("hdr_string"));
+        getChild<LLUICtrl>(FIELD_SKY_SCENE_GAMMA)->setToolTip(getString("hdr_tooltip"));
+    }
+    else
+    {
+        childSetValue("scene_gamma_label", getString("brightness_string"));
+        getChild<LLUICtrl>(FIELD_SKY_SCENE_GAMMA)->setToolTip(std::string());
+    }
+
+}
 //==========================================================================
 LLPanelSettingsSkyCloudTab::LLPanelSettingsSkyCloudTab() :
     LLPanelSettingsSky()
@@ -444,10 +484,10 @@ void LLPanelSettingsSkyCloudTab::onCloudMapChanged()
 void LLPanelSettingsSkyCloudTab::onCloudDensityChanged()
 {
     if (!mSkySettings) return;
-    LLColor3 density(getChild<LLUICtrl>(FIELD_SKY_CLOUD_DENSITY_X)->getValue().asReal(), 
-        getChild<LLUICtrl>(FIELD_SKY_CLOUD_DENSITY_Y)->getValue().asReal(), 
+    LLColor3 density(getChild<LLUICtrl>(FIELD_SKY_CLOUD_DENSITY_X)->getValue().asReal(),
+        getChild<LLUICtrl>(FIELD_SKY_CLOUD_DENSITY_Y)->getValue().asReal(),
         getChild<LLUICtrl>(FIELD_SKY_CLOUD_DENSITY_D)->getValue().asReal());
-    
+
     mSkySettings->setCloudPosDensity1(density);
     setIsDirty();
 }
@@ -526,7 +566,7 @@ void LLPanelSettingsSkySunMoonTab::refresh()
         getChildView(PANEL_SKY_MOON_LAYOUT)->setAllChildrenEnabled(FALSE);
         getChildView(FIELD_SKY_SUN_BEACON)->setEnabled(TRUE);
         getChildView(FIELD_SKY_MOON_BEACON)->setEnabled(TRUE);
-        
+
         if (!mSkySettings)
             return;
     }
@@ -539,7 +579,7 @@ void LLPanelSettingsSkySunMoonTab::refresh()
     getChild<LLColorSwatchCtrl>(FIELD_SKY_SUN_MOON_COLOR)->set(mSkySettings->getSunlightColor() / SLIDER_SCALE_SUN_AMBIENT);
 
     LLColor3 glow(mSkySettings->getGlow());
-    
+
     // takes 40 - 0.2 range -> 0 - 1.99 UI range
     getChild<LLUICtrl>(FIELD_SKY_GLOW_SIZE)->setValue(2.0 - (glow.mV[0] / SLIDER_SCALE_GLOW_R));
     getChild<LLUICtrl>(FIELD_SKY_GLOW_FOCUS)->setValue(glow.mV[2] / SLIDER_SCALE_GLOW_B);
@@ -589,7 +629,7 @@ void LLPanelSettingsSkySunMoonTab::onGlowChanged()
     LLColor3 glow(getChild<LLUICtrl>(FIELD_SKY_GLOW_SIZE)->getValue().asReal(), 0.0f, getChild<LLUICtrl>(FIELD_SKY_GLOW_FOCUS)->getValue().asReal());
 
     // takes 0 - 1.99 UI range -> 40 -> 0.2 range
-    glow.mV[0] = (2.0f - glow.mV[0]) * SLIDER_SCALE_GLOW_R; 
+    glow.mV[0] = (2.0f - glow.mV[0]) * SLIDER_SCALE_GLOW_R;
     glow.mV[2] *= SLIDER_SCALE_GLOW_B;
 
     mSkySettings->setGlow(glow);
@@ -735,9 +775,9 @@ void LLPanelSettingsSkySunMoonTab::onMoonBrightnessChanged()
     mSkySettings->update();
     setIsDirty();
 }
- 
+
 LLPanelSettingsSkyDensityTab::LLPanelSettingsSkyDensityTab()
-{    
+{
 }
 
 BOOL LLPanelSettingsSkyDensityTab::postBuild()

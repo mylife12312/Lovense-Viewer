@@ -1,33 +1,31 @@
-/** 
+/**
  * @file class1/deferred/skyF.glsl
  *
  * $LicenseInfo:firstyear=2005&license=viewerlgpl$
  * Second Life Viewer Source Code
  * Copyright (C) 2005, Linden Research, Inc.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
  * version 2.1 of the License only.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
  * $/LicenseInfo$
  */
- 
-/*[EXTRA_CODE_HERE]*/
 
 // Inputs
-VARYING vec4 vary_HazeColor;
-VARYING float vary_LightNormPosDot;
+in vec3 vary_HazeColor;
+in float vary_LightNormPosDot;
 
 uniform sampler2D rainbow_map;
 uniform sampler2D halo_map;
@@ -36,15 +34,14 @@ uniform float moisture_level;
 uniform float droplet_radius;
 uniform float ice_level;
 
-#ifdef DEFINE_GL_FRAGCOLOR
-out vec4 frag_data[3];
-#else
-#define frag_data gl_FragData
-#endif
+out vec4 frag_data[4];
+
+vec3 srgb_to_linear(vec3 c);
 
 /////////////////////////////////////////////////////////////////////////
 // The fragment shader for the sky
 /////////////////////////////////////////////////////////////////////////
+
 
 vec3 rainbow(float d)
 {
@@ -62,27 +59,24 @@ vec3 rainbow(float d)
     d = clamp(d, 0.0, 0.25) + interior_coord;
 
     float rad = (droplet_radius - 5.0f) / 1024.0f;
-    return pow(texture2D(rainbow_map, vec2(rad+0.5, d)).rgb, vec3(1.8)) * moisture_level;
+    return pow(texture(rainbow_map, vec2(rad+0.5, d)).rgb, vec3(1.8)) * moisture_level;
 }
 
 vec3 halo22(float d)
 {
     d       = clamp(d, 0.1, 1.0);
     float v = sqrt(clamp(1 - (d * d), 0, 1));
-    return texture2D(halo_map, vec2(0, v)).rgb * ice_level;
+    return texture(halo_map, vec2(0, v)).rgb * ice_level;
 }
-
-/// Soft clips the light with a gamma correction
-vec3 scaleSoftClip(vec3 light);
 
 void main()
 {
-    // Potential Fill-rate optimization.  Add cloud calculation 
-    // back in and output alpha of 0 (so that alpha culling kills 
-    // the fragment) if the sky wouldn't show up because the clouds 
+    // Potential Fill-rate optimization.  Add cloud calculation
+    // back in and output alpha of 0 (so that alpha culling kills
+    // the fragment) if the sky wouldn't show up because the clouds
     // are fully opaque.
 
-    vec4 color = vary_HazeColor;
+    vec3 color = vary_HazeColor;
 
     float  rel_pos_lightnorm = vary_LightNormPosDot;
     float optic_d = rel_pos_lightnorm;
@@ -90,13 +84,11 @@ void main()
     color.rgb += rainbow(optic_d);
     color.rgb += halo_22;
     color.rgb *= 2.;
-    color.rgb = scaleSoftClip(color.rgb);
+    color.rgb = clamp(color.rgb, vec3(0), vec3(5));
 
-    // Gamma correct for WL (soft clip effect).
-    frag_data[0] = vec4(color.rgb, 1.0);
-    frag_data[1] = vec4(0.0,0.0,0.0,0.0);
-    frag_data[2] = vec4(0.0,0.0,0.0,1.0); //1.0 in norm.w masks off fog
-
-    gl_FragDepth = 0.99999f;
+    frag_data[0] = vec4(0);
+    frag_data[1] = vec4(0);
+    frag_data[2] = vec4(0.0,0.0,0.0,GBUFFER_FLAG_SKIP_ATMOS); //1.0 in norm.w masks off fog
+    frag_data[3] = vec4(color.rgb, 1.0);
 }
 

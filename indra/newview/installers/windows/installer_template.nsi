@@ -26,7 +26,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Compiler flags
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Unicode true
 SetOverwrite on				# Overwrite files
 SetCompress auto			# Compress if saves space
 SetCompressor /solid lzma	# Compress whole installer as one block
@@ -441,8 +440,18 @@ CreateShortCut	"$SMPROGRAMS\$INSTSHORTCUT\Uninstall $INSTSHORTCUT.lnk" \
 
 # Other shortcuts
 SetOutPath "$INSTDIR"
-CreateShortCut "$DESKTOP\$INSTSHORTCUT.lnk" \
+
+Push $0
+${GetParameters} $COMMANDLINE
+${GetOptionsS} $COMMANDLINE "/marker" $0
+# Returns error if option does not exist
+IfErrors 0 DESKTOP_SHORTCUT_DONE
+  # "/marker" is set by updater, do not recreate desktop shortcut
+  CreateShortCut "$DESKTOP\$INSTSHORTCUT.lnk" \
         "$INSTDIR\$VIEWER_EXE" "$SHORTCUT_LANG_PARAM" "$INSTDIR\$VIEWER_EXE"
+
+DESKTOP_SHORTCUT_DONE:
+Pop $0
 CreateShortCut "$INSTDIR\$INSTSHORTCUT.lnk" \
         "$INSTDIR\$VIEWER_EXE" "$SHORTCUT_LANG_PARAM" "$INSTDIR\$VIEWER_EXE"
 CreateShortCut "$INSTDIR\Uninstall $INSTSHORTCUT.lnk" \
@@ -595,7 +604,7 @@ Call un.UserSettingsFiles
 SectionEnd
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Make sure the user can install
+;; Make sure the user can install/uninstall
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 Function CheckIfAdministrator
     DetailPrint $(CheckAdministratorInstDP)
@@ -606,22 +615,6 @@ Function CheckIfAdministrator
         Quit
 lbl_is_admin:
     Return
-
-FunctionEnd
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Make sure the user can uninstall
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-Function un.CheckIfAdministrator
-    DetailPrint $(CheckAdministratorUnInstDP)
-    UserInfo::GetAccountType
-    Pop $R0
-    StrCmp $R0 "Admin" lbl_is_admin
-        MessageBox MB_OK $(CheckAdministratorUnInstMB)
-        Quit
-lbl_is_admin:
-    Return
-
 FunctionEnd
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

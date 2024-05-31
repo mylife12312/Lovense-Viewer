@@ -27,11 +27,12 @@
 #include "llglheaders.h"
 #include "llglcommonfunc.h"
 
-namespace LLGLCommonFunc 
+namespace LLGLCommonFunc
 {
-	void selected_stencil_test()
-	{
-		glStencilFunc(GL_ALWAYS, 2, 0xffff);
-		glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
-	}
+    void selected_stencil_test()
+    {
+        // deprecated
+        //glStencilFunc(GL_ALWAYS, 2, 0xffff);
+        //glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+    }
 }

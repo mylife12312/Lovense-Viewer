@@ -1,25 +1,25 @@
-/** 
+/**
  * @file llkeyconflict.cpp
- * @brief 
+ * @brief
  *
  * $LicenseInfo:firstyear=2019&license=viewerlgpl$
  * Second Life Viewer Source Code
  * Copyright (C) 2019, Linden Research, Inc.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
  * version 2.1 of the License only.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
  * $/LicenseInfo$
  */
@@ -70,40 +70,6 @@ std::string string_from_mask(MASK mask)
     if (mask == MASK_NONE)
     {
         res = "NONE";
-    }
-    return res;
-}
-
-std::string string_from_mouse(EMouseClickType click, bool translate)
-{
-    std::string res;
-    switch (click)
-    {
-    case CLICK_LEFT:
-        res = "LMB";
-        break;
-    case CLICK_MIDDLE:
-        res = "MMB";
-        break;
-    case CLICK_RIGHT:
-        res = "RMB";
-        break;
-    case CLICK_BUTTON4:
-        res = "MB4";
-        break;
-    case CLICK_BUTTON5:
-        res = "MB5";
-        break;
-    case CLICK_DOUBLELEFT:
-        res = "Double LMB";
-        break;
-    default:
-        break;
-    }
-
-    if (translate && !res.empty())
-    {
-        res = LLTrans::getString(res);
     }
     return res;
 }
@@ -270,7 +236,7 @@ std::string LLKeyConflictHandler::getStringFromKeyData(const LLKeyData& keydata)
         result = LLKeyboard::stringFromAccelerator(keydata.mMask);
     }
 
-    result += string_from_mouse(keydata.mMouse, true);
+    result += LLKeyboard::stringFromMouse(keydata.mMouse);
 
     return result;
 }
@@ -545,7 +511,7 @@ void LLKeyConflictHandler::saveToSettings(bool temporary)
                     {
                         // set() because 'optional', for compatibility purposes
                         // just copy old keys.xml and rename to key_bindings.xml, it should work
-                        binding.mouse.set(string_from_mouse(data.mMouse, false), true);
+                        binding.mouse.set(LLKeyboard::stringFromMouse(data.mMouse, false), true);
                     }
                     binding.command = iter->first;
                     mode.bindings.add(binding);
@@ -873,7 +839,7 @@ void LLKeyConflictHandler::generatePlaceholders(ESourceMode load_mode)
         // no autopilot
         registerTemporaryControl("walk_to");
     }
-    else 
+    else
     {
         // sitting related functions should only be avaliable in sitting mode
         registerTemporaryControl("move_forward_sitting");

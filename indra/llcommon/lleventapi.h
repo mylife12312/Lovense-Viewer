@@ -5,25 +5,25 @@
  * @brief  LLEventAPI is the base class for every class that wraps a C++ API
  *         in an event API
  * (see https://wiki.lindenlab.com/wiki/Incremental_Viewer_Automation/Event_API).
- * 
+ *
  * $LicenseInfo:firstyear=2009&license=viewerlgpl$
  * Second Life Viewer Source Code
  * Copyright (C) 2010, Linden Research, Inc.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
  * version 2.1 of the License only.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
  * $/LicenseInfo$
  */
@@ -34,6 +34,11 @@
 #include "lleventdispatcher.h"
 #include "llinstancetracker.h"
 #include <string>
+
+namespace LL
+{
+    class LazyEventAPIParams;
+}
 
 /**
  * LLEventAPI not only provides operation dispatch functionality, inherited
@@ -63,19 +68,6 @@ public:
     std::string getName() const { return ibase::getKey(); }
     /// Get the documentation string
     std::string getDesc() const { return mDesc; }
-
-    /**
-     * Publish only selected add() methods from LLEventDispatcher.
-     * Every LLEventAPI add() @em must have a description string.
-     */
-    template <typename CALLABLE>
-    void add(const std::string& name,
-             const std::string& desc,
-             CALLABLE callable,
-             const LLSD& required=LLSD())
-    {
-        LLEventDispatcher::add(name, desc, callable, required);
-    }
 
     /**
      * Instantiate a Response object in any LLEventAPI subclass method that
@@ -150,15 +142,19 @@ public:
          * @endcode
          */
         LLSD& operator[](const LLSD::String& key) { return mResp[key]; }
-		
-		 /**
-		 * set the response to the given data
-		 */
-		void setResponse(LLSD const & response){ mResp = response; }
+
+         /**
+         * set the response to the given data
+         */
+        void setResponse(LLSD const & response){ mResp = response; }
 
         LLSD mResp, mReq;
         LLSD::String mKey;
     };
+
+protected:
+    // constructor used only by subclasses registered by LazyEventAPI
+    LLEventAPI(const LL::LazyEventAPIParams&);
 
 private:
     std::string mDesc;

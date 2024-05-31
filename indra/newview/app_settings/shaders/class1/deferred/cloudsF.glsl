@@ -1,64 +1,57 @@
-/** 
+/**
  * @file class1\deferred\cloudsF.glsl
  *
  * $LicenseInfo:firstyear=2005&license=viewerlgpl$
  * Second Life Viewer Source Code
  * Copyright (C) 2005, Linden Research, Inc.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
  * version 2.1 of the License only.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
  * $/LicenseInfo$
  */
-/*[EXTRA_CODE_HERE]*/ 
+/*[EXTRA_CODE_HERE]*/
 
-#ifdef DEFINE_GL_FRAGCOLOR
-out vec4 frag_data[3];
-#else
-#define frag_data gl_FragData
-#endif
+out vec4 frag_data[4];
 
 /////////////////////////////////////////////////////////////////////////
 // The fragment shader for the sky
 /////////////////////////////////////////////////////////////////////////
 
-VARYING vec4 vary_CloudColorSun;
-VARYING vec4 vary_CloudColorAmbient;
-VARYING float vary_CloudDensity;
+in vec3 vary_CloudColorSun;
+in vec3 vary_CloudColorAmbient;
+in float vary_CloudDensity;
 
 uniform sampler2D cloud_noise_texture;
 uniform sampler2D cloud_noise_texture_next;
 uniform float blend_factor;
-uniform vec4 cloud_pos_density1;
-uniform vec4 cloud_pos_density2;
+uniform vec3 cloud_pos_density1;
+uniform vec3 cloud_pos_density2;
 uniform float cloud_scale;
 uniform float cloud_variance;
 
-VARYING vec2 vary_texcoord0;
-VARYING vec2 vary_texcoord1;
-VARYING vec2 vary_texcoord2;
-VARYING vec2 vary_texcoord3;
-VARYING float altitude_blend_factor;
-
-/// Soft clips the light with a gamma correction
-vec3 scaleSoftClip(vec3 light);
+in vec2 vary_texcoord0;
+in vec2 vary_texcoord1;
+in vec2 vary_texcoord2;
+in vec2 vary_texcoord3;
+in float altitude_blend_factor;
 
 vec4 cloudNoise(vec2 uv)
 {
-   vec4 a = texture2D(cloud_noise_texture, uv);
-   vec4 b = texture2D(cloud_noise_texture_next, uv);
+   vec4 a = texture(cloud_noise_texture, uv);
+   vec4 b = texture(cloud_noise_texture_next, uv);
    vec4 cloud_noise_sample = mix(a, b, blend_factor);
    return cloud_noise_sample;
 }
@@ -69,8 +62,8 @@ void main()
     vec2 uv1 = vary_texcoord0.xy;
     vec2 uv2 = vary_texcoord1.xy;
 
-    vec4 cloudColorSun = vary_CloudColorSun;
-    vec4 cloudColorAmbient = vary_CloudColorAmbient;
+    vec3 cloudColorSun = vary_CloudColorSun;
+    vec3 cloudColorAmbient = vary_CloudColorAmbient;
     float cloudDensity = vary_CloudDensity;
     vec2 uv3 = vary_texcoord2.xy;
     vec2 uv4 = vary_texcoord3.xy;
@@ -100,7 +93,7 @@ void main()
 
     // And smooth
     alpha1 = 1. - alpha1 * alpha1;
-    alpha1 = 1. - alpha1 * alpha1;  
+    alpha1 = 1. - alpha1 * alpha1;
 
     alpha1 *= altitude_blend_factor;
     alpha1 = clamp(alpha1, 0.0, 1.0);
@@ -112,20 +105,18 @@ void main()
 
     // And smooth
     alpha2 = 1. - alpha2;
-    alpha2 = 1. - alpha2 * alpha2;  
+    alpha2 = 1. - alpha2 * alpha2;
 
     // Combine
-    vec4 color;
+    vec3 color;
     color = (cloudColorSun*(1.-alpha2) + cloudColorAmbient);
-    color.rgb= max(vec3(0), color.rgb);
+    color.rgb = clamp(color.rgb, vec3(0), vec3(1));
     color.rgb *= 2.0;
-    color.rgb = scaleSoftClip(color.rgb);
 
     /// Gamma correct for WL (soft clip effect).
-    frag_data[0] = vec4(color.rgb, alpha1);
+    frag_data[0] = vec4(0);
     frag_data[1] = vec4(0.0,0.0,0.0,0.0);
-    frag_data[2] = vec4(0,0,0,1);
-
-    gl_FragDepth = 0.99995f;
+    frag_data[2] = vec4(0,0,0,GBUFFER_FLAG_SKIP_ATMOS);
+    frag_data[3] = vec4(color.rgb, alpha1);
 }
 
