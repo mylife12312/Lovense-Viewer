@@ -57,7 +57,6 @@ if(WINDOWS)
         openjp2.dll
         libapr-1.dll
         libaprutil-1.dll
-        libapriconv-1.dll
         nghttp2.dll
         libhunspell.dll
         uriparser.dll
@@ -87,7 +86,8 @@ if(WINDOWS)
     endif (USE_BUGSPLAT)
 
     if (TARGET ll::fmodstudio)
-        set(debug_files ${debug_files} fmodL.dll)
+        # fmodL is included for logging, only one should be picked by manifest
+        set(release_files ${release_files} fmodL.dll)
         set(release_files ${release_files} fmod.dll)
     endif ()
 
@@ -107,7 +107,7 @@ if(WINDOWS)
         set(MSVC_VER 140)
     elseif (MSVC_VERSION GREATER_EQUAL 1920 AND MSVC_VERSION LESS 1930) # Visual Studio 2019
         set(MSVC_VER 140)
-    elseif (MSVC_VERSION GREATER_EQUAL 1930 AND MSVC_VERSION LESS 1940) # Visual Studio 2022
+    elseif (MSVC_VERSION GREATER_EQUAL 1930 AND MSVC_VERSION LESS 1950) # Visual Studio 2022
         set(MSVC_VER 140)
     else (MSVC80)
         MESSAGE(WARNING "New MSVC_VERSION ${MSVC_VERSION} of MSVC: adapt Copy3rdPartyLibs.cmake")
@@ -172,7 +172,6 @@ elseif(DARWIN)
         libndofdev.dylib
         libnghttp2.dylib
         libnghttp2.14.dylib
-        libnghttp2.14.19.0.dylib
         liburiparser.dylib
         liburiparser.1.dylib
         liburiparser.1.0.27.dylib

@@ -1,40 +1,52 @@
-/** 
+/**
  * @file luminanceF.glsl
  *
- * $LicenseInfo:firstyear=2007&license=viewerlgpl$
+ * $LicenseInfo:firstyear=2023&license=viewerlgpl$
  * Second Life Viewer Source Code
- * Copyright (C) 2007, Linden Research, Inc.
- * 
+ * Copyright (C) 2023, Linden Research, Inc.
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
  * version 2.1 of the License only.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
  * $/LicenseInfo$
  */
 
+
 /*[EXTRA_CODE_HERE]*/
 
-#ifdef DEFINE_GL_FRAGCOLOR
+// take a luminance sample of diffuseRect and emissiveRect
+
 out vec4 frag_color;
-#else
-#define frag_color gl_FragColor
-#endif
 
-uniform sampler2DRect diffuseMap;
-VARYING vec2 vary_fragcoord;
+in vec2 vary_fragcoord;
 
-void main() 
+uniform sampler2D diffuseRect;
+uniform sampler2D emissiveRect;
+
+float lum(vec3 col)
 {
-	frag_color = texture2DRect(diffuseMap, vary_fragcoord.xy);
+    vec3 l = vec3(0.2126, 0.7152, 0.0722);
+    return dot(l, col);
 }
+
+void main()
+{
+    vec2 tc = vary_fragcoord*0.6+0.2;
+    tc.y -= 0.1; // HACK - nudge exposure sample down a little bit to favor ground over sky
+    vec3 c = texture(diffuseRect, tc).rgb + texture(emissiveRect, tc).rgb;
+    float L = lum(c);
+    frag_color = vec4(max(L, 0.0));
+}
+

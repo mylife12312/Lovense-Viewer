@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><notifications>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<notifications>
     <global name="skipnexttime">
 
 		Don&apos;t show me this again
@@ -411,6 +412,15 @@ Initialization with the Marketplace failed because of a system or network error.
         <usetemplate
         name="okbutton"
         yestext="OK"/>
+    </notification>
+
+    <notification
+     icon="notifytip.tga"
+     name="InvalidKeystroke"
+     type="notifytip">
+There was an invalid keystroke entered.
+[REASON].
+Please input a valid text.
     </notification>
 
     <notification
@@ -1534,7 +1544,7 @@ Delete pick &lt;nolink&gt;[PICK]&lt;/nolink&gt;?
    icon="alert.tga"
    name="ProfileUnsavedChanges"
    type="alertmodal">
-    You have usaved changes.
+    You have unsaved changes.
     <tag>confirm</tag>
     <tag>save</tag>
     <usetemplate
@@ -3284,6 +3294,30 @@ See https://wiki.secondlife.com/wiki/Adding_Spelling_Dictionaries
 
   <notification
    icon="alertmodal.tga"
+   label="Rename Selected Item"
+   name="RenameItem"
+   type="alertmodal">
+    Choose a new name for:
+[NAME]
+   <tag>confirm</tag>
+    <form name="form">
+    <input name="new_name" type="text" width="300">
+      [NAME]
+    </input>
+    <button
+     default="true"
+     index="0"
+     name="OK"
+     text="OK"/>
+    <button
+     index="1"
+     name="Cancel"
+     text="Cancel"/>
+   </form>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
    name="RemoveFromFriends"
    type="alertmodal">
     <tag>friendship</tag>
@@ -4375,14 +4409,28 @@ Are you sure you want to return the selected objects to their owners? Transferab
    icon="alert.tga"
    name="GroupLeaveConfirmMember"
    type="alert">
-You are currently a member of the group &lt;nolink&gt;[GROUP]&lt;/nolink&gt;.
-Leave Group?
+Leave the group &apos;&lt;nolink&gt;[GROUP]&lt;/nolink&gt;&apos;?
+Currently, the fee to join this &quot;group&quot; is L$ [COST].
     <tag>group</tag>
     <tag>confirm</tag>
     <usetemplate
      name="okcancelbuttons"
      notext="Cancel"
-     yestext="OK"/>
+     yestext="Leave"/>
+  </notification>
+
+  <notification
+   icon="alert.tga"
+   name="GroupLeaveConfirmMemberNoFee"
+   type="alert">
+Leave the group &apos;&lt;nolink&gt;[GROUP]&lt;/nolink&gt;&apos;?
+There is currently no fee to join this group.
+    <tag>group</tag>
+    <tag>confirm</tag>
+    <usetemplate
+     name="okcancelbuttons"
+     notext="Cancel"
+     yestext="Leave"/>
   </notification>
 
 
@@ -5938,6 +5986,22 @@ You have updated the location of this pick but the other details will retain the
 
   <notification
    icon="alertmodal.tga"
+   name="ApplyInventoryToObject"
+   type="alertmodal">
+You are applying &apos;no copy&apos; inventory item.
+This item will be moved to object's inventory, not copied.
+
+Move the inventory item?
+    <tag>confirm</tag>
+    <usetemplate
+     ignoretext="Warn me before I apply &apos;no-copy&apos; items to an object"
+     name="okcancelignore"
+     notext="Cancel"
+     yestext="OK"/>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
    name="MoveInventoryFromObject"
    type="alertmodal">
 You have selected &apos;no copy&apos; inventory items.
@@ -6129,7 +6193,81 @@ Are you sure you want to delete them?
      notext="Cancel"
      yestext="OK"/>
   </notification>
-  
+    
+  <notification
+   icon="alertmodal.tga"
+   name="DeleteWornItems"
+   type="alertmodal">
+    <unique/>
+Some item(s) you wish to delete are being worn on your avatar.
+Remove these items from your avatar?
+    <tag>confirm</tag>
+    <usetemplate
+     name="okcancelbuttons"
+     notext="Cancel"
+     yestext="Remove item(s) and delete"/>
+  </notification>
+    
+  <notification
+   icon="alertmodal.tga"
+   name="CantDeleteRequiredClothing"
+   type="alertmodal">
+    <unique/>
+Some item(s) you wish to delete are required clothing layers (skin, shape, hair, eyes).
+You must replace those layers before deleting them.
+    <tag>confirm</tag>
+    <usetemplate
+     name="okbutton"
+     yestext="OK"/>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="DeleteThumbnail"
+   type="alertmodal">
+    <unique/>
+    Delete the image for this item? There is no undo.
+    <tag>confirm</tag>
+    <usetemplate
+     ignoretext="Warn me that thumbnail will be permanently removed"
+     name="okcancelignore"
+     notext="Cancel"
+     yestext="Delete"/>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="ThumbnailDimentionsLimit"
+   type="alertmodal">
+    <unique/>
+    Only square images from 64 to 256 pixels per side are allowed.
+    <usetemplate
+     name="okbutton"
+     yestext="OK"/>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="ThumbnailInsufficientPermissions"
+   type="alertmodal">
+    <unique/>
+    Only copy and transfer free images can be assigned as thumbnails.
+    <usetemplate
+     name="okbutton"
+     yestext="OK"/>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="ThumbnailOutfitPhoto"
+   type="alertmodal">
+    <unique/>
+    To add an image to an outfit, use the Outfit Gallery window, or right-click on the outfit folder and select "Image..."
+    <usetemplate
+     name="okbutton"
+     yestext="OK"/>
+  </notification>
+
   <notification
      icon="alertmodal.tga"
      name="ConfirmUnlink"
@@ -6370,9 +6508,9 @@ Your trash is overflowing. This may cause problems logging in.
   </notification>
 
   <notification
-   icon="notifytip.tga"
-   name="InventoryLimitReachedAIS"
-   type="notifytip">
+   icon="alertmodal.tga"
+   name="InventoryLimitReachedAISAlert"
+   type="alertmodal">
 Your inventory is experiencing issues. Please, contact support.
   <tag>fail</tag>
   </notification>
@@ -6845,6 +6983,22 @@ You don&apos;t have permission to view this notecard.
 
   <notification
    icon="notifytip.tga"
+   name="MaterialMissing"
+   type="notifytip">
+    Material is missing from database.
+    <tag>fail</tag>
+  </notification>
+
+  <notification
+   icon="notifytip.tga"
+   name="MaterialNoPermissions"
+   type="notifytip">
+    You don&apos;t have permission to view this material.
+    <tag>fail</tag>
+  </notification>
+
+  <notification
+   icon="notifytip.tga"
    name="RezItemNoPermissions"
    type="notifytip">
 Insufficient permissions to rez object.
@@ -6872,6 +7026,39 @@ Unable to transfer inventory across parent estates.
 Unable to load notecard.
 Please try again.
   <tag>fail</tag>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="UnableToLoadMaterial"
+   type="alertmodal">
+Unable to load material.
+Please try again.
+    <tag>fail</tag>
+    <usetemplate
+     name="okbutton"
+     yestext="OK"/>
+  </notification>
+
+  <notification
+   icon="notifytip.tga"
+   name="MissingMaterialCaps"
+   type="notifytip">
+    <tag>fail</tag>
+    Not connected to a materials capable region.
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="CantSelectReflectionProbe"
+   type="alertmodal">
+    <unique/>
+    You have placed a reflection probe, but 'Select Reflection Probes' is disabled. To be able to select reflection probes, check Build &gt; Options &gt; Select Reflection Probes.
+    <tag>confirm</tag>
+    <usetemplate
+     ignoretext="Warn if Reflection Probes selection is disabled."
+     name="okignore"
+     yestext="OK"/>
   </notification>
 
   <notification
@@ -9102,11 +9289,68 @@ You locally updated a [RESOLUTION] baked texture for '[BODYREGION]' after [TIME]
    icon="alertmodal.tga"
    name="CannotUploadTexture"
    type="alertmodal">
-Unable to upload texture.
+Unable to upload texture: &apos;[NAME]&apos;
 [REASON]   
   <tag>fail</tag>  
   </notification>
-  
+
+  <notification
+   icon="alertmodal.tga"
+   name="CannotUploadMaterial"
+   type="alertmodal">
+There was a problem uploading the file
+    <tag>fail</tag>
+  </notification>
+
+  <notification
+ icon="alertmodal.tga"
+ label="Save Material"
+ name="SaveMaterialAs"
+ type="alertmodal">
+    <unique/>
+    Name this material:
+    <tag>confirm</tag>
+    <form name="form">
+      <input name="message" type="text">
+        [DESC]
+      </input>
+      <button
+       default="true"
+       index="0"
+       name="OK"
+       text="OK"/>
+      <button
+       index="1"
+       name="Cancel"
+       text="Cancel"/>
+    </form>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="InvalidMaterialName"
+   type="alertmodal">
+Please enter a non-empty name
+    <tag>fail</tag>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="UsavedMaterialChanges"
+   type="alertmodal">
+    You have unsaved changes.
+    <form name="form">
+      <button
+       index="0"
+       name="discard"
+       text="Discard changes"/>
+      <button
+       index="1"
+       name="keep"
+       text="Keep editing"/>
+    </form>
+  </notification>
+
   <notification
    icon="alertmodal.tga"
    name="LivePreviewUnavailable"
@@ -9121,9 +9365,41 @@ We cannot display a preview of this texture because it is no-copy and/or no-tran
 
   <notification
    icon="alertmodal.tga"
+   name="LivePreviewUnavailablePBR"
+   type="alert">
+   
+We cannot display a preview of this material because it is no-copy, no-transfer, and/or no-modify.
+  <usetemplate
+    ignoretext="Warn me that Live Preview mode is not available for no-copy, no-transfer, and/or no-modify materials"
+    name="okignore"
+    yestext="OK"/>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
    name="FacePasteFailed"
    type="alertmodal">
 Paste failed. [REASON]
+   <usetemplate
+    name="okbutton"
+    yestext="OK"/>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="FailedToApplyTextureNoCopyToMultiple"
+   type="alertmodal">
+Failed to apply texture. You can not apply a no-copy texture to multiple objects.
+   <usetemplate
+    name="okbutton"
+    yestext="OK"/>
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="FailedToApplyGLTFNoCopyToMultiple"
+   type="alertmodal">
+Failed to apply GLTF material. You can not apply a no-copy material to multiple objects.
    <usetemplate
     name="okbutton"
     yestext="OK"/>
@@ -9798,6 +10074,15 @@ Disabling future updates for this file.
    persist="true"
    type="notify">
 Attempted to add an invalid or unreadable image file [FNAME] which could not be opened or decoded.
+Attempt cancelled.
+  </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="LocalGLTFVerifyFail"
+   persist="true"
+   type="notify">
+Attempted to add an invalid or unreadable GLTF material [FNAME] which could not be opened or decoded.
 Attempt cancelled.
   </notification>
 
@@ -11901,16 +12186,41 @@ Packing: [PACK_TIME]s [PSIZE]KB
 Unpacking: [UNPACK_TIME]s [USIZE]KB
     <tag>fail</tag>
   </notification>
-  
+
+    <notification
+     icon="alertmodal.tga"
+     label="Prompt for MFA Token"
+     name="PromptMFAToken"
+     type="alertmodal">
+        [MESSAGE]
+        <tag>confirm</tag>
+        <form name="form">
+            <input name="token" type="text" width="400" />
+            <button
+             default="true"
+             index="0"
+             name="continue"
+             text="Continue"/>
+            <button
+             index="1"
+             name="cancel"
+             text="Cancel"/>
+        </form>
+    </notification>
+
   <notification
    icon="alertmodal.tga"
    label="Prompt for MFA Token"
-   name="PromptMFAToken"
+   name="PromptMFATokenWithSave"
    type="alertmodal">
     [MESSAGE]
     <tag>confirm</tag>
     <form name="form">
       <input name="token" type="text" width="400" />
+      <ignore
+       name="ignore"
+       checkbox_only="true"
+       text="Remember this computer for 30 days."/>
       <button
        default="true"
        index="0"
@@ -11986,5 +12296,73 @@ Would you like to save them first?
        notext="No"
        yestext="Yes"/>
   </notification>
+
+  <notification
+   icon="alertmodal.tga"
+   name="ConfirmOverwriteOutfit"
+   type="alertmodal">
+      <unique/>
+This will replace the items in the
+selected outfit with the items you
+are wearing now.
+      <tag>confirm</tag>
+      <usetemplate
+       ignoretext="Confirm before overwriting outfit"
+       name="okcancelignore"
+       notext="Cancel"
+       yestext="Save"/>
+  </notification>
     
+  <notification
+    icon="alertmodal.tga"
+    name="ClearInventoryThumbnailsWarning"
+    type="alertmodal">
+        You are about to remove thumbnail images from the inventory items in the list. This change cannot be undone.
+
+        Would you like to proceed?
+   <tag>confirm</tag>
+   <usetemplate
+       name="okcancelbuttons"
+       notext="No"
+       yestext="Yes"/>
+  </notification>
+
+  <notification
+    icon="alertmodal.tga"
+    name="WriteInventoryThumbnailsWarning"
+    type="alertmodal">
+        You are about to overwrite thumbnail images for some or all of the inventory items in the list. This change cannot be undone.
+
+        Would you like to proceed?
+   <tag>confirm</tag>
+   <usetemplate
+       name="okcancelbuttons"
+       notext="No"
+       yestext="Yes"/>
+  </notification>
+    
+  <notification
+    icon="notifytip.tga"
+    name="ReflectionProbeApplied"
+    persist="true"
+    type="alertmodal">
+    WARNING: You have made your object a Reflection Probe.  This will implicitly change the object to mimic its influence volume and will make irreversible changes to the object.  Do you want to continue?
+   <usetemplate
+       ignoretext="Reflection Probe tips"
+       name="okcancelignore"
+       notext="Cancel"
+       yestext="OK"/>
+  </notification>
+
+  <notification
+    icon="notifytip.tga"
+    name="AutoAdjustHDRSky"
+    type="alertmodal">
+      You are editing a non-HDR sky that has been automatically converted to HDR. To remove HDR and tone mapping, set Reflection Probe Ambiance to zero.
+    <usetemplate
+        ignoretext="HDR Sky adjustment warning"
+        name="okignore"
+        yestext="OK"/>
+  </notification>
+  
 </notifications>

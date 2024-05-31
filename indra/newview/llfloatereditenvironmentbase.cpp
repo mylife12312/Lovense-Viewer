@@ -1,25 +1,25 @@
-/** 
+/**
  * @file llfloatereditenvironmentbase.cpp
  * @brief Floaters to create and edit fixed settings for sky and water.
  *
  * $LicenseInfo:firstyear=2011&license=viewerlgpl$
  * Second Life Viewer Source Code
  * Copyright (C) 2011, Linden Research, Inc.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
  * version 2.1 of the License only.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
  * $/LicenseInfo$
  */
@@ -47,6 +47,7 @@
 
 #include "llsettingsvo.h"
 #include "llinventorymodel.h"
+#include "pipeline.h"
 
 namespace
 {
@@ -106,6 +107,9 @@ void LLFloaterEditEnvironmentBase::onFocusReceived()
     {
         updateEditEnvironment();
         LLEnvironment::instance().setSelectedEnvironment(LLEnvironment::ENV_EDIT, LLEnvironment::TRANSITION_FAST);
+
+        // HACK -- resume reflection map manager because setSelectedEnvironment may pause it (SL-20456)
+        gPipeline.mReflectionMapManager.resume();
     }
 }
 
@@ -260,7 +264,7 @@ void LLFloaterEditEnvironmentBase::onSaveAsCommit(const LLSD& notification, cons
         }
         else if (mInventoryItem)
         {
-            const LLUUID &marketplacelistings_id = gInventory.findCategoryUUIDForType(LLFolderType::FT_MARKETPLACE_LISTINGS, false);
+            const LLUUID &marketplacelistings_id = gInventory.findCategoryUUIDForType(LLFolderType::FT_MARKETPLACE_LISTINGS);
             LLUUID parent_id = mInventoryItem->getParentUUID();
             if (marketplacelistings_id == parent_id || gInventory.isObjectDescendentOf(mInventoryItem->getUUID(), gInventory.getLibraryRootFolderID()))
             {

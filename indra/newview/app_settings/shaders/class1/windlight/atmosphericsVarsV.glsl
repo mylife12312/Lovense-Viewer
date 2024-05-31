@@ -1,5 +1,5 @@
 /**
- * @file class1\windlight\atmosphericVarsV.glsl
+ * @file class2\wl\atmosphericVars.glsl
  *
  * $LicenseInfo:firstyear=2007&license=viewerlgpl$
  * Second Life Viewer Source Code
@@ -23,34 +23,51 @@
  * $/LicenseInfo$
  */
 
-VARYING vec3 vary_AdditiveColor;
-VARYING vec3 vary_AtmosAttenuation;
+
+out vec3 vary_AdditiveColor;
+out vec3 vary_AtmosAttenuation;
 
 vec3 additive_color;
 vec3 atmos_attenuation;
 vec3 sunlit_color;
 vec3 amblit_color;
-vec3 position_eye;
 
-vec3 getSunlitColor() { return sunlit_color; }
-void setSunlitColor(vec3 v) { sunlit_color = v; }
+vec3 getSunlitColor()
+{
+    return sunlit_color;
+}
+vec3 getAmblitColor()
+{
+    return amblit_color;
+}
 
-vec3 getAdditiveColor() { return additive_color; }
+vec3 getAdditiveColor()
+{
+    return additive_color;
+}
+vec3 getAtmosAttenuation()
+{
+    return atmos_attenuation;
+}
+
+void setSunlitColor(vec3 v)
+{
+    sunlit_color  = v;
+}
+
+void setAmblitColor(vec3 v)
+{
+    amblit_color = v;
+}
+
 void setAdditiveColor(vec3 v)
 {
-    additive_color     = v;
+    additive_color = v;
     vary_AdditiveColor = v;
 }
 
-vec3 getAmblitColor() { return amblit_color; }
-void setAmblitColor(vec3 v) { amblit_color = v; }
-
-vec3 getAtmosAttenuation() { return atmos_attenuation; }
 void setAtmosAttenuation(vec3 v)
 {
-    atmos_attenuation     = v;
+    atmos_attenuation = v;
     vary_AtmosAttenuation = v;
 }
-
-vec3 getPositionEye() { return position_eye; }
-void setPositionEye(vec3 v) { position_eye = v; }

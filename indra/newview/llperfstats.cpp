@@ -1,25 +1,25 @@
-/** 
+/**
 * @file llperfstats.cpp
 * @brief Statistics collection to support autotune and perf flaoter.
 *
 * $LicenseInfo:firstyear=2022&license=viewerlgpl$
 * Second Life Viewer Source Code
 * Copyright (C) 2022, Linden Research, Inc.
-* 
+*
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
 * License as published by the Free Software Foundation;
 * version 2.1 of the License only.
-* 
+*
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 * Lesser General Public License for more details.
-* 
+*
 * You should have received a copy of the GNU Lesser General Public
 * License along with this library; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-* 
+*
 * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
 * $/LicenseInfo$
 */
@@ -39,10 +39,15 @@ extern LLControlGroup gSavedSettings;
 
 namespace LLPerfStats
 {
+    // avatar timing metrics in ms (updated once per mainloop iteration)
+    std::atomic<F32> sTotalAvatarTime = 0.f;
+    std::atomic<F32> sAverageAvatarTime = 0.f;
+    std::atomic<F32> sMaxAvatarTime = 0.f;
+
     std::atomic<int64_t> tunedAvatars{0};
     std::atomic<U64> renderAvatarMaxART_ns{(U64)(ART_UNLIMITED_NANOS)}; // highest render time we'll allow without culling features
     bool belowTargetFPS{false};
-    U32 lastGlobalPrefChange{0}; 
+    U32 lastGlobalPrefChange{0};
     U32 lastSleepedFrame{0};
     U64 meanFrameTime{0};
     std::mutex bufferToggleLock{};
@@ -52,11 +57,11 @@ namespace LLPerfStats
 
     Tunables tunables;
 
-    std::atomic<int> 	StatsRecorder::writeBuffer{0};
-    bool 	            StatsRecorder::collectionEnabled{true};
+    std::atomic<int>    StatsRecorder::writeBuffer{0};
+    bool                StatsRecorder::collectionEnabled{true};
     LLUUID              StatsRecorder::focusAv{LLUUID::null};
     bool                StatsRecorder::autotuneInit{false};
-	std::array<StatsRecorder::StatsTypeMatrix,2>  StatsRecorder::statsDoubleBuffer{ {} };
+    std::array<StatsRecorder::StatsTypeMatrix,2>  StatsRecorder::statsDoubleBuffer{ {} };
     std::array<StatsRecorder::StatsSummaryArray,2> StatsRecorder::max{ {} };
     std::array<StatsRecorder::StatsSummaryArray,2> StatsRecorder::sum{ {} };
 
@@ -64,7 +69,7 @@ namespace LLPerfStats
     {
         assert_main_thread();
         // these following variables are proxies for pipeline statics we do not need a two way update (no llviewercontrol handler)
-        if( tuningFlag & NonImpostors ){ gSavedSettings.setU32("IndirectMaxNonImpostors", nonImpostors); };
+        if( tuningFlag & NonImpostors ){ gSavedSettings.setU32("RenderAvatarMaxNonImpostors", nonImpostors); };
         if( tuningFlag & ReflectionDetail ){ gSavedSettings.setS32("RenderReflectionDetail", reflectionDetail); };
         if( tuningFlag & FarClip ){ gSavedSettings.setF32("RenderFarClip", farClip); };
         if( tuningFlag & UserMinDrawDistance ){ gSavedSettings.setF32("AutoTuneRenderFarClipMin", userMinDrawDistance); };
@@ -75,7 +80,6 @@ namespace LLPerfStats
         if( tuningFlag & UserAutoTuneEnabled ){ gSavedSettings.setBOOL("AutoTuneFPS", userAutoTuneEnabled); };
         if( tuningFlag & UserAutoTuneLock ){ gSavedSettings.setBOOL("AutoTuneLock", userAutoTuneLock); };
         if( tuningFlag & UserTargetFPS ){ gSavedSettings.setU32("TargetFPS", userTargetFPS); };
-        if( tuningFlag & UserTargetReflections ){ gSavedSettings.setS32("UserTargetReflections", userTargetReflections); };
         // Note: The Max ART slider is logarithmic and thus we have an intermediate proxy value
         if( tuningFlag & UserARTCutoff ){ gSavedSettings.setF32("RenderAvatarMaxART", userARTCutoffSliderValue); };
         resetChanges();
@@ -95,7 +99,7 @@ namespace LLPerfStats
         }
     }
 
-    // static 
+    // static
     void Tunables::updateSettingsFromRenderCostLimit()
     {
         if( userARTCutoffSliderValue != log10( ( (F32)LLPerfStats::renderAvatarMaxART_ns )/1000 ) )
@@ -108,13 +112,13 @@ namespace LLPerfStats
             {
                 updateUserARTCutoffSlider(log10( (F32)LLPerfStats::ART_UNLIMITED_NANOS/1000 ) );
             }
-        }        
+        }
     }
 
     void Tunables::initialiseFromSettings()
     {
         assert_main_thread();
-        // the following variables are two way and have "push" in llviewercontrol 
+        // the following variables are two way and have "push" in llviewercontrol
         LLPerfStats::tunables.userMinDrawDistance = gSavedSettings.getF32("AutoTuneRenderFarClipMin");
         LLPerfStats::tunables.userTargetDrawDistance = gSavedSettings.getF32("AutoTuneRenderFarClipTarget");
         LLPerfStats::tunables.userImpostorDistance = gSavedSettings.getF32("AutoTuneImpostorFarAwayDistance");
@@ -122,7 +126,6 @@ namespace LLPerfStats
         LLPerfStats::tunables.userFPSTuningStrategy = gSavedSettings.getU32("TuningFPSStrategy");
         LLPerfStats::tunables.userTargetFPS = gSavedSettings.getU32("TargetFPS");
         LLPerfStats::tunables.vsyncEnabled = gSavedSettings.getBOOL("RenderVSyncEnable");
-        LLPerfStats::tunables.userTargetReflections = gSavedSettings.getS32("UserTargetReflections");
 
         LLPerfStats::tunables.userAutoTuneLock = gSavedSettings.getBOOL("AutoTuneLock") && gSavedSettings.getU32("KeepAutoTuneLock");
 
@@ -143,14 +146,12 @@ namespace LLPerfStats
         resetChanges();
     }
 
-    StatsRecorder::StatsRecorder():q(1024*16),t(&StatsRecorder::run)
+    StatsRecorder::StatsRecorder()
     {
         // create a queue
-        // create a thread to consume from the queue
         tunables.initialiseFromSettings();
         LLPerfStats::cpu_hertz = (F64)LLTrace::BlockTimer::countsPerSecond();
         LLPerfStats::vsync_max_fps = gViewerWindow->getWindow()->getRefreshRate();
-        t.detach();
     }
 
     // static
@@ -165,8 +166,8 @@ namespace LLPerfStats
         auto& lastStats = statsDoubleBuffer[writeBuffer ^ 1][static_cast<size_t>(ObjType_t::OT_GENERAL)][LLUUID::null];
 
         static constexpr std::initializer_list<StatType_t> sceneStatsToAvg = {
-            StatType_t::RENDER_FRAME, 
-            StatType_t::RENDER_DISPLAY, 
+            StatType_t::RENDER_FRAME,
+            StatType_t::RENDER_DISPLAY,
             StatType_t::RENDER_HUDS,
             StatType_t::RENDER_UI,
             StatType_t::RENDER_SWAP,
@@ -174,11 +175,13 @@ namespace LLPerfStats
             // RENDER_MESHREPO,
             StatType_t::RENDER_IDLE };
 
+#if 0
         static constexpr std::initializer_list<StatType_t> avatarStatsToAvg = {
-            StatType_t::RENDER_GEOMETRY, 
-            StatType_t::RENDER_SHADOWS, 
+            StatType_t::RENDER_GEOMETRY,
+            StatType_t::RENDER_SHADOWS,
             StatType_t::RENDER_COMBINED,
             StatType_t::RENDER_IDLE };
+#endif
 
 
         if( /*sceneStats[static_cast<size_t>(StatType_t::RENDER_FPSLIMIT)] != 0 ||*/ sceneStats[static_cast<size_t>(StatType_t::RENDER_SLEEP)] != 0 )
@@ -191,7 +194,7 @@ namespace LLPerfStats
 
         if(!unreliable)
         {
-            // only use these stats when things are reliable. 
+            // only use these stats when things are reliable.
 
             for(auto & statEntry : sceneStatsToAvg)
             {
@@ -201,38 +204,13 @@ namespace LLPerfStats
                 // LL_INFOS("scenestats") << "Scenestat: " << static_cast<size_t>(statEntry) << " before=" << avg << " new=" << val << " newavg=" << statsDoubleBuffer[writeBuffer][static_cast<size_t>(ObjType_t::OT_GENERAL)][LLUUID::null][static_cast<size_t>(statEntry)] << LL_ENDL;
             }
         }
-// Allow attachment times etc to update even when FPS limited or sleeping.
-        auto& statsMap = statsDoubleBuffer[writeBuffer][static_cast<size_t>(ObjType_t::OT_ATTACHMENT)];
-        for(auto& stat_entry : statsMap)
-        {
-            auto val = stat_entry.second[static_cast<size_t>(ST::RENDER_COMBINED)];
-            if(val > SMOOTHING_PERIODS){
-                auto avg = statsDoubleBuffer[writeBuffer ^ 1][static_cast<size_t>(ObjType_t::OT_ATTACHMENT)][stat_entry.first][static_cast<size_t>(ST::RENDER_COMBINED)];
-                stat_entry.second[static_cast<size_t>(ST::RENDER_COMBINED)] = avg + (val / SMOOTHING_PERIODS) - (avg / SMOOTHING_PERIODS);
-            }
-        }
-
-
-        auto& statsMapAv = statsDoubleBuffer[writeBuffer][static_cast<size_t>(ObjType_t::OT_AVATAR)];
-        for(auto& stat_entry : statsMapAv)
-        {
-            for(auto& stat : avatarStatsToAvg)
-            {
-                auto val = stat_entry.second[static_cast<size_t>(stat)];
-                if(val > SMOOTHING_PERIODS)
-                {
-                    auto avg = statsDoubleBuffer[writeBuffer ^ 1][static_cast<size_t>(ObjType_t::OT_AVATAR)][stat_entry.first][static_cast<size_t>(stat)];
-                    stat_entry.second[static_cast<size_t>(stat)] = avg + (val / SMOOTHING_PERIODS) - (avg / SMOOTHING_PERIODS);
-                }
-            }
-        }
 
         // swap the buffers
         if(enabled())
         {
             std::lock_guard<std::mutex> lock{bufferToggleLock};
             writeBuffer ^= 1;
-        }; // note we are relying on atomic updates here. The risk is low and would cause minor errors in the stats display. 
+        }; // note we are relying on atomic updates here. The risk is low and would cause minor errors in the stats display.
 
         // clean the write maps in all cases.
         auto& statsTypeMatrix = statsDoubleBuffer[writeBuffer];
@@ -260,7 +238,7 @@ namespace LLPerfStats
     }
 
     // clear buffers when we change region or need a hard reset.
-    // static 
+    // static
     void StatsRecorder::clearStatsBuffers()
     {
         LL_PROFILE_ZONE_SCOPED_CATEGORY_STATS;
@@ -287,7 +265,7 @@ namespace LLPerfStats
         {
             std::lock_guard<std::mutex> lock{bufferToggleLock};
             writeBuffer ^= 1;
-        }; 
+        };
         // repeat before we start processing new stuff
         for(auto& statsMap : statsTypeMatrix)
         {
@@ -306,16 +284,26 @@ namespace LLPerfStats
         }
     }
 
+    // called once per main loop iteration on main thread
+    void updateClass()
+    {
+        LL_PROFILE_ZONE_SCOPED_CATEGORY_STATS;
+
+        sTotalAvatarTime = LLVOAvatar::getTotalGPURenderTime();
+        sAverageAvatarTime = LLVOAvatar::getAverageGPURenderTime();
+        sMaxAvatarTime = LLVOAvatar::getMaxGPURenderTime();
+    }
+
     //static
     int StatsRecorder::countNearbyAvatars(S32 distance)
     {
         const auto our_pos = gAgentCamera.getCameraPositionGlobal();
 
-       	std::vector<LLVector3d> positions;
-	    uuid_vec_t avatar_ids;
+        std::vector<LLVector3d> positions;
+        uuid_vec_t avatar_ids;
         LLWorld::getInstance()->getAvatars(&avatar_ids, &positions, our_pos, distance);
         return positions.size();
-	}
+    }
 
     const U32 NUM_PERIODS = 50;
     void StatsRecorder::updateMeanFrameTime(U64 cur_frame_time_raw)
@@ -326,7 +314,7 @@ namespace LLPerfStats
         {
             frame_time_deque.pop_back();
         }
-        
+
         std::vector<U64> buf(frame_time_deque.begin(), frame_time_deque.end());
         std::sort(buf.begin(), buf.end());
 
@@ -340,6 +328,8 @@ namespace LLPerfStats
     // static
     void StatsRecorder::updateAvatarParams()
     {
+        LL_PROFILE_ZONE_SCOPED_CATEGORY_STATS;
+
         if(tunables.autoTuneTimeout)
         {
             LLPerfStats::lastSleepedFrame = gFrameCount;
@@ -357,8 +347,8 @@ namespace LLPerfStats
 
         if( tot_sleep_time_raw != 0 )
         {
-            // Note: we do not average sleep 
-            // if at some point we need to, the averaging will need to take this into account or 
+            // Note: we do not average sleep
+            // if at some point we need to, the averaging will need to take this into account or
             // we forever think we're in the background due to residuals.
             LL_DEBUGS() << "No tuning when not in focus" << LL_ENDL;
             LLPerfStats::lastSleepedFrame = gFrameCount;
@@ -388,15 +378,15 @@ namespace LLPerfStats
             auto count = countNearbyAvatars(std::min(LLPipeline::RenderFarClip, tunables.userImpostorDistance));
             if( count != tunables.nonImpostors )
             {
-                tunables.updateNonImposters( (count < LLVOAvatar::NON_IMPOSTORS_MAX_SLIDER)?count : LLVOAvatar::NON_IMPOSTORS_MAX_SLIDER );
+                tunables.updateNonImposters( (count < LLVOAvatar::NON_IMPOSTORS_MAX_SLIDER)?count : 0 );
                 LL_DEBUGS("AutoTune") << "There are " << count << "avatars within " << std::min(LLPipeline::RenderFarClip, tunables.userImpostorDistance) << "m of the camera" << LL_ENDL;
             }
         }
 
-        auto av_render_max_raw = LLPerfStats::StatsRecorder::getMax(ObjType_t::OT_AVATAR, LLPerfStats::StatType_t::RENDER_COMBINED);
+        auto av_render_max_raw = ms_to_raw(sMaxAvatarTime);
         // Is our target frame time lower than current? If so we need to take action to reduce draw overheads.
         // cumulative avatar time (includes idle processing, attachments and base av)
-        auto tot_avatar_time_raw = LLPerfStats::StatsRecorder::getSum(ObjType_t::OT_AVATAR, LLPerfStats::StatType_t::RENDER_COMBINED);
+        auto tot_avatar_time_raw = ms_to_raw(sTotalAvatarTime);
 
         // The frametime budget we have based on the target FPS selected
         auto target_frame_time_raw = (U64)llround(LLPerfStats::cpu_hertz / (target_fps == 0 ? 1 : target_fps));
@@ -408,7 +398,7 @@ namespace LLPerfStats
             // This could be problematic.
             tot_frame_time_raw -= tot_limit_time_raw;
         }*/
-        
+
         F64 time_buf = target_frame_time_raw * 0.1;
 
         // 1) Is the target frame time lower than current?
@@ -430,7 +420,7 @@ namespace LLPerfStats
             // if so we've got work to do
 
             // how much of the frame was spent on non avatar related work?
-            U64 non_avatar_time_raw = tot_frame_time_raw - tot_avatar_time_raw;
+            U64 non_avatar_time_raw = tot_frame_time_raw > tot_avatar_time_raw ? tot_frame_time_raw - tot_avatar_time_raw : 0;
 
             // If the target frame time < scene time (estimated as non_avatar time)
             U64 target_avatar_time_raw;
@@ -443,6 +433,7 @@ namespace LLPerfStats
                     {
                         // 1 - hack the water to opaque. all non opaque have a significant hit, this is a big boost for (arguably) a minor visual hit.
                         // the other reflection options make comparatively little change and if this overshoots we'll be stepping back up later
+# if 0 // TODO RenderReflectionDetail went away
                         if(LLPipeline::RenderReflectionDetail != -2)
                         {
                             LLPerfStats::tunables.updateReflectionDetail(-2);
@@ -450,6 +441,7 @@ namespace LLPerfStats
                             return;
                         }
                         else // deliberately "else" here so we only do one of these in any given frame
+#endif
                         {
                             // step down the DD by 10m per update
                             auto new_dd = (LLPipeline::RenderFarClip - DD_STEP > tunables.userMinDrawDistance)?(LLPipeline::RenderFarClip - DD_STEP) : tunables.userMinDrawDistance;
@@ -465,7 +457,7 @@ namespace LLPerfStats
                     // Note: moved from outside "if changefrequency elapsed" to stop fallthrough and allow scenery changes time to take effect.
                     target_avatar_time_raw = 0;
                 }
-                else 
+                else
                 {
                     // we made a settings change recently so let's give it time.
                     return;
@@ -486,9 +478,13 @@ namespace LLPerfStats
                 {
                     new_render_limit_ns = renderAvatarMaxART_ns;
                 }
-                new_render_limit_ns -= LLPerfStats::ART_MIN_ADJUST_DOWN_NANOS;
 
-                // bounce at the bottom to prevent "no limit" 
+                if (new_render_limit_ns > LLPerfStats::ART_MIN_ADJUST_DOWN_NANOS)
+                {
+                    new_render_limit_ns -= LLPerfStats::ART_MIN_ADJUST_DOWN_NANOS;
+                }
+
+                // bounce at the bottom to prevent "no limit"
                 new_render_limit_ns = std::max((U64)new_render_limit_ns, (U64)LLPerfStats::ART_MINIMUM_NANOS);
 
                 // assign the new value
@@ -530,7 +526,7 @@ namespace LLPerfStats
                 }
                 if(tunables.userFPSTuningStrategy != TUNE_AVATARS_ONLY)
                 {
-                    if( LLPipeline::RenderFarClip < tunables.userTargetDrawDistance ) 
+                    if( LLPipeline::RenderFarClip < tunables.userTargetDrawDistance )
                     {
                         LLPerfStats::tunables.updateFarClip( std::min(LLPipeline::RenderFarClip + DD_STEP, tunables.userTargetDrawDistance) );
                         LLPerfStats::lastGlobalPrefChange = gFrameCount;
@@ -539,7 +535,9 @@ namespace LLPerfStats
                     if( (tot_frame_time_raw * 1.5) < target_frame_time_raw )
                     {
                         // if everything else is "max" and we have >50% headroom let's knock the water quality up a notch at a time.
+# if 0 // RenderReflectionDetail went away
                         LLPerfStats::tunables.updateReflectionDetail( std::min(LLPipeline::RenderReflectionDetail + 1, tunables.userTargetReflections) );
+#endif
                     }
                 }
             }

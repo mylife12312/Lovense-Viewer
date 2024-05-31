@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!-- This file contains strings that used to be hardcoded in the source.
      It is only for those strings which do not belong in a floater.
      For example, the strings used in avatar chat bubbles, and strings
@@ -52,7 +52,6 @@ Draw distance: [DRAW_DISTANCE]m
 Bandwidth: [NET_BANDWITH]kbit/s
 LOD factor: [LOD_FACTOR]
 Render quality: [RENDER_QUALITY]
-Advanced Lighting Model: [GPU_SHADERS]
 Texture memory: [TEXTURE_MEMORY]MB
 Disk cache: [DISK_CACHE_INFO]
 	</string>
@@ -232,7 +231,7 @@ If you feel this is an error, please contact support@secondlife.com</string>
 	<string name="TooltipForSaleL$">For Sale: L$[AMOUNT]</string> <!-- L$ version -->
 	<string name="TooltipFlagGroupBuild">Group Build</string>
 	<string name="TooltipFlagNoBuild">No Build</string>
-	<string name="TooltipFlagNoEdit">Group Build</string>
+	<string name="TooltipFlagNoEdit">No Edit</string>
 	<string name="TooltipFlagNotSafe">Not Safe</string><!-- damage area -->
 	<string name="TooltipFlagNoFly">No Fly</string>
 	<string name="TooltipFlagGroupScripts">Group Scripts</string>
@@ -318,6 +317,11 @@ Only items with unrestricted
 'next owner' permissions
 can be attached to notecards.
 	</string>
+	<string name="TooltipTextureRestrictedDrop">
+Only textures with unrestricted
+copy and transfer permissions
+are allowed.
+	</string>
 
 	<!-- searching - generic -->
 	<string name="Searching">Searching...</string>
@@ -402,6 +406,7 @@ http://secondlife.com/support for help fixing this problem.
 	<string name="symbolic link">link</string>
 	<string name="symbolic folder link">folder link</string>
 	<string name="settings blob">settings</string>
+	<string name="render material">material</string>
 	<string name="mesh">mesh</string>
 
 	<!-- llvoavatar. Displayed in the avatar chat bubble -->
@@ -484,9 +489,9 @@ http://secondlife.com/support for help fixing this problem.
 	<!-- build floater -->
 	<string name="multiple_textures">Multiple</string>
 
-<string name="use_texture">Use texture</string>
-    <string name="manip_hint1">Move mouse cursor over ruler</string>
-    <string name="manip_hint2">to snap to grid</string>
+	<string name="use_texture">Use texture</string>
+	<string name="manip_hint1">Move mouse cursor over ruler</string>
+	<string name="manip_hint2">to snap to grid</string>
 
 	<!-- world map -->
 	<string name="texture_loading">Loading...</string>
@@ -501,14 +506,14 @@ http://secondlife.com/support for help fixing this problem.
 
 	<!-- Chat -->
 	<string name="NearbyChatTitle">Nearby chat</string>
-  <string name="NearbyChatLabel">(Nearby chat)</string>
+	<string name="NearbyChatLabel">(Nearby chat)</string>
 	<string name="whisper">whispers:</string>
 	<string name="shout">shouts:</string>
 	<string name="ringing">Connecting to in-world Voice Chat...</string>
 	<string name="connected">Connected</string>
 	<string name="unavailable">Voice not available at your current location</string>
 	<string name="hang_up">Disconnected from in-world Voice Chat</string>
-  <string name="reconnect_nearby">You will now be reconnected to Nearby Voice Chat</string>
+	<string name="reconnect_nearby">You will now be reconnected to Nearby Voice Chat</string>
 	<string name="ScriptQuestionCautionChatGranted">'[OBJECTNAME]', an object owned by '[OWNERNAME]', located in [REGIONNAME] at [REGIONPOS], has been granted permission to: [PERMISSIONS].</string>
 	<string name="ScriptQuestionCautionChatDenied">'[OBJECTNAME]', an object owned by '[OWNERNAME]', located in [REGIONNAME] at [REGIONPOS], has been denied permission to: [PERMISSIONS].</string>
 	<string name="AdditionalPermissionsRequestHeader">If you allow access to your account, you will also be allowing the object to:</string>
@@ -574,7 +579,21 @@ http://secondlife.com/support for help fixing this problem.
 	<string name="script_files">Scripts</string>
 	<string name="dictionary_files">Dictionaries</string>
 
-  <!-- LSL Usage Hover Tips -->
+    <!-- Text validator error messages -->
+    <string name="Validator_InvalidNumericString">Invalid numeric string: "[STR]"</string>
+    <string name="Validator_ShouldNotBeMinus">Invalid initial character: '[CH]' (shouldn't be a minus)</string>
+    <string name="Validator_ShouldNotBeMinusOrZero">Invalid initial character: '[CH]' (shouldn't be either a minus or a zero)</string>
+    <string name="Validator_ShouldBeDigit">Invalid character [NR]: '[CH]' (should only be a digit)</string>
+    <string name="Validator_ShouldBeDigitOrDot">Invalid character [NR]: '[CH]' (should only be a digit or a decimal point)</string>
+    <string name="Validator_ShouldBeDigitOrAlpha">Invalid character [NR]: '[CH]' (should only be a digit or an alpha-numeric ASCII character)</string>
+    <string name="Validator_ShouldBeDigitOrAlphaOrSpace">Invalid character [NR]: '[CH]' (should only be a digit or an alpha-numeric ASCII character or a space)</string>
+    <string name="Validator_ShouldBeDigitOrAlphaOrPunct">Invalid character [NR]: '[CH]' (should only be a digit or an alpha-numeric ASCII character or a punctuation)</string>
+    <string name="Validator_ShouldBeDigitOrAlphaOrPunctNotSpace">Invalid character [NR]: '[CH]' (should only be a digit or an alpha-numeric ASCII character or a punctuation with no space)</string>
+    <string name="Validator_ShouldBeDigitNotSpace">Invalid character [NR]: '[CH]' (should only be a digit with no space)</string>
+    <string name="Validator_ShouldBeASCII">Invalid character [NR]: '[CH]' (should only be an ASCII character)</string>
+    <string name="Validator_ShouldBeNewLineOrASCII">Invalid character [NR]: '[CH]' (should only be an ASCII character or a new line)</string>
+
+    <!-- LSL Usage Hover Tips -->
   <!-- NOTE: For now these are set as translate="false", until DEV-40761 is implemented (to internationalize the rest of tooltips in the same window).
              This has no effect on viewer code, but prevents Linden Lab internal localization tool from scraping these strings.  -->
 	<string name="LSLTipSleepTime" translate="false">
@@ -2305,6 +2324,8 @@ For AI Character: Get the closest navigable point to the point provided.
 	<string name="FavoritesNoMatchingItems">To add a place to your favorites, click the star to the right of the location name, then save the landmark to "Favorites bar".</string>
 	<string name="MarketplaceNoListing">You have no listings yet.</string>
 	<string name="MarketplaceNoMatchingItems">No items found. Check the spelling of your search string and try again.</string>
+	<string name="InventorySingleFolderEmpty">Folder is empty.</string>
+	<string name="InventorySingleFolderNoMatches">No matches.</string>
 	<string name="InventoryNoTexture">You do not have a copy of this texture in your inventory</string>
 	<string name="InventoryInboxNoItems">Your Marketplace purchases will appear here. You may then drag them into your inventory to use them.</string>
 	<string name="MarketplaceURL">https://marketplace.[MARKETPLACE_DOMAIN_NAME]/</string>
@@ -2352,6 +2373,7 @@ If you continue to receive this message, please contact Lovense Viewer support f
 	<string name="InventoryMarketplaceListingsNoItems">
         Drag folders to this area to list them for sale on the [[MARKETPLACE_DASHBOARD_URL] Marketplace].
 	</string>
+    <string name="InventoryFolderDebug">( F:[FOLDER_COUNT] I:[ITEMS_COUNT] V:[VERSION] DC:[VIEWER_DESCENDANT_COUNT]/[SERVER_DESCENDANT_COUNT] )</string>
 	<string name="InventoryItemsCount">( [ITEMS_COUNT] Items )</string>
 	<string name="Marketplace Validation Log"></string>
 	<string name="Marketplace Validation Warning Stock">stock folder must be contained by a version folder</string>
@@ -2390,12 +2412,16 @@ If you continue to receive this message, please contact Lovense Viewer support f
   <string name="Unconstrained">Unconstrained</string>
 
 	<!-- use value="" because they have preceding spaces -->
+    <string name="active" value=" (active)"/>
 	<string name="no_transfer" value=" (no transfer)" />
 	<string name="no_modify"   value=" (no modify)" />
 	<string name="no_copy"     value=" (no copy)" />
 	<string name="worn"        value=" (worn)" />
-	<string name="link"        value=" (link)" />
-	<string name="broken_link" value=" (broken_link)" />
+	<string name="link"        value="  link" />
+	<string name="broken_link" value="  broken_link" />
+    <string name="no_transfer_lbl" value=" no transfer" />
+    <string name="no_modify_lbl"   value=" no modify" />
+    <string name="no_copy_lbl"     value=" no copy" />
 	<string name="LoadingContents">Loading contents...</string>
 	<string name="NoContents">No contents</string>
 	<string name="WornOnAttachmentPoint" value=" (worn on [ATTACHMENT_POINT])" />
@@ -2425,6 +2451,7 @@ If you continue to receive this message, please contact Lovense Viewer support f
 	<string name="Clothing"      value=" Clothing," />
 	<string name="Gestures"      value=" Gestures," />
 	<string name="Landmarks"     value=" Landmarks," />
+	<string name="Materials"     value=" Materials," />
 	<string name="Notecards"     value=" Notecards," />
 	<string name="Objects"       value=" Objects," />
 	<string name="Scripts"       value=" Scripts," />
@@ -2470,6 +2497,9 @@ If you continue to receive this message, please contact Lovense Viewer support f
 	<string name="InvFolder Meshes">Meshes</string>
 	<string name="InvFolder Received Items">Received Items</string>
 	<string name="InvFolder Merchant Outbox">Merchant Outbox</string>
+  <string name="InvFolder Settings">Settings</string>
+  <string name="InvFolder Material">Materials</string>
+  <string name="InvFolder Materials">Materials</string>
 
   <!-- are used for Friends and Friends/All folders in Inventory "Calling cards" folder. See EXT-694-->
 	<string name="InvFolder Friends">Friends</string>	
@@ -2846,7 +2876,7 @@ If you continue to receive this message, please contact Lovense Viewer support f
 	<string name="GroupMoneyBalance">Balance</string>
 	<string name="GroupMoneyCredits">Credits</string>
 	<string name="GroupMoneyDebits">Debits</string>
-	<string name="GroupMoneyDate">[weekday,datetime,utc] [mth,datetime,utc] [day,datetime,utc], [year,datetime,utc]</string>
+	<string name="GroupMoneyStartDate">Transactions since [weekday,datetime,utc] [mth,datetime,utc] [day,datetime,utc], [year,datetime,utc]</string>
 
 	<!-- Viewer menu -->
 	<string name="AcquiredItems">Acquired Items</string>
@@ -2994,16 +3024,6 @@ Running in window.
 	<string name="MBDevContextErr">Can't make GL device context</string>
 	<string name="MBPixelFmtErr">Can't find suitable pixel format</string>
 	<string name="MBPixelFmtDescErr">Can't get pixel format description</string>
-	<string name="MBTrueColorWindow">
-		[APP_NAME] requires True Color (32-bit) to run.
-Please go to your computer's display settings and set the color mode to 32-bit.
-	</string>
-	<string name="MBAlpha">
-		[APP_NAME] is unable to run because it can't get an 8 bit alpha channel.  Usually this is due to video card driver issues.
-Please make sure you have the latest video card drivers installed.
-Also be sure your monitor is set to True Color (32-bit) in Control Panels &gt; Display &gt; Settings.
-If you continue to receive this message, contact the [SUPPORT_SITE].
-	</string>
 	<string name="MBPixelFmtSetErr">Can't set pixel format</string>
 	<string name="MBGLContextErr">Can't create GL rendering context</string>
 	<string name="MBGLContextActErr">Can't activate GL rendering context</string>
@@ -3012,8 +3032,19 @@ If you continue to receive this message, contact the [SUPPORT_SITE].
 
 If you continue to receive this message, contact the [SUPPORT_SITE].
 	</string>
+    <string name="MBOutOfMemoryTitle">Out Of Memory</string>
+    <string name="MBOutOfMemoryErr">
+        [APP_NAME]'s request for memory failed. Application can't proceed and will be closed.
 
-	<!-- Avatar Shape Information -->
+If your computer's RAM is low, quit any heavy applications before runing Second Life, allocate a page file or reduce graphical settings like draw distance.
+    </string>
+    <string name="MBMissingFile">
+        [APP_NAME] couldn't access or find some of the files it needs and will be closed.
+
+Please reinstall viewer from  https://secondlife.com/support/downloads/ and contact https://support.secondlife.com if issue persists after reinstall.
+    </string>
+
+    <!-- Avatar Shape Information -->
 <string name="5 O'Clock Shadow">5 O'Clock Shadow</string>
 
 <string name="All White">All White</string>
@@ -3850,6 +3881,7 @@ Abuse Report</string>
   <string name="New Physics">New Physics</string>
   <string name="Invalid Wearable">Invalid Wearable</string>
   <string name="New Gesture">New Gesture</string>
+  <string name="New Material">New Material</string>
   <string name="New Script">New Script</string>
   <string name="New Note">New Note</string>
   <string name="New Folder">New Folder</string>
@@ -3927,10 +3959,13 @@ Abuse Report</string>
   <string name="dance8">dance8</string>
 
   <!-- birth date format shared by avatar inspector and profile panels -->
-  <string name="AvatarBirthDateFormat">[mthnum,datetime,slt]/[day,datetime,slt]/[year,datetime,slt]</string>
+  <string name="AvatarBirthDateFormatFull">[mthnum,datetime,slt]/[day,datetime,slt]/[year,datetime,slt]</string>
+  <string name="AvatarBirthDateFormatShort">[mthnum,datetime,slt]/[day,datetime,slt]</string>
 
   <string name="DefaultMimeType">none/none</string>
   <string name="texture_load_dimensions_error">Can't load images larger than [WIDTH]*[HEIGHT]</string>
+  <string name="texture_load_format_error">Incorrect image format.</string>
+  <string name="texture_load_empty_file">File is empty.</string>
   <string name="outfit_photo_load_dimensions_error">Max outfit photo size is [WIDTH]*[HEIGHT]. Please resize or use another image</string>
   <string name="outfit_photo_select_dimensions_error">Max outfit photo size is [WIDTH]*[HEIGHT]. Please select another texture</string>
   <string name="outfit_photo_verify_dimensions_error">Cannot verify photo dimensions. Please wait until photo size is displayed in picker</string>
@@ -3992,7 +4027,8 @@ Please check http://status.secondlifegrid.net to see if there is a known problem
   <string name="EmptyOutfitText">There are no items in this outfit</string>
 
  <!-- External editor status codes -->
- <string name="ExternalEditorNotSet">Select an editor by setting the environment variable LL_SCRIPT_EDITOR or the ExternalEditor setting.</string>
+ <string name="ExternalEditorNotSet">Select an editor by setting the environment variable LL_SCRIPT_EDITOR or the ExternalEditor setting.
+See https://wiki.secondlife.com/wiki/LSL_Alternate_Editors</string>
  <string name="ExternalEditorNotFound">Cannot find the external editor you specified.
 Try enclosing path to the editor with double quotes.
 (e.g. "/path to my/editor" "%s")</string>
@@ -4272,6 +4308,9 @@ name="Command_360_Capture_Tooltip">Capture a 360 equirectangular image</string>
   <string name="ExperiencePermissionShort16">Sit</string>
   <string name="ExperiencePermissionShort17">Environment</string>
 
+  <!-- PBR Materials -->
+  <string name="Material Texture Name Header">Textures present this material: </string>
+  
   <!-- Conversation log messages -->
   <string name="logging_calls_disabled_log_empty">
     Conversations are not being logged. To begin keeping a log, choose "Save: Log only" or "Save: Log and transcripts" under Preferences > Chat.

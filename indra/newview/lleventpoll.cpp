@@ -5,21 +5,21 @@
  * $LicenseInfo:firstyear=2006&license=viewerlgpl$
  * Second Life Viewer Source Code
  * Copyright (C) 2010, Linden Research, Inc.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation;
  * version 2.1 of the License only.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- * 
+ *
  * Linden Research, Inc., 945 Battery Street, San Francisco, CA  94111  USA
  * $/LicenseInfo$
  */
@@ -102,7 +102,8 @@ namespace Details
 
     void LLEventPollImpl::handleMessage(const LLSD& content)
     {
-        std::string	msg_name = content["message"];
+        LL_PROFILE_ZONE_SCOPED_CATEGORY_APP;
+        std::string msg_name = content["message"];
         LLSD message;
         message["sender"] = mSenderIp;
         message["body"] = content["body"];
@@ -143,14 +144,22 @@ namespace Details
         LLCoreHttpUtil::HttpCoroutineAdapter::ptr_t httpAdapter(new LLCoreHttpUtil::HttpCoroutineAdapter("EventPoller", mHttpPolicy));
         LLSD acknowledge;
         int errorCount = 0;
-        int counter = mCounter; // saved on the stack for logging. 
+        int counter = mCounter; // saved on the stack for logging.
 
         LL_DEBUGS("LLEventPollImpl") << " <" << counter << "> entering coroutine." << LL_ENDL;
 
         mAdapter = httpAdapter;
 
-        // continually poll for a server update until we've been flagged as 
-        // finished 
+        LL::WorkQueue::ptr_t main_queue = nullptr;
+
+        // HACK -- grab the mainloop workqueue to move execution of the handler
+        // to a place that's safe in the main thread
+#if 1
+        main_queue = LL::WorkQueue::getInstance("mainloop");
+#endif
+
+        // continually poll for a server update until we've been flagged as
+        // finished
         while (!mDone)
         {
             LLSD request;
@@ -185,10 +194,10 @@ namespace Details
                     errorCount = 0;
                     continue;
                 }
-                else if ((status == LLCore::HttpStatus(LLCore::HttpStatus::LLCORE, LLCore::HE_OP_CANCELED)) || 
+                else if ((status == LLCore::HttpStatus(LLCore::HttpStatus::LLCORE, LLCore::HE_OP_CANCELED)) ||
                         (status == LLCore::HttpStatus(HTTP_NOT_FOUND)))
-                {   // Event polling for this server has been canceled.  In 
-                    // some cases the server gets ahead of the viewer and will 
+                {   // Event polling for this server has been canceled.  In
+                    // some cases the server gets ahead of the viewer and will
                     // return a 404 error (Not Found) before the cancel event
                     // comes back in the queue
                     LL_WARNS("LLEventPollImpl") << "Canceling coroutine" << LL_ENDL;
@@ -204,7 +213,7 @@ namespace Details
                     << status.toTerseString() << ": '" << httpResults["message"] << "'" << LL_ENDL;
 
                 if (errorCount < MAX_EVENT_POLL_HTTP_ERRORS)
-                {   // An unanticipated error has been received from our poll 
+                {   // An unanticipated error has been received from our poll
                     // request. Calculate a timeout and wait for it to expire(sleep)
                     // before trying again.  The sleep time is increased by 5 seconds
                     // for each consecutive error.
@@ -217,7 +226,7 @@ namespace Details
                         " seconds, error count is now " << errorCount << LL_ENDL;
 
                     llcoro::suspendUntilTimeout(waitToRetry);
-                    
+
                     if (mDone || gDisconnected)
                         break;
                     LL_INFOS("LLEventPollImpl") << "<" << counter << "> About to retry request." << LL_ENDL;
@@ -233,7 +242,7 @@ namespace Details
 
                     // *NOTE:Mani - The following condition check to see if this failing event poll
                     // is attached to the Agent's main region. If so we disconnect the viewer.
-                    // Else... its a child region and we just leave the dead event poll stopped and 
+                    // Else... its a child region and we just leave the dead event poll stopped and
                     // continue running.
                     if (gAgent.getRegion() && gAgent.getRegion()->getHost().getIPandPort() == mSenderIp)
                     {
@@ -266,13 +275,26 @@ namespace Details
             // was LL_INFOS() but now that CoarseRegionUpdate is TCP @ 1/second, it'd be too verbose for viewer logs. -MG
             LL_DEBUGS("LLEventPollImpl") << " <" << counter << "> " << events.size() << "events (id " << acknowledge << ")" << LL_ENDL;
 
+
             LLSD::array_const_iterator i = events.beginArray();
             LLSD::array_const_iterator end = events.endArray();
             for (; i != end; ++i)
             {
                 if (i->has("message"))
                 {
-                    handleMessage(*i);
+                    if (main_queue)
+                    { // shuttle to a sensible spot in the main thread instead
+                        // of wherever this coroutine happens to be executing
+                        const LLSD& msg = *i;
+                        main_queue->post([this, msg]()
+                            {
+                                handleMessage(msg);
+                            });
+                    }
+                    else
+                    {
+                        handleMessage(*i);
+                    }
                 }
             }
         }
@@ -282,9 +304,9 @@ namespace Details
 }
 }
 
-LLEventPoll::LLEventPoll(const std::string&	poll_url, const LLHost& sender):
+LLEventPoll::LLEventPoll(const std::string& poll_url, const LLHost& sender):
     mImpl()
-{ 
+{
     mImpl = std::make_shared<LLEventPolling::Details::LLEventPollImpl>(sender);
     mImpl->start(poll_url);
 }
