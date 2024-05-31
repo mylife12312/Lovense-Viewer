@@ -68,6 +68,9 @@ public:
     /*virtual*/ LLSD    getValue() const;
     /*virtual*/ BOOL    setTextArg( const std::string& key, const LLStringExplicit& text );
 
+    void setShowCursorHand(bool show_cursor) { mShowCursorHand = show_cursor; }
+
+
 	bool GetNotLinkUrlAction() const { return mNotLinkUrlAction; }
     void SetNotLinkUrlAction(bool link) { mNotLinkUrlAction = link; }
 
